@@ -5,6 +5,7 @@ import ServiceCard from '../components/ServiceCard';
 import { homeServices, aboutContent, trustedPartners } from '../data/mock';
 import ProjectSections from '../components/ProjectSections';
 import SkillsSection from '../components/SkillsSection';
+import StatsSection from '../components/StatsSection';
 import './Home.css';
 
 const Home = () => {
@@ -59,7 +60,8 @@ const Home = () => {
       {/* Skills Section */}
       <SkillsSection />
       {/* Stats Section */}
-      <section className="section stats-section">
+      <StatsSection />
+      {/* <section className="section stats-section">
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
@@ -80,7 +82,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Trusted By Section */}
       <section className="section partners-section bg-light">
