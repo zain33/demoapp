@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram, ArrowRight } from 'lucide-react';
 import { companyInfo, navigationLinks } from '../data/mock';
+import logo from '../assets/qllmsoft-web-desktop-mobile-app-logo.webp';
 import './Footer.css';
 
 const Footer = () => {
@@ -14,12 +15,15 @@ const Footer = () => {
           <div className="footer-grid">
             {/* Company Info */}
             <div className="footer-section">
-              <Link to="/" className="footer-logo">
-                <span className="logo-q">Q</span>
-                <span className="logo-text">llmSoft</span>
+              <Link to="/" className="logo">
+                <img
+                  src={logo}
+                  alt="QllmSoft Logo"
+                  className="logo-image"
+                />
               </Link>
               <p className="footer-description">
-                QllmSoft expert software development services empowering startups, businesses, 
+                QllmSoft expert software development services empowering startups, businesses,
                 and eCommerce brands to transform their digital ideas into powerful, results-driven websites.
               </p>
               <div className="footer-social">
@@ -93,15 +97,15 @@ const Footer = () => {
               <ul className="footer-contact">
                 <li>
                   <MapPin size={18} />
-                  <span>{companyInfo.address}</span>
+                  <span style={{ color: 'black' }}>{companyInfo.address}</span>
                 </li>
                 <li>
                   <Phone size={18} />
-                  <a href={`tel:${companyInfo.phone}`}>{companyInfo.phone}</a>
+                  <a style={{ color: 'black' }} href={`tel:${companyInfo.phone}`}>{companyInfo.phone}</a>
                 </li>
                 <li>
                   <Mail size={18} />
-                  <a href={`mailto:${companyInfo.email}`}>{companyInfo.email}</a>
+                  <a style={{ color: 'black' }} href={`mailto:${companyInfo.email}`}>{companyInfo.email}</a>
                 </li>
               </ul>
               <Link to="/contact" className="footer-cta">

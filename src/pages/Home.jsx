@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
 import ServiceCard from '../components/ServiceCard';
 import { homeServices, aboutContent, trustedPartners } from '../data/mock';
+import ProjectSections from '../components/ProjectSections';
+import SkillsSection from '../components/SkillsSection';
 import './Home.css';
 
 const Home = () => {
@@ -51,7 +53,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+     {/* Projects Section */}
+     <ProjectSections />
 
+      {/* Skills Section */}
+      <SkillsSection />
       {/* Stats Section */}
       <section className="section stats-section">
         <div className="container">

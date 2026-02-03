@@ -1,5 +1,8 @@
 // QllmSoft Website Mock Data
-
+import docControllerImg from '../assets/document-controller-qllm-soft.webp';
+import financeImg from '../assets/qllm-soft-finance-management-system-11.webp';
+import hrImg from '../assets/hr.webp';
+import portfolioImg from '../assets/portfolio-profile.webp';
 export const companyInfo = {
   name: "QllmSoft",
   tagline: "Best for your business",
@@ -277,6 +280,37 @@ By leveraging powerful development frameworks like ASP.NET and the latest in web
   vision: "We aim to grow into a trusted global name in intelligent, innovative, and sustainable digital solutions. Our goal is to build a connected world where technology supports human growth, strengthens businesses, and unlocks new possibilities for everyone.",
   mission: "Our mission is to design, develop, and deliver secure, scalable, and user-friendly digital products that align perfectly with our clients' business goals. Whether it's a web application, enterprise-level system, or mobile app, we create solutions that inspire growth and innovation."
 };
+
+export const projects = [
+  {
+    id: 1,
+    name: "Document Controller",
+    slug: "document-controller",
+    description: "Save, Organize, Edit, Retrieve Documents",
+    image: docControllerImg,
+  },
+  {
+    id: 2,
+    name: "Finance Management System",
+    slug: "finance-management-system",
+    description: "Finance, Income/Expenses, Automation",
+    image: financeImg,
+  },
+  {
+    id: 3,
+    name: "HR Management",
+    slug: "hr-management",
+    description: "Finance, HR, Industrial",
+    image: hrImg,
+  },
+  {
+    id: 4,
+    name: "Portfolio Website",
+    slug: "portfolio-website",
+    description: "Professional Profile, Personal Website",
+    image: portfolioImg,
+  },
+];
 
 export const trustedPartners = [
   {

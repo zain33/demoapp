@@ -6,6 +6,7 @@
 
 .footer-main {
   padding: 60px 0 40px;
+  background-color: white;
 }
 
 .footer-grid {
@@ -51,7 +52,7 @@
 }
 
 .footer-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 20px;
@@ -113,7 +114,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
   font-size: 0.92rem;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -227,6 +228,7 @@
 
   .footer-main {
     padding: 40px 0 30px;
+    background-color: white;
   }
 
   .footer-bottom .container {
