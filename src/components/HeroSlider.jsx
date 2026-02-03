@@ -8,49 +8,34 @@ const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     goToNext();
-  //   }, 6000);
-  //   return () => clearInterval(interval);
-  // }, [currentSlide]);
-
-  // const goToPrev = () => {
-  //   if (isAnimating) return;
-  //   setIsAnimating(true);
-  //   setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
-  //   setTimeout(() => setIsAnimating(false), 500);
-  // };
-
-  // const goToNext = () => {
-  //   if (isAnimating) return;
-  //   setIsAnimating(true);
-  //   setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-  //   setTimeout(() => setIsAnimating(false), 500);
-  // };
+  // Stable function to go to the next slide
   const goToNext = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 500); // match animation duration
   }, [isAnimating]);
 
-  const goToPrev = () => {
+  // Stable function to go to the previous slide
+  const goToPrev = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+    setTimeout(() => setIsAnimating(false), 500); // match animation duration
+  }, [isAnimating]);
 
+  // Auto-slide every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
     }, 6000);
-    return () => clearInterval(interval);
+
+    return () => clearInterval(interval); // cleanup on unmount
   }, [goToNext]);
 
   return (
     <section className="hero-slider">
+      {/* Slides */}
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -68,13 +53,23 @@ const HeroSlider = () => {
         </div>
       ))}
 
-      <button className="hero-nav hero-nav-prev" onClick={goToPrev} aria-label="Previous Slide">
+      {/* Navigation buttons */}
+      <button
+        className="hero-nav hero-nav-prev"
+        onClick={goToPrev}
+        aria-label="Previous Slide"
+      >
         <ChevronLeft size={40} />
       </button>
-      <button className="hero-nav hero-nav-next" onClick={goToNext} aria-label="Next Slide">
+      <button
+        className="hero-nav hero-nav-next"
+        onClick={goToNext}
+        aria-label="Next Slide"
+      >
         <ChevronRight size={40} />
       </button>
 
+      {/* Slide dots */}
       <div className="hero-dots">
         {heroSlides.map((_, index) => (
           <button
