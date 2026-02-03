@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { heroSlides } from '../data/mock';
@@ -8,12 +8,32 @@ const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      goToNext();
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     goToNext();
+  //   }, 6000);
+  //   return () => clearInterval(interval);
+  // }, [currentSlide]);
+
+  // const goToPrev = () => {
+  //   if (isAnimating) return;
+  //   setIsAnimating(true);
+  //   setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
+  //   setTimeout(() => setIsAnimating(false), 500);
+  // };
+
+  // const goToNext = () => {
+  //   if (isAnimating) return;
+  //   setIsAnimating(true);
+  //   setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
+  //   setTimeout(() => setIsAnimating(false), 500);
+  // };
+  const goToNext = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
+    setTimeout(() => setIsAnimating(false), 500);
+  }, [isAnimating]);
 
   const goToPrev = () => {
     if (isAnimating) return;
@@ -22,12 +42,12 @@ const HeroSlider = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  const goToNext = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [goToNext]);
 
   return (
     <section className="hero-slider">
