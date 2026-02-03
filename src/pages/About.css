@@ -1,0 +1,291 @@
+/* About Page Styles - Refined */
+.about-page {
+  margin-top: 130px;
+}
+
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+  padding: 80px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-hero p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+/* About Intro */
+.about-intro {
+  background-color: #ffffff;
+}
+
+.about-intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-intro-text h2 {
+  font-size: 1.75rem;
+  color: #1A365D;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.about-intro-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #edb702;
+  border-radius: 2px;
+}
+
+.about-intro-text p {
+  font-size: 1rem;
+  color: #4A5568;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-intro-text strong {
+  color: #1A365D;
+}
+
+/* What Sets Apart */
+.what-sets-apart .apart-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.what-sets-apart .apart-content p {
+  font-size: 1rem;
+  color: #4A5568;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.what-sets-apart .apart-content strong {
+  color: #1A365D;
+}
+
+/* Features Grid */
+.services-features {
+  background-color: #ffffff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: #F7FAFC;
+  padding: 35px 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  background-color: #ffffff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-color: #edb702;
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #1E5AA8 0%, #0D3A6E 100%);
+  border-radius: 10px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  color: #1A365D;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #4A5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Vision & Mission */
+.vision-mission {
+  background-color: #F7FAFC;
+}
+
+.vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.vm-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #EDF2F7;
+}
+
+.vm-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.vm-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vm-content {
+  padding: 30px;
+}
+
+.vm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background-color: #edb702;
+  border-radius: 50%;
+  color: #1A365D;
+  margin-bottom: 15px;
+}
+
+.vm-content h3 {
+  font-size: 1.35rem;
+  color: #1A365D;
+  margin-bottom: 15px;
+}
+
+.vm-content p {
+  font-size: 0.95rem;
+  color: #4A5568;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .vm-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Partners */
+.partners-section {
+  background-color: #ffffff;
+}
+
+.partners-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.partner-logo {
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.1);
+}
+
+.partner-logo img {
+  max-width: 180px;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.partner-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #1E5AA8 0%, #0D3A6E 100%);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.25rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-page {
+    margin-top: 120px;
+  }
+
+  .about-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+
+  .about-intro-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-content h2 {
+    font-size: 1.75rem;
+  }
+}

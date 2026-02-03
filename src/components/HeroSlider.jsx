@@ -1,0 +1,72 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { heroSlides } from '../data/mock';
+import './HeroSlider.css';
+
+const HeroSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
+  const goToPrev = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
+    setTimeout(() => setIsAnimating(false), 500);
+  };
+
+  const goToNext = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
+    setTimeout(() => setIsAnimating(false), 500);
+  };
+
+  return (
+    <section className="hero-slider">
+      {heroSlides.map((slide, index) => (
+        <div
+          key={slide.id}
+          className={`hero-slide ${index === currentSlide ? 'hero-slide-active' : ''}`}
+          style={{ backgroundImage: `url(${slide.image})` }}
+        >
+          <div className="hero-overlay"></div>
+          <div className="hero-content">
+            <h1 className="hero-title">{slide.title}</h1>
+            <p className="hero-subtitle">{slide.subtitle}</p>
+            <Link to={slide.ctaLink} className="hero-btn">
+              {slide.ctaText}
+            </Link>
+          </div>
+        </div>
+      ))}
+
+      <button className="hero-nav hero-nav-prev" onClick={goToPrev} aria-label="Previous Slide">
+        <ChevronLeft size={40} />
+      </button>
+      <button className="hero-nav hero-nav-next" onClick={goToNext} aria-label="Next Slide">
+        <ChevronRight size={40} />
+      </button>
+
+      <div className="hero-dots">
+        {heroSlides.map((_, index) => (
+          <button
+            key={index}
+            className={`hero-dot ${index === currentSlide ? 'hero-dot-active' : ''}`}
+            onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default HeroSlider;

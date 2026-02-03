@@ -1,0 +1,203 @@
+/* Service Card Styles - Refined */
+.service-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #EDF2F7;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+.service-card .service-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.service-card .service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.08);
+}
+
+.service-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 90, 168, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-card-overlay {
+  opacity: 1;
+}
+
+.overlay-btn {
+  padding: 10px 25px;
+  background-color: #edb702;
+  color: #1A365D;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .overlay-btn {
+  transform: translateY(0);
+}
+
+.overlay-btn:hover {
+  background-color: #B8890F;
+}
+
+.service-card .service-card-content {
+  padding: 25px;
+}
+
+.service-card-title {
+  font-size: 1.2rem;
+  color: #1A365D;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.service-card:hover .service-card-title {
+  color: #1E5AA8;
+}
+
+.service-card-description {
+  font-size: 0.95rem;
+  color: #4A5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Detailed Service Card */
+.service-card-detailed {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #EDF2F7;
+}
+
+.service-card-detailed:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.service-card-detailed:hover {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+.service-card-detailed .service-card-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.service-card-detailed .service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
+}
+
+.service-card-detailed .service-card-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-card-detailed .service-card-title {
+  font-size: 1.5rem;
+  color: #1A365D;
+  margin-bottom: 15px;
+}
+
+.service-card-detailed .service-card-description {
+  font-size: 1rem;
+  color: #4A5568;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.service-card-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4A5568;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.service-card-features li svg {
+  color: #edb702;
+  flex-shrink: 0;
+}
+
+.service-card-btn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 12px 30px;
+  background-color: #1E5AA8;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.service-card-btn:hover {
+  background-color: #0D3A6E;
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-card-detailed,
+  .service-card-detailed:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .service-card-detailed .service-card-image {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  .service-card-detailed .service-card-image img {
+    min-height: 250px;
+  }
+}
