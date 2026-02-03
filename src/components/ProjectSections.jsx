@@ -12,7 +12,7 @@ const ProjectsSection = () => {
   const carouselRef = useRef(null);
   const [index, setIndex] = useState(VISIBLE);
   const [isTransitioning, setIsTransitioning] = useState(true);
-
+  const projectCount = projects.length;
   // Clone projects for seamless loop
   const items = [
     ...projects.slice(-VISIBLE),
@@ -43,26 +43,25 @@ const ProjectsSection = () => {
     }px)`;
   }, [index, isTransitioning]);
 
-  // Seamless reset — fixed ESLint by replacing projects.length with projects
-  useEffect(() => {
-    if (index === projects.length + VISIBLE) {
-      setTimeout(() => {
-        setIsTransitioning(false);
-        setIndex(VISIBLE);
-      }, 800);
-    }
+useEffect(() => {
+  if (index === projectCount + VISIBLE) {
+    setTimeout(() => {
+      setIsTransitioning(false);
+      setIndex(VISIBLE);
+    }, 800);
+  }
 
-    if (index === 0) {
-      setTimeout(() => {
-        setIsTransitioning(false);
-        setIndex(projects.length);
-      }, 800);
-    }
+  if (index === 0) {
+    setTimeout(() => {
+      setIsTransitioning(false);
+      setIndex(projectCount);
+    }, 800);
+  }
 
-    if (!isTransitioning) {
-      requestAnimationFrame(() => setIsTransitioning(true));
-    }
-  }, [index, projects, isTransitioning]); // ✅ updated dependency
+  if (!isTransitioning) {
+    requestAnimationFrame(() => setIsTransitioning(true));
+  }
+}, [index, projectCount, isTransitioning]);
 
   return (
     <section className="section projects-section bg-light">
