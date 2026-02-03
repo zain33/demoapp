@@ -43,7 +43,7 @@ const ProjectsSection = () => {
     }px)`;
   }, [index, isTransitioning]);
 
-  // Seamless reset
+  // Seamless reset — fixed ESLint by replacing projects.length with projects
   useEffect(() => {
     if (index === projects.length + VISIBLE) {
       setTimeout(() => {
@@ -62,7 +62,7 @@ const ProjectsSection = () => {
     if (!isTransitioning) {
       requestAnimationFrame(() => setIsTransitioning(true));
     }
-  }, [index, projects.length, isTransitioning]);
+  }, [index, projects, isTransitioning]); // ✅ updated dependency
 
   return (
     <section className="section projects-section bg-light">
