@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, Target, Users, Zap, Shield, Check, Headphones } from 'lucide-react';
-import { aboutContent, trustedPartners } from '../data/mock';
+import { aboutContent } from '../data/mock';
 import './About.css';
 
-const FeatureCard = ({ icon: Icon, title, description }) => (
-  <div className="feature-card">
+const FeatureCard = ({ icon: Icon, title, description, delay }) => (
+  <div className={`feature-card reveal ${delay}`}>
     <div className="feature-icon">
       <Icon size={28} />
     </div>
@@ -15,46 +15,62 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
 );
 
 const PartnerLogo = ({ name, logo }) => (
-  <div className="partner-logo">
+  <div className="partner-logo reveal">
     <img src={logo} alt={name} loading="lazy" />
   </div>
 );
 
 const About = () => {
-  const serviceIcons = [Users, Zap, Shield, Users, Check, Headphones];
+
+  useEffect(() => {
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    reveals.forEach(el => observer.observe(el));
+  }, []);
 
   return (
     <main className="about-page">
+
       {/* Hero Section */}
-      <section className="about-hero">
+      <section className="about-hero reveal">
         <div className="container">
-          <h1>{aboutContent.heroTitle}</h1>
-          <p>{aboutContent.heroSubtitle}</p>
+          <h1 style={{ color: 'white' }} >{aboutContent.heroTitle}</h1>
+          <p style={{ color: 'white' }}>{aboutContent.heroSubtitle}</p>
           <a href="#about-intro" className="btn btn-primary">Discover More</a>
         </div>
       </section>
 
-      {/* About Intro Section */}
-      <section id="about-intro" className="section about-intro">
+      {/* About Intro */}
+      <section id="about-intro" className="section about-intro reveal">
         <div className="container">
           <div className="about-intro-content">
             <div className="about-intro-text">
               <h2>About QllmSoft – Web Development, Mobile Apps, and Custom Software Excellence</h2>
+
               <p>
-                QllmSoft is a trusted technology partner, delivering advanced <strong>web development</strong>, 
-                <strong> mobile app creation</strong>, and <strong>custom enterprise-level software solutions</strong> designed 
-                to boost efficiency and accelerate growth. Established in <strong>2015</strong>, our mission has been clear, 
-                to help businesses adapt, compete, and excel in today's rapidly evolving digital world.
+                QllmSoft is a trusted technology partner, delivering advanced <strong>web development</strong>,
+                <strong> mobile app creation</strong>, and <strong>custom enterprise-level software solutions</strong> designed
+                to boost efficiency and accelerate growth.
               </p>
+
               <p>
-                Based in <strong>Lalamusa, Gujrat, Pakistan</strong>, our team of skilled <strong>ASP.NET experts</strong> and 
-                <strong> full-stack developers</strong> works tirelessly to craft scalable, secure, and innovative IT solutions. 
-                We proudly serve businesses across Pakistan and around the globe, ensuring every project we deliver is 
-                tailored to meet unique objectives and drive measurable success.
+                Based in <strong>Lalamusa, Gujrat, Pakistan</strong>, our team of skilled <strong>ASP.NET experts</strong> and
+                <strong> full-stack developers</strong> delivers scalable and secure IT solutions globally.
               </p>
+
               <p>
-                Our approach centers on <strong>long-term partnerships</strong>, collaborating closely with clients to develop 
-                strategies and solutions that align perfectly with their vision, goals, and market demands.
+                Our approach centers on <strong>long-term partnerships</strong>, building solutions aligned with business vision.
               </p>
             </div>
           </div>
@@ -62,93 +78,80 @@ const About = () => {
       </section>
 
       {/* What Sets Us Apart */}
-      <section className="section what-sets-apart bg-light">
+      <section className="section what-sets-apart reveal">
         <div className="container">
           <div className="section-title">
             <h2>What Sets QllmSoft Apart?</h2>
           </div>
           <div className="apart-content">
             <p>
-              At QllmSoft, we go beyond software development, we create enduring partnerships built on trust, 
-              creativity, and measurable outcomes. We start by thoroughly understanding your business's unique 
-              challenges, objectives, and future aspirations. This thorough understanding allows us to create 
-              personalized software solutions, flexible web platforms, and adaptive mobile apps that meet your 
-              present requirements and scale seamlessly as your business evolves.
+              At QllmSoft, we create enduring partnerships built on trust, creativity, and measurable outcomes.
             </p>
             <p>
-              By leveraging powerful development frameworks like <strong>ASP.NET</strong> and the latest in web and 
-              mobile technologies, we have helped clients in Lalamusa, Gujrat, and across the globe turn complex 
-              ideas into high-performance, results-driven digital solutions. Whether it's a scalable web application, 
-              a robust mobile app, or an enterprise-grade software system, our team is committed to delivering 
-              solutions that make a real impact.
+              Using modern frameworks like <strong>ASP.NET</strong>, we deliver scalable web and mobile solutions worldwide.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="section services-features">
+      {/* Services */}
+      <section className="section services-features reveal">
         <div className="container">
           <div className="section-title">
             <h2>Our Professional Services</h2>
           </div>
+
           <div className="features-grid">
-            <FeatureCard 
-              icon={Users}
+            <FeatureCard icon={Users} delay="delay-1"
               title="Tailored Web & App Development Solutions"
-              description="Every business is unique. We offer custom web, mobile, and software solutions designed to align with your goals."
+              description="Custom software solutions aligned with your business goals."
             />
-            <FeatureCard 
-              icon={Zap}
+            <FeatureCard icon={Zap} delay="delay-2"
               title="Global Experience with Local Expertise"
-              description="Proudly based in Lalamusa, Gujrat, Pakistan, we blend international standards with local market insights."
+              description="International standards blended with local market insights."
             />
-            <FeatureCard 
-              icon={Shield}
+            <FeatureCard icon={Shield} delay="delay-3"
               title="Expert Web and Mobile Development Team"
-              description="Our ASP.NET specialists and full-stack developers use cutting-edge tools to create secure, scalable applications."
+              description="Secure, scalable and modern applications."
             />
-            <FeatureCard 
-              icon={Users}
+            <FeatureCard icon={Users} delay="delay-1"
               title="Personalized Attention with an Agile Team"
-              description="As a small, agile team, we provide direct communication, faster turnaround, and highly personalized service."
+              description="Direct communication and faster delivery."
             />
-            <FeatureCard 
-              icon={Check}
+            <FeatureCard icon={Check} delay="delay-2"
               title="Reliable and Efficient Solutions"
-              description="We are problem-solvers at heart — focused on delivering solutions that last for your business needs."
+              description="Problem-solving focused approach."
             />
-            <FeatureCard 
-              icon={Headphones}
+            <FeatureCard icon={Headphones} delay="delay-3"
               title="Continuous Support & Maintenance"
-              description="We provide ongoing support and maintenance services to ensure your software stays up-to-date and secure."
+              description="Long-term support and system updates."
             />
           </div>
+
           <div className="text-center mt-4">
-            <Link to="/contact" className="btn btn-secondary">Explore Our Services</Link>
+            <Link to="/services" className="btn btn-secondary">Explore Our Services</Link>
           </div>
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section className="section vision-mission bg-light">
+      <section className="section vision-mission reveal">
         <div className="container">
           <div className="section-title">
             <h2>Our Vision & Mission</h2>
-            <p>
-              At QllmSoft, we are not just a technology provider — we are your partner in innovation. 
-              Guided by creativity, integrity, and a passion for excellence.
-            </p>
           </div>
-          <div className="vm-grid">
-            <div className="vm-card">
+
+          <div className="vm-stack">
+
+            {/* Vision */}
+            <div className="vm-row">
               <div className="vm-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" 
-                  alt="Our Vision" 
-                  loading="lazy"
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+                  alt="Our Vision"
                 />
               </div>
+
               <div className="vm-content">
                 <div className="vm-icon">
                   <Eye size={32} />
@@ -157,14 +160,9 @@ const About = () => {
                 <p>{aboutContent.vision}</p>
               </div>
             </div>
-            <div className="vm-card">
-              <div className="vm-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" 
-                  alt="Our Mission" 
-                  loading="lazy"
-                />
-              </div>
+
+            {/* Mission */}
+            <div className="vm-row reverse">
               <div className="vm-content">
                 <div className="vm-icon">
                   <Target size={32} />
@@ -172,13 +170,20 @@ const About = () => {
                 <h3>Our Mission</h3>
                 <p>{aboutContent.mission}</p>
               </div>
+
+              <div className="vm-image">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
+                  alt="Our Mission"
+                />
+              </div>
             </div>
+
           </div>
         </div>
       </section>
-
       {/* Partners */}
-      <section className="section partners-section">
+      <section className="section partners-section reveal">
         <div className="container">
           <div className="section-title">
             <h2>Trusted By Our Partners</h2>
@@ -191,15 +196,16 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="section cta-section">
+      <section className="section cta-section reveal">
         <div className="container">
           <div className="cta-content">
             <h2>Let's Build Something Amazing Together</h2>
-            <p>Ready to transform your business with custom software solutions?</p>
+            <p>Ready to transform your business with custom software?</p>
             <Link to="/contact" className="btn btn-primary">Contact Us Today</Link>
           </div>
         </div>
       </section>
+
     </main>
   );
 };
