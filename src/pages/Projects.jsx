@@ -1,14 +1,34 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/mock';
 import './Projects.css';
 
 const Projects = () => {
+   useEffect(() => {
+      const reveals = document.querySelectorAll('.reveal');
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+  
+      reveals.forEach((el) => observer.observe(el));
+  
+      return () => {
+        reveals.forEach((el) => observer.unobserve(el));
+      };
+    }, []);
   return (
     <main className="projects-page">
       {/* Hero Section */}
-      <section className="projects-hero">
+      <section className="projects-hero reveal">
         <div className="container">
           <h1>Our Projects</h1>
           <p>

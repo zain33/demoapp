@@ -5,10 +5,6 @@
 
 /* Hero Section */
 .services-hero {
-  /* background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
-  padding: 80px 0;
-  text-align: center;
-  color: #ffffff; */
   background:
     linear-gradient(135deg, rgba(26,54,93,0.95), rgba(43,108,176,0.95)),
     url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80"); /* change to any backend image */

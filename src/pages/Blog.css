@@ -5,10 +5,14 @@
 
 /* Hero Section */
 .blog-hero {
-  background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
-  padding: 80px 0;
+   background:
+    linear-gradient(135deg, rgba(26,54,93,0.95), rgba(43,108,176,0.95)),
+   url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 90px 0;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 }
 
 .blog-hero h1 {
