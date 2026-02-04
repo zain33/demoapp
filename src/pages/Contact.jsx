@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 import './Contact.css';
@@ -7,6 +8,8 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    company: '',
     subject: '',
     message: ''
   });
@@ -21,19 +24,36 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission (static - no backend)
-    setTimeout(() => {
+
+    // EmailJS send
+    emailjs.send(
+      'service_jtdcbef',   // Replace with your EmailJS service ID
+      'template_pzwqsx9',  // Replace with your EmailJS template ID
+      {
+        from_name: formData.name,
+        user_email: formData.email,
+        user_phone_no: formData.phone || 'N/A',
+        user_company: formData.company || 'N/A',
+        subject: formData.subject,
+        message: formData.message
+      },
+      'fFEjcHdxdndYaVwBf'       
+    )
+    .then(() => {
       setIsSubmitting(false);
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Clear status after 5 seconds
+      setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+    })
+    .catch((err) => {
+      console.error(err);
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 5000);
+    });
   };
 
   return (
@@ -127,6 +147,12 @@ const Contact = () => {
                 </div>
               )}
 
+              {submitStatus === 'error' && (
+                <div className="form-error">
+                  Oops! Something went wrong. Please try again later.
+                </div>
+              )}
+
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Your Name</label>
@@ -153,6 +179,30 @@ const Contact = () => {
                     required
                   />
                 </div>
+
+                {/* <div className="form-group">
+                  <label htmlFor="phone">Phone Number</label>
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="company">Company Name</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Enter your company name"
+                  />
+                </div> */}
 
                 <div className="form-group">
                   <label htmlFor="subject">Subject</label>
