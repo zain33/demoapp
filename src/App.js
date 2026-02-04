@@ -12,7 +12,7 @@ import Contact from './pages/Contact';
 import BlogArticle from './pages/BlogArticle';
 import './styles/global.css';
 import './App.css';
-
+import 'animate.css';
 function App() {
   return (
     <BrowserRouter>

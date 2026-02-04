@@ -1,14 +1,107 @@
-import React from 'react';
-import ServiceCard from '../components/ServiceCard';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/mock';
+import { useInView } from 'react-intersection-observer';
 import './Services.css';
+import 'animate.css';
 
+/* ---------------- Service Card ---------------- */
+const ServiceCardDetailed = ({ service, isOdd }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  return (
+    <div
+      ref={ref}
+      className="service-card-wrapper"
+      style={{
+        display: 'flex',
+        flexDirection: isOdd ? 'row' : 'row-reverse',
+        alignItems: 'center',
+        gap: '30px',
+        marginBottom: '50px',
+      }}
+    >
+      {/* Image */}
+      <div
+        className={`service-image animate__animated ${
+          inView
+            ? isOdd
+              ? 'animate__fadeInLeft'
+              : 'animate__fadeInRight'
+            : ''
+        }`}
+        style={{
+          flex: 1,
+          opacity: inView ? 1 : 0,
+          animationDuration: '0.6s',
+        }}
+      >
+        <img
+          src={service.image}
+          alt={service.name}
+          style={{ width: '100%', borderRadius: '12px' }}
+        />
+      </div>
+
+      {/* Text */}
+      <div
+        className={`service-text animate__animated ${
+          inView
+            ? isOdd
+              ? 'animate__fadeInRight'
+              : 'animate__fadeInLeft'
+            : ''
+        }`}
+        style={{
+          flex: 1,
+          opacity: inView ? 1 : 0,
+          animationDuration: '0.6s',
+          animationDelay: '0.1s',
+        }}
+      >
+        <h3>{service.name}</h3>
+        <p>{service.description}</p>
+        <ul>
+          {service.features.map((feat, i) => (
+            <li key={i}>{feat}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+/* ---------------- Main Page ---------------- */
 const Services = () => {
+
+  useEffect(() => {
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    return () => {
+      reveals.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <main className="services-page">
       {/* Hero Section */}
-      <section className="services-hero">
+      <section className="services-hero reveal">
         <div className="container">
           <h1>Our Services</h1>
           <p>
@@ -26,9 +119,16 @@ const Services = () => {
             <p>Expert solutions across web, mobile, and enterprise software development</p>
           </div>
           <div className="services-detailed-grid">
-            {servicesData.map((service) => (
-              <ServiceCard key={service.id} service={service} variant="detailed" />
+            {servicesData.map((service, index) => (
+              <ServiceCardDetailed
+                key={service.id}
+                service={service}
+                isOdd={index % 2 === 0}
+              />
             ))}
+            {/* {servicesData.map((service) => (
+              <ServiceCard key={service.id} service={service} variant="detailed" />
+            ))} */}
           </div>
         </div>
       </section>
@@ -46,7 +146,7 @@ const Services = () => {
               <ul>
                 <li>React.js</li>
                 <li>Angular</li>
-                <li>Vue.js</li>
+                <li>Blazor</li>
                 <li>HTML5 / CSS3</li>
                 <li>TypeScript</li>
               </ul>
@@ -67,7 +167,7 @@ const Services = () => {
                 <li>Flutter</li>
                 <li>React Native</li>
                 <li>Swift (iOS)</li>
-                <li>Kotlin (Android)</li>
+                <li>.Net MOI</li>
                 <li>Xamarin</li>
               </ul>
             </div>

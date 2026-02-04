@@ -5,10 +5,18 @@
 
 /* Hero Section */
 .services-hero {
-  background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+  /* background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
   padding: 80px 0;
   text-align: center;
-  color: #ffffff;
+  color: #ffffff; */
+  background:
+    linear-gradient(135deg, rgba(26,54,93,0.95), rgba(43,108,176,0.95)),
+    url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80"); /* change to any backend image */
+  background-size: cover;
+  background-position: center;
+  padding: 90px 0;
+  text-align: center;
+  color: #fff;
 }
 
 .services-hero h1 {
@@ -228,4 +236,13 @@
   .cta-content h2 {
     font-size: 1.75rem;
   }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
