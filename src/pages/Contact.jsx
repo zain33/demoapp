@@ -24,37 +24,41 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // EmailJS send
-    emailjs.send(
-      'service_jtdcbef',   // Replace with your EmailJS service ID
-      'template_pzwqsx9',  // Replace with your EmailJS template ID
-      {
+  try {
+    const response = await fetch('/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         from_name: formData.name,
         user_email: formData.email,
         user_phone_no: formData.phone || 'N/A',
         user_company: formData.company || 'N/A',
         subject: formData.subject,
         message: formData.message
-      },
-      'fFEjcHdxdndYaVwBf'       
-    )
-    .then(() => {
-      setIsSubmitting(false);
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.status === 'success') {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
-    })
-    .catch((err) => {
-      console.error(err);
-      setIsSubmitting(false);
+    } else {
       setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus(null), 5000);
-    });
-  };
+      console.error(result.message);
+    }
+  } catch (err) {
+    console.error(err);
+    setSubmitStatus('error');
+  } finally {
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus(null), 5000);
+  }
+};
 
   return (
     <main className="contact-page">
