@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 import HeroSlider from '../components/HeroSlider';
 import ServiceCard from '../components/ServiceCard';
 import { homeServices, aboutContent, trustedPartners } from '../data/mock';
@@ -7,24 +8,56 @@ import ProjectSections from '../components/ProjectSections';
 import SkillsSection from '../components/SkillsSection';
 import StatsSection from '../components/StatsSection';
 import './Home.css';
+import 'animate.css';
 
 const Home = () => {
+
+  // Observer ONLY for Services section
+  const { ref: servicesRef, inView: servicesInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+
   return (
     <main className="home-page">
       {/* Hero Slider */}
       <HeroSlider />
 
       {/* Services Section */}
-      <section className="section services-section">
+      <section
+        className="section services-section"
+        ref={servicesRef}
+      >
         <div className="container">
           <div className="section-title">
             <h2>Software Development Services</h2>
-            <p>We provide comprehensive software solutions tailored to your business needs</p>
+            <p>
+              We provide comprehensive software solutions tailored to your business needs
+            </p>
           </div>
+
           <div className="services-grid">
-            {homeServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
+            {homeServices.map((service, index) => {
+              const animationClass =
+                index < 2
+                  ? 'animate__fadeInLeft'
+                  : 'animate__fadeInRight';
+
+              return (
+                <div
+                  key={service.id}
+                  className={`animate__animated ${
+                    servicesInView ? animationClass : ''
+                  }`}
+                  style={{
+                    animationDuration: '0.6s',
+                    animationTimingFunction: 'ease-out'
+                  }}
+                >
+                  <ServiceCard service={service} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -42,47 +75,30 @@ const Home = () => {
                 technology to develop secure, user-friendly, and high-performing software solutions 
                 that helps you grow faster and work smarter.
               </p>
-              <Link to="/about" className="btn btn-primary">Learn More About Us</Link>
+              <Link to="/about" className="btn btn-primary">
+                Learn More About Us
+              </Link>
             </div>
+
             <div className="about-image">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" 
-                alt="Team collaboration" 
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+                alt="Team collaboration"
                 loading="lazy"
               />
             </div>
           </div>
         </div>
       </section>
-     {/* Projects Section */}
-     <ProjectSections />
+
+      {/* Projects Section */}
+      <ProjectSections />
 
       {/* Skills Section */}
       <SkillsSection />
+
       {/* Stats Section */}
       <StatsSection />
-      {/* <section className="section stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <span className="stat-number">10+</span>
-              <span className="stat-label">Years Experience</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">150+</span>
-              <span className="stat-label">Projects Completed</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Happy Clients</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">24/7</span>
-              <span className="stat-label">Support Available</span>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Trusted By Section */}
       <section className="section partners-section bg-light">
@@ -91,10 +107,15 @@ const Home = () => {
             <h2>Trusted By Our Clients</h2>
             <p>We have successfully collaborated with leading platforms</p>
           </div>
+
           <div className="partners-grid">
             {trustedPartners.map((partner, index) => (
               <div key={index} className="partner-logo">
-                <img src={partner.logo} alt={partner.name} loading="lazy" />
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -106,8 +127,12 @@ const Home = () => {
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Start Your Project?</h2>
-            <p>Let's discuss how we can help transform your business with custom software solutions</p>
-            <Link to="/contact" className="btn btn-primary">Get Free Quote</Link>
+            <p>
+              Let's discuss how we can help transform your business with custom software solutions
+            </p>
+            <Link to="/contact" className="btn btn-primary">
+              Get Free Quote
+            </Link>
           </div>
         </div>
       </section>
