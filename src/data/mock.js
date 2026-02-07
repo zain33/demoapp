@@ -3,6 +3,7 @@ import docControllerImg from '../assets/document-controller-qllm-soft.webp';
 import financeImg from '../assets/qllm-soft-finance-management-system-11.webp';
 import hrImg from '../assets/hr.webp';
 import portfolioImg from '../assets/portfolio-profile.webp';
+import inventory from '../assets/inventory-management .webp';
 export const companyInfo = {
   name: "QllmSoft",
   tagline: "Best for your business",
@@ -311,6 +312,13 @@ export const projects = [
     slug: "portfolio-website",
     description: "Professional Profile, Personal Website",
     image: portfolioImg,
+  },
+  {
+  id: 5,
+  name: "Warehouse & Inventory Automation",
+  slug: "warehouse-inventory-automation",
+  description: "Manage stock, track inventory, automate orders, and optimize warehouse operations",
+  image: inventory, // make sure to import the image
   },
 ];
 

@@ -1,15 +1,17 @@
-/* WhatsApp Button Styles - Refined */
+/* WhatsApp Button Styles - Always show tooltip */
 .whatsapp-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 999;
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
 
+/* Tooltip always visible */
 .whatsapp-tooltip {
   display: flex;
   align-items: center;
@@ -20,15 +22,9 @@
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
   font-size: 0.85rem;
   color: #2D3748;
-  opacity: 0;
-  transform: translateX(10px);
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.whatsapp-button:hover .whatsapp-tooltip {
-  opacity: 1;
+  opacity: 1; /* always visible */
   transform: translateX(0);
+  white-space: nowrap;
 }
 
 .tooltip-status {
@@ -40,17 +36,11 @@
 }
 
 @keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
+/* WhatsApp Icon with radiation effect */
 .whatsapp-icon {
   position: relative;
   display: flex;
@@ -62,11 +52,26 @@
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
   transition: all 0.3s ease;
+  animation: pulse-ring 1.0s infinite;
+  margin-left: 50%;
 }
 
 .whatsapp-button:hover .whatsapp-icon {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Radiation/Wave animation */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 .notification-badge {
@@ -86,11 +91,11 @@
   border: 2px solid #ffffff;
 }
 
-  .whatsapp-icon .whatsapp-fa-icon {
-    color: white !important;
-    font-size: 26px;
-    line-height: 1;
-  }
+.whatsapp-icon .whatsapp-fa-icon {
+  color: white !important;
+  font-size: 26px;
+  line-height: 1;
+}
 
 @media (max-width: 768px) {
   .whatsapp-button {
@@ -98,6 +103,7 @@
     right: 20px;
   }
 
+  /* Keep tooltip hidden on mobile for simplicity */
   .whatsapp-tooltip {
     display: none;
   }
@@ -105,12 +111,10 @@
   .whatsapp-icon {
     width: 50px;
     height: 50px;
+    animation: pulse-ring 1.5s infinite;
   }
 
   .whatsapp-icon .whatsapp-fa-icon {
-    color: white !important;
-    font-size: 26px;
-    line-height: 1;
+    font-size: 24px;
   }
-
 }
