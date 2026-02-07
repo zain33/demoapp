@@ -27,17 +27,17 @@ const Footer = () => {
                 and eCommerce brands to transform their digital ideas into powerful, results-driven websites.
               </p>
               <div className="footer-social">
-                <a className="yt" href={companyInfo.socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <Youtube size={16} />
-                </a>
-                <a className="x"  href={companyInfo.socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="X">
-                  <Twitter size={16} />
-                </a>
                 <a className="ln" href={companyInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={18} />
                 </a>
                 <a className="fb" href={companyInfo.socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <Facebook size={18} />
+                </a>
+                <a className="yt" href={companyInfo.socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <Youtube size={16} />
+                </a>
+                <a className="x"  href={companyInfo.socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="X">
+                  <Twitter size={16} />
                 </a>
                 <a className="ig" href={companyInfo.socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram size={18} />

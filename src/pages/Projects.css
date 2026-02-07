@@ -160,3 +160,136 @@
   opacity: 1;
   transform: translateY(0);
 }
+/* Portfolio Download Section */
+
+.portfolio-download-section {
+  color: white;
+  text-align: center;
+}
+
+.portfolio-box {
+  max-width: 720px;
+  margin: auto;
+  padding: 50px 30px;
+}
+
+.portfolio-box h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.portfolio-box p {
+  opacity: 0.9;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.portfolio-download-btn {
+  padding: 14px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* Hover Effect */
+.portfolio-download-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+/* FAQ Section */
+
+.faq-section {
+  background: #f8fafc;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-badge {
+  background: #2B6CB0;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.faq-header h2 {
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.faq-header span {
+  color: #2B6CB0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* FAQ Items */
+
+.faq-item {
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Make summary flex so icon + text align */
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* PLUS icon */
+.faq-item summary::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: bold;
+  color: #2B6CB0;
+  transition: 0.3s;
+}
+
+/* When open -> show MINUS */
+.faq-item[open] summary::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+/* Smooth open feeling */
+.faq-item p {
+  margin-top: 10px;
+  opacity: 0.85;
+  line-height: 1.6;
+  animation: fadeDown 0.3s ease;
+}
+
+/* Animation */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

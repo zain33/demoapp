@@ -106,7 +106,30 @@ const Projects = () => {
           </div>
         </div>
       </section>
+     {/* Portfolio Download Section */}
+    <section className="section portfolio-download-section">
+      <div className="container">
+        <div className="portfolio-box reveal">
 
+          <h2>Explore Our Full Capabilities</h2>
+
+          <p>
+            Discover our expertise, services, and successful project highlights in our
+            complete company portfolio. Download the PDF to learn how we deliver
+            scalable and innovative software solutions across industries.
+          </p>
+
+          <a
+            href="/pdfs/QllmSoft-Company-Portfolio.pdf"
+            className="btn btn-primary portfolio-download-btn"
+            download
+          >
+            Download Company Portfolio ↓
+          </a>
+
+        </div>
+      </div>
+    </section>
       {/* CTA Section */}
       <section className="section cta-section">
         <div className="container">
@@ -117,6 +140,118 @@ const Projects = () => {
           </div>
         </div>
       </section>
+      {/* FAQ Section */}
+    <section className="section faq-section">
+  <div className="container">
+
+    <div className="faq-header reveal">
+      {/* <span className="faq-badge">Knowledge Base</span> */}
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>
+        Everything you need to know about our custom software development process.
+      </p>
+    </div>
+
+    <div className="faq-container">
+
+      <details className="faq-item reveal">
+        <summary>What software development services does QllmSoft provide?</summary>
+        <p>
+          QllmSoft provides end-to-end custom software development services,
+          including web application development, enterprise software solutions,
+          mobile app development, automation systems, and internal business tools.
+          Every solution is designed based on your business processes and goals.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Do you build custom software or use ready-made platforms?</summary>
+        <p>
+          We specialize in custom software development. Instead of using generic
+          off-the-shelf platforms, we build software tailored to your workflows,
+          industry requirements, and scalability needs.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Which industries does QllmSoft work with?</summary>
+        <p>
+          We work across finance, healthcare, manufacturing, logistics, HR,
+          legal, education, and professional services — designing secure,
+          scalable, and compliant solutions.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Can startups hire QllmSoft for software development?</summary>
+        <p>
+          Yes. We work with startups, SMEs, and enterprises. For startups we
+          validate ideas and build MVPs, while established companies benefit
+          from automation and modernization.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>How long does a custom software project take?</summary>
+        <p>
+          Timelines depend on complexity and integrations. Smaller projects may
+          take weeks, while enterprise systems may take months. We provide a
+          clear roadmap after requirement analysis.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>How much does custom software development cost?</summary>
+        <p>
+          Cost varies based on scope and technical requirements. We provide
+          transparent customized quotes so you pay only for what your business
+          needs.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Will I be involved during development?</summary>
+        <p>
+          Absolutely. We maintain collaboration throughout the lifecycle with
+          updates, demos, and reviews to ensure alignment with expectations.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Is my data secure when working with QllmSoft?</summary>
+        <p>
+          Yes. We follow industry best practices in encryption, access control,
+          and secure architecture to protect your business data and IP.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Do you provide support after delivery?</summary>
+        <p>
+          We offer maintenance, optimization, monitoring, and enhancements to
+          ensure long-term success and partnership.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>Why choose QllmSoft over other companies?</summary>
+        <p>
+          We focus on business outcomes, not just code — understanding your
+          processes and building software that improves efficiency and growth.
+        </p>
+      </details>
+
+      <details className="faq-item reveal">
+        <summary>How can I start a project with QllmSoft?</summary>
+        <p>
+          Contact us for a free consultation. We’ll discuss your idea, recommend
+          the best technical approach, and guide you through next steps.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
     </main>
   );
 };
