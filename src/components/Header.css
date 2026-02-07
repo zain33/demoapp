@@ -164,15 +164,66 @@
   gap: 15px;
 }
 
-.social-links a {
+/* .social-links a {
   color: #4A5568;
   transition: color 0.2s ease;
+} */
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #4A5568;
+  transition: all 0.3s ease;
+}
+.social-links a {
+  transition: 0.3s ease;
 }
 
-.social-links a:hover {
-  color: #1E5AA8;
+/* YouTube */
+.social-links a.yt:hover {
+  background: #FF0000;
+  color: #fff;
+  transform: translateY(-3px);
 }
 
+/* X (Twitter) */
+.social-links a.x:hover {
+  background: #000000;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* LinkedIn */
+.social-links a.ln:hover {
+  background: #0077B5;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Facebook */
+.social-links a.fb:hover {
+  background: #1877F2;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Instagram (gradient style) */
+.social-links a.ig:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+  color: #fff;
+  transform: translateY(-3px);
+}
 /* Search Overlay */
 .search-overlay {
   position: absolute;

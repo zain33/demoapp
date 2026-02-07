@@ -17,7 +17,7 @@
 /* Hero */
 .about-hero {
   background:
-    linear-gradient(135deg, rgba(26,54,93,.95), rgba(43,108,176,.95)),
+    linear-gradient(135deg, rgba(26,54,93,.95), rgba(43,108,176,.15)),
     url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80");
   background-size: cover;
   background-position: center;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Mail, Phone, Search, Menu, X, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Mail, Phone, Search, Menu, X, Linkedin, Facebook, Instagram,Youtube, Twitter } from 'lucide-react';
 import { companyInfo, navigationLinks } from '../data/mock';
 import logo from '../assets/qllmsoft-web-desktop-mobile-app-logo.webp';
 import './Header.css';
@@ -83,13 +83,19 @@ const Header = () => {
           </ul>
 
           <div className="social-links">
-            <a href={companyInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a className="yt" href={companyInfo.socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <Youtube size={16} />
+            </a>
+            <a className="x" href={companyInfo.socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="X">
+              <Twitter size={16} />
+            </a>
+            <a className="ln" href={companyInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin size={16} />
             </a>
-            <a href={companyInfo.socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a className="fb" href={companyInfo.socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <Facebook size={16} />
             </a>
-            <a href={companyInfo.socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a className="ig" href={companyInfo.socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram size={16} />
             </a>
           </div>

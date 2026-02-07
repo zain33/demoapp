@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram, ArrowRight,Youtube, Twitter } from 'lucide-react';
 import { companyInfo, navigationLinks } from '../data/mock';
 import logo from '../assets/qllmsoft-web-desktop-mobile-app-logo.webp';
 import './Footer.css';
@@ -27,13 +27,19 @@ const Footer = () => {
                 and eCommerce brands to transform their digital ideas into powerful, results-driven websites.
               </p>
               <div className="footer-social">
-                <a href={companyInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a className="yt" href={companyInfo.socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <Youtube size={16} />
+                </a>
+                <a className="x"  href={companyInfo.socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="X">
+                  <Twitter size={16} />
+                </a>
+                <a className="ln" href={companyInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={18} />
                 </a>
-                <a href={companyInfo.socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a className="fb" href={companyInfo.socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <Facebook size={18} />
                 </a>
-                <a href={companyInfo.socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a className="ig" href={companyInfo.socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram size={18} />
                 </a>
               </div>
@@ -109,7 +115,7 @@ const Footer = () => {
                 </li>
               </ul>
               <Link to="/contact" className="footer-cta">
-                Request Your Free Quote Today
+                Get Your Free Quote
               </Link>
             </div>
           </div>

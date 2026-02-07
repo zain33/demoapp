@@ -12,9 +12,11 @@ export const companyInfo = {
   address: "H # 181, Camping Ground, Lalamusa, Pakistan",
   whatsappLink: "https://wa.me/923348229288?text=Hi%20QllmSoft,%20I%27d%20like%20to%20discuss%20a%20project!",
   socialLinks: {
-    linkedin: "https://linkedin.com",
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com"
+    linkedin: "https://www.linkedin.com/company/qllmsoft/",
+    facebook: "https://www.facebook.com/qllmsoft/",
+    instagram: "https://www.instagram.com/qllmsoft/",
+    youtube:  "https://www.youtube.com/@QllmSoft",
+    twitter:  "https://x.com/qllmsoft"
   },
   founded: "2015",
   location: "Lalamusa, Gujrat, Pakistan"

@@ -1,10 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 import './Contact.css';
 
 const Contact = () => {
+   useEffect(() => {
+        const reveals = document.querySelectorAll('.reveal');
+    
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+    
+        reveals.forEach((el) => observer.observe(el));
+    
+        return () => {
+          reveals.forEach((el) => observer.unobserve(el));
+        };
+      }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -63,7 +83,7 @@ const Contact = () => {
   return (
     <main className="contact-page">
       {/* Hero Section */}
-      <section className="contact-hero">
+      <section className="contact-hero reveal">
         <div className="container">
           <h1>Contact Us</h1>
           <p>

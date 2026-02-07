@@ -86,6 +86,12 @@
   border: 2px solid #ffffff;
 }
 
+  .whatsapp-icon .whatsapp-fa-icon {
+    color: white !important;
+    font-size: 26px;
+    line-height: 1;
+  }
+
 @media (max-width: 768px) {
   .whatsapp-button {
     bottom: 20px;
@@ -103,7 +109,7 @@
 
   .whatsapp-icon .whatsapp-fa-icon {
     color: white !important;
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1;
   }
 
