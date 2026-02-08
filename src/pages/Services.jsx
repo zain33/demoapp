@@ -134,7 +134,7 @@ const Services = () => {
       </section>
 
       {/* Technologies Section */}
-      <section className="section technologies-section bg-light">
+      {/* <section className="section technologies-section bg-light">
         <div className="container">
           <div className="section-title">
             <h2>Technologies We Use</h2>
@@ -183,7 +183,7 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Process Section */}
       <section className="section process-section">

@@ -7,6 +7,8 @@ import { homeServices, aboutContent, trustedPartners } from '../data/mock';
 import ProjectSections from '../components/ProjectSections';
 import SkillsSection from '../components/SkillsSection';
 import StatsSection from '../components/StatsSection';
+import TechnologiesSlider from '../components/TechnologiesSlider';
+import TestimonialSection from '../components/TestimonialSection';
 import './Home.css';
 import 'animate.css';
 
@@ -17,12 +19,61 @@ const Home = () => {
     triggerOnce: true,
     threshold: 0.2
   });
-
+  const { ref: aboutRef, inView: aboutInView } = useInView({
+  triggerOnce: true,
+  threshold: 0.2,
+});
   return (
     <main className="home-page">
       {/* Hero Slider */}
       <HeroSlider />
+     
+    {/* About Section */}
+     <section className="section about-section bg-light" ref={aboutRef}>
+    <div className="container">
+      <div className="about-content">
+        <div
+          className={`about-image animate__animated ${
+            aboutInView ? 'animate__fadeInLeft' : ''
+          }`}
+          style={{
+            animationDuration: '0.8s',
+            animationTimingFunction: 'ease-out',
+          }}
+        >
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+            alt="Team collaboration"
+            loading="lazy"
+          />
+        </div>
 
+        <div
+          className={`about-text animate__animated ${
+            aboutInView ? 'animate__fadeInRight' : ''
+          }`}
+          style={{
+            animationDuration: '0.8s',
+            animationTimingFunction: 'ease-out',
+          }}
+        >
+          <h2 className="about-title">About QllmSoft</h2>
+          <p className="about-description">
+            At QllmSoft, we build custom web, mobile (Android & iOS), and desktop applications 
+            that are designed around your unique business goals. Whether you're running a startup 
+            or managing a growing enterprise, our team combines creative design and advanced 
+            technology to develop secure, user-friendly, and high-performing software solutions 
+            that helps you grow faster and work smarter.
+          </p>
+          <Link to="/about" className="btn btn-primary">
+            Learn More About Us
+          </Link>
+        </div>
+      </div>
+    </div>
+  </section>
+     
+    
       {/* Services Section */}
       <section
         className="section services-section"
@@ -62,43 +113,24 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="section about-section bg-light">
-        <div className="container">
-          <div className="about-content">
-            <div className="about-text">
-              <h2 className="about-title">About QllmSoft</h2>
-              <p className="about-description">
-                At QllmSoft, we build custom web, mobile (Android & iOS), and desktop applications 
-                that are designed around your unique business goals. Whether you're running a startup 
-                or managing a growing enterprise, our team combines creative design and advanced 
-                technology to develop secure, user-friendly, and high-performing software solutions 
-                that helps you grow faster and work smarter.
-              </p>
-              <Link to="/about" className="btn btn-primary">
-                Learn More About Us
-              </Link>
-            </div>
-
-            <div className="about-image">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-                alt="Team collaboration"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <ProjectSections />
-
-      {/* Skills Section */}
-      <SkillsSection />
-
       {/* Stats Section */}
       <StatsSection />
+     
+     {/* Projects Section */}
+      <ProjectSections />
+     
+     <TestimonialSection />
+     
+     <TechnologiesSlider />
+
+      
+
+      
+
+      {/* Skills Section */}
+      {/* <SkillsSection /> */}
+      
+      
 
       {/* Trusted By Section */}
       <section className="section partners-section bg-light">
@@ -121,6 +153,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      
+      
 
       {/* CTA Section */}
       <section className="section cta-section">

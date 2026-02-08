@@ -6,8 +6,8 @@ const StatsSection = () => {
     () => [
       { label: 'Years Experience', value: 15, suffix: '+' },
       { label: 'Projects Completed', value: 150, suffix: '+' },
-      { label: 'Statisfied Clients', value: 100, suffix: '%' },
-      { label: 'Support Available', value: 24, suffix: '/7' }, // static
+      { label: 'Happy Clients', value: 50, suffix: '+' },
+      { label: 'On-time delivery', value: 98, suffix: '%' }, // static
     ],
     []
   );
