@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { servicesData } from '../data/mock';
 import { useInView } from 'react-intersection-observer';
 import './Services.css';
 import 'animate.css';
 
 /* ---------------- Service Card ---------------- */
-const ServiceCardDetailed = ({ service, isOdd }) => {
+const ServiceCardDetailed = ({ service, isOdd, id }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -14,6 +14,7 @@ const ServiceCardDetailed = ({ service, isOdd }) => {
 
   return (
     <div
+      id={id}
       ref={ref}
       className="service-card-wrapper"
       style={{
@@ -39,11 +40,12 @@ const ServiceCardDetailed = ({ service, isOdd }) => {
           animationDuration: '0.6s',
         }}
       >
+       <div className="service-image-box">
         <img
           src={service.image}
           alt={service.name}
-          style={{ width: '100%', borderRadius: '12px' }}
         />
+      </div>
       </div>
 
       {/* Text */}
@@ -76,27 +78,42 @@ const ServiceCardDetailed = ({ service, isOdd }) => {
 
 /* ---------------- Main Page ---------------- */
 const Services = () => {
+const location = useLocation(); // <-- ADDED for hash scrolling
 
   useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
+    // Scroll to service if hash is present
+   if (location.hash) {
 
+  const scrollToHash = () => {
+    const element = document.querySelector(location.hash);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // 🔥 Run twice to ensure DOM ready
+  scrollToHash();
+  setTimeout(scrollToHash, 150);
+}
+
+
+    // Reveal animations
+    const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('active');
         });
       },
       { threshold: 0.15 }
     );
-
     reveals.forEach((el) => observer.observe(el));
-
-    return () => {
-      reveals.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+    return () => reveals.forEach((el) => observer.unobserve(el));
+  }, [location.hash]); // <-- CHANGED dependency
 
   return (
     <main className="services-page">
@@ -119,13 +136,25 @@ const Services = () => {
             <p>Expert solutions across web, mobile, and enterprise software development</p>
           </div>
           <div className="services-detailed-grid">
-            {servicesData.map((service, index) => (
+           {servicesData.map((service, index) => {
+            // Generate a short id for each service (used for scrolling)
+            const serviceId =
+            service.slug ||
+            service.name
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[^a-z0-9\-]/g, '');
+
+
+            return (
               <ServiceCardDetailed
                 key={service.id}
                 service={service}
                 isOdd={index % 2 === 0}
+                id={serviceId} // <-- use the generated id
               />
-            ))}
+            );
+          })}
             {/* {servicesData.map((service) => (
               <ServiceCard key={service.id} service={service} variant="detailed" />
             ))} */}

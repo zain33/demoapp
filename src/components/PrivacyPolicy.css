@@ -1,0 +1,98 @@
+/* Page spacing */
+.privacy-policy-page {
+    margin-top: 130px;
+}
+
+/* Hero Section */
+.privacy-hero {
+    background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+    color: #ffffff;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.back-to-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.back-to-home:hover {
+    color: #edb702;
+    gap: 12px;
+}
+
+.privacy-hero {
+    background:
+        linear-gradient(135deg, rgba(26, 54, 93, 0.85), rgba(43, 108, 176, 0.15));
+    /* Privacy/Security related image */
+    background-size: cover;
+    background-position: center;
+    padding: 90px 0;
+    text-align: center;
+    color: #fff;
+    margin-top: -18px;
+}
+
+.privacy-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.privacy-hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0.9;
+    color: white;
+}
+
+.privacy-hero-description {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Content Section */
+.privacy-content {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.privacy-content .container {
+    margin: 0 auto;
+}
+
+.privacy-content h2 {
+    font-size: 1.5rem;
+    color: #1A365D;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #E2E8F0;
+    padding-bottom: 8px;
+}
+
+.privacy-content p {
+    color: #4A5568;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.privacy-content ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.privacy-content ul li {
+    margin-bottom: 10px;
+    color: #4A5568;
+}

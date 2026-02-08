@@ -105,6 +105,7 @@ export const servicesData = [
   {
     id: 2,
     name: "Mobile App Development (iOS & Android)",
+    slug: "mobile-app-development",
     description: "Strategic mobile app development services focused on business-critical tools. We specialize in cross-platform and native solutions that prioritize security and user engagement.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
     features: [
@@ -116,6 +117,7 @@ export const servicesData = [
   {
     id: 3,
     name: "Enterprise & Custom Software Development",
+    slug: "enterprise-custom-software-development",
     description: "We architect robust enterprise software development solutions, including ERP, CRM, and HRMS platforms designed to centralize business intelligence and operational control.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
     features: [
@@ -127,6 +129,7 @@ export const servicesData = [
   {
     id: 4,
     name: "API Development & System Integration",
+    slug: "api-development-system-integration",
     description: "Eliminate silos with our API development services. We create secure REST/GraphQL layers that enable real-time data synchronization between your disparate software tools.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
     features: [
@@ -149,42 +152,174 @@ export const servicesData = [
 ];
 
 export const projectsData = [
+
   {
     id: 1,
+    slug: "finance-management-system",
     title: "Finance Management System",
-    description: "An intelligent financial platform for SMEs featuring budgeting, real-time analytics, expense tracking, and integration with QuickBooks & Xero—built with .NET Core and Angular.",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
-    technologies: [".NET Core", "Angular"]
+
+    shortDescription:
+      "Budgeting, analytics, expense tracking with accounting integrations.",
+
+    details: {
+      category: "Enterprise Finance | Real-Time Financial Control",
+
+      paragraphs: [
+        "The Finance Management System by QllmSoft helps businesses move away from fragmented spreadsheets and manual accounting. It centralizes budgeting and expense management, allowing teams to track spending, plan effectively, and maintain full visibility across departments. Automated financial categorization and reconciliation reduce errors, save time, and ensure accurate records without manual effort.",
+        "With real-time analytics, finance teams and decision-makers can access instant insights and make faster, data-driven decisions. Role-based access keeps sensitive information secure while enabling collaboration, and integration with QuickBooks and Xero ensures a seamless, unified financial workflow. Businesses using this system see reduced accounting overhead, faster month-end closing, and clear financial visibility, making it a strategic tool for growth and efficiency."
+      ],
+
+      listTitle: "What this system enables:",
+      list: [
+        "Centralized budgeting & expense tracking",
+        "Automated reconciliation workflows",
+        "Real-time analytics dashboards",
+        "Secure role-based access control"
+      ],
+
+      impact: [
+        "40% accounting efficiency gain",
+        "Faster financial closing",
+        "Live decision insights"
+      ]
+    }
   },
+
   {
     id: 2,
-    title: "Document Controller – Secure & Intelligent DMS",
-    description: "A robust document management system that centralizes storage, controls access, tracks versions, and automates workflows for improved compliance and collaboration.",
+    slug: "document-controller",
+    title: "Document Controller (Secure DMS)",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
-    technologies: ["Cloud", "API Integration"]
+
+    shortDescription:
+      "Lifecycle document management with version control and approvals.",
+
+    details: {
+      category: "Data Governance | Compliance Ready",
+
+      paragraphs: [
+        "The Document Controller is a cloud-based Document Management System (DMS) designed for industries where compliance, security, and accuracy are critical — such as healthcare, finance, and legal services.",
+        "This solution manages the entire document lifecycle, from creation and review to approval, version control, and archival. With configurable access permissions and automated workflows, teams collaborate efficiently while maintaining full audit readiness."
+      ],
+
+      listTitle: "Key capabilities:",
+      list: [
+        "Version tracking & history logs",
+        "Approval workflows",
+        "Encrypted cloud storage",
+        "External API integrations"
+      ],
+
+      impact: [
+        "Audit ready compliance",
+        "70% faster approvals",
+        "Higher data security"
+      ]
+    }
   },
+
   {
     id: 3,
+    slug: "hr-management-system",
     title: "HR Management System",
-    description: "An all-in-one HR platform automating payroll, attendance, leave management, and performance reviews—designed for efficiency, compliance, and employee engagement.",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
-    technologies: ["API Services", "Cloud"]
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80",
+
+    shortDescription:
+      "Employee lifecycle, payroll, and performance management platform.",
+
+    details: {
+      category: "People Operations | Workforce Automation",
+
+      paragraphs: [
+        "Our HR Management System automates core HR operations while keeping employee experience at the center. Built to replace manual HR processes, it centralizes employee data, attendance, leave management, payroll, and performance reviews.",
+        "Designed as a modular and scalable solution, this HRMS adapts to different organizational structures and compliance requirements, making it suitable for startups, SMEs, and enterprise teams."
+      ],
+
+      listTitle: "Core features:",
+      list: [
+        "Employee lifecycle tracking",
+        "Payroll automation",
+        "Leave & attendance management",
+        "Performance evaluation tools"
+      ],
+
+      impact: [
+        "Reduced admin workload",
+        "Improved employee visibility",
+        "Centralized HR records"
+      ]
+    }
   },
+
   {
     id: 4,
-    title: "Portfolio Website",
-    description: "Custom portfolio websites with responsive layouts, modern design, image grids, carousels, and SEO optimization—perfect for professionals and creatives to showcase their work.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80",
-    technologies: ["Responsive Design", "SEO Optimization"]
+    slug: "warehouse-management",
+    title: "Warehouse Management Platform",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
+
+    shortDescription:
+      "Inventory automation, tracking, and logistics coordination.",
+
+    details: {
+      category: "Logistics Intelligence | Inventory Optimization",
+
+      paragraphs: [
+        "This Warehouse & Inventory Automation System was built specifically for factories and manufacturing environments where manual stock tracking leads to losses and inefficiencies.",
+        "Instead of generic software, we designed this system around the client’s existing SOPs, approval rules, and operational workflows. Every stock movement is tracked, approved, and recorded with full accountability."
+      ],
+
+      listTitle: "Capabilities include:",
+      list: [
+        "Inventory tracking dashboards",
+        "Barcode scanning support",
+        "Stock alerts & forecasting",
+        "Logistics coordination tools"
+      ],
+
+      impact: [
+        "Reduced stock errors",
+        "Faster dispatch",
+        "Improved inventory accuracy"
+      ]
+    }
   },
+
   {
     id: 5,
-    title: "Warehouse & Inventory Automation",
-    description: "We help factories digitize and control their warehouse operations based on how their business already works — not generic software. Our warehouse automation solutions are designed around your existing SOPs.",
-    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80",
-    technologies: ["Custom Software", "Automation"]
+    slug: "portfolio-management-platform",
+    title: "Portfolio Management Platform",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+
+    shortDescription:
+      "Centralized investment tracking and performance analytics.",
+
+    details: {
+      category: "Investment Intelligence | Data Visualization",
+
+      paragraphs: [
+        "Our Portfolio Website projects focus on helping professionals, agencies, and businesses present their work through visually compelling and high-performing websites.",
+        "Each website is custom-designed with responsive layouts, optimized image galleries, and SEO-ready structure to ensure both aesthetics and discoverability."
+      ],
+
+      listTitle: "Platform highlights:",
+      list: [
+        "Multi-portfolio tracking",
+        "Interactive analytics dashboards",
+        "Risk evaluation tools",
+        "Performance forecasting"
+      ],
+
+      impact: [
+        "Better investment insight",
+        "Centralized portfolio view",
+        "Data-driven decisions"
+      ]
+    }
   }
+
 ];
+
 
 export const blogPosts = [
   {

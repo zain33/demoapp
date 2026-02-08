@@ -14,9 +14,9 @@ const ProjectCard = ({ project }) => {
       <div className="project-card-image">
         <img src={project.image} alt={project.title} loading="lazy" />
         <div className="project-card-overlay">
-          <Link to="/contact" className="project-overlay-btn">
-            View Details
-          </Link>
+         <Link to={`/projects/${project.slug}`} className="btn btn-primary">
+          View Details →
+        </Link>
         </div>
       </div>
       <div className="project-card-content">

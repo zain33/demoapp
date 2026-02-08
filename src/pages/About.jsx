@@ -85,10 +85,16 @@ const About = () => {
           </div>
           <div className="apart-content">
             <p>
-              At QllmSoft, we create enduring partnerships built on trust, creativity, and measurable outcomes.
+              At <strong>QllmSoft</strong>, we build software that drives real results. Our solutions are designed with <strong>scalability, security, and usability</strong> in mind.
             </p>
             <p>
-              Using modern frameworks like <strong>ASP.NET</strong>, we deliver scalable web and mobile solutions worldwide.
+              We combine creativity with technology, leveraging modern frameworks like <strong>ASP.NET</strong>, <strong>React</strong>, and <strong>mobile-native tools</strong> to deliver apps that perform seamlessly across platforms.
+            </p>
+            <p>
+              Our team focuses on understanding your business goals to create custom solutions that enhance productivity, streamline processes, and help your business grow faster.
+            </p>
+            <p>
+              We pride ourselves on <strong>trust, transparency, and timely delivery</strong>, making sure every project exceeds expectations.
             </p>
           </div>
         </div>

@@ -1,0 +1,154 @@
+/* PAGE SPACING */
+.project-details-page {
+    margin-top: 130px;
+}
+
+/* HERO */
+.project-details-hero {
+    background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+    padding: 60px 0 50px;
+    color: #ffffff;
+}
+
+/* Back Button */
+.back-to-projects {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+    transition: all 0.2s ease;
+}
+
+.back-to-projects:hover {
+    color: #edb702;
+    gap: 12px;
+}
+
+/* Category */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.project-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background-color: #edb702;
+    color: #1A365D;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+/* Title */
+.project-details-hero h1 {
+    font-size: 2.25rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    max-width: 800px;
+    color: white;
+}
+
+/* Description */
+.project-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+/* CONTENT AREA */
+.project-details-content {
+    padding: 40px 0 60px;
+}
+
+/* ⭐ NEW GRID LAYOUT ⭐ */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* TEXT */
+.paragraph {
+    margin-bottom: 18px;
+    line-height: 1.7;
+    color: #555;
+    font-size: 15px;
+}
+
+/* LIST */
+.details-list ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.details-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.list-icon {
+    color: #edb702;
+}
+
+/* IMPACT BOX */
+.impact-box {
+    background: #f5f7fb;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.impact-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.impact-grid span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ⭐ IMAGE SIDE ⭐ */
+.image-side img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease;
+}
+
+.image-side img:hover {
+    transform: scale(1.04);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-side {
+        margin-top: 25px;
+    }
+}

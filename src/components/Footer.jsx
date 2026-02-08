@@ -61,35 +61,35 @@ const Footer = () => {
             </div>
 
             {/* Services */}
-            <div className="footer-section">
+           <div className="footer-section">
               <h4 className="footer-title">Our Services</h4>
               <ul className="footer-links">
                 <li>
-                  <Link to="/services">
-                    <ArrowRight size={14} />
+                  <Link to="/services#custom-web-application-development">
+                    <ArrowRight size={14} /> {/* <-- ADDED ArrowRight */}
                     Web Development
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services">
+                  <Link to="/services#mobile-app-development">
                     <ArrowRight size={14} />
                     Mobile App Development
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services">
+                  <Link to="/services#enterprise-custom-software-development">
                     <ArrowRight size={14} />
                     Desktop Applications
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services">
+                  <Link to="/services#api-development-system-integration">
                     <ArrowRight size={14} />
                     API Development
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services">
+                  <Link to="/services#legacy-software-modernization">
                     <ArrowRight size={14} />
                     Custom Software
                   </Link>
@@ -127,7 +127,7 @@ const Footer = () => {
         <div className="container">
           <p>&copy; {currentYear} QllmSoft. All Rights Reserved.</p>
           <div className="footer-bottom-links">
-            <Link to="/">Privacy Policy</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/">Terms of Service</Link>
           </div>
         </div>

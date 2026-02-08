@@ -242,3 +242,20 @@
   opacity: 1;
   transform: translateY(0);
 }
+.service-image-box {
+  width: 100%;
+  height: 320px;          /* 🔥 Controls visual size */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.service-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ⭐ MAGIC — keeps ratio */
+  display: block;
+   transition: transform .4s ease;
+}
+.service-card-wrapper:hover img {
+  transform: scale(1.05);
+}
