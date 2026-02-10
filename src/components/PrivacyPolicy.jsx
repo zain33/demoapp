@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
         <div className="container">
           <h1>Privacy Policy</h1>
           <p className="privacy-hero-description">
-            Your trust is our top priority. At QllmSoft, we are committed to safeguarding your personal data and ensuring your privacy throughout your experience with us.
+            Your trust is our top priority. At<Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "}, we are committed to safeguarding your personal data and ensuring your privacy throughout your experience with us.
           </p>
         </div>
       </section>
@@ -55,7 +55,7 @@ const PrivacyPolicy = () => {
           <article>
             <h2>Information We Collect</h2>
             <p>
-              When you engage with QllmSoft, we may collect personal information such as your name, email address, phone number, or payment details. Additionally, we gather technical information via automated tools, including cookies and analytics, such as your IP address, device type, and interactions with our website. This helps us enhance your experience and deliver relevant services.
+              When you engage with <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "}, we may collect personal information such as your name, email address, phone number, or payment details. Additionally, we gather technical information via automated tools, including cookies and analytics, such as your IP address, device type, and interactions with our website. This helps us enhance your experience and deliver relevant services.
             </p>
           </article>
 
@@ -69,7 +69,7 @@ const PrivacyPolicy = () => {
           <article>
             <h2>Data Security</h2>
             <p>
-              QllmSoft employs robust security measures including encryption, secure servers, and regular audits to protect your information. While no system is entirely foolproof, we continuously monitor and enhance our security to mitigate potential risks. We encourage users to also safeguard their account credentials.
+              <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} employs robust security measures including encryption, secure servers, and regular audits to protect your information. While no system is entirely foolproof, we continuously monitor and enhance our security to mitigate potential risks. We encourage users to also safeguard their account credentials.
             </p>
           </article>
 
@@ -83,7 +83,7 @@ const PrivacyPolicy = () => {
           <article>
             <h2>Policy Updates</h2>
             <p>
-              QllmSoft may update this Privacy Policy as we grow and improve our services. Significant changes will be reflected on this page immediately. We recommend revisiting periodically to stay informed.
+              <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} may update this Privacy Policy as we grow and improve our services. Significant changes will be reflected on this page immediately. We recommend revisiting periodically to stay informed.
             </p>
           </article>
 

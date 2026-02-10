@@ -57,7 +57,7 @@ const TermsOfServices = () => {
           <article>
             <h2>Eligibility</h2>
             <p>
-             QllmSoft is committed to offering its services to users who provide accurate information and follow our platform guidelines. Responsible use of our services ensures a seamless experience.
+             <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} is committed to offering its services to users who provide accurate information and follow our platform guidelines. Responsible use of our services ensures a seamless experience.
             </p>
           </article>
 
@@ -65,26 +65,25 @@ const TermsOfServices = () => {
             <h2>Our Services</h2>
             <p>We provide a range of professional solutions to help your business grow, tailored to your unique requirements:</p>
             <ul>
-                <li>Web Development</li>
-                <li>Mobile Application Development (IOS & Andriod)</li>
-                <li>E-Commerce Solutions</li>
-                <li>Digital Marketing Strategies</li>
-                <li>Cloud Computing Services</li>
-                <li>Artificial Intelligence (AI) Solutions</li>
+                <li>Custom Web Application Development</li>
+                <li>Mobile App Development (iOS & Android)</li>
+                <li>Enterprise & Custom Software Development</li>
+                <li>API Development & System Integration</li>
+                <li>Legacy Software Modernization</li>
             </ul>
             </article>
 
           <article>
             <h2>Usage Guidelines</h2>
             <p>
-              Users must utilize QllmSoft services responsibly and ethically. Prohibited activities include unlawful use, system disruption, or unauthorized access. Violations may result in suspension or termination of access.
+              Users must utilize <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} services responsibly and ethically. Prohibited activities include unlawful use, system disruption, or unauthorized access. Violations may result in suspension or termination of access.
             </p>
           </article>
 
           <article>
             <h2>Intellectual Property</h2>
             <p>
-              All creative works produced by QllmSoft remain our intellectual property unless otherwise agreed. Clients are granted usage rights for intended purposes only. Unauthorized copying, sharing, or modification is not permitted.
+              All creative works produced by <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} remain our intellectual property unless otherwise agreed. Clients are granted usage rights for intended purposes only. Unauthorized copying, sharing, or modification is not permitted.
             </p>
           </article>
 
@@ -98,33 +97,33 @@ const TermsOfServices = () => {
           <article>
             <h2>Limitations of Liability</h2>
             <p>
-              While we strive to deliver high-quality services, QllmSoft is not liable for unforeseen errors, interruptions, or damages. We commit to resolving issues efficiently and responsibly.
+              While we strive to deliver high-quality services, <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} is not liable for unforeseen errors, interruptions, or damages. We commit to resolving issues efficiently and responsibly.
             </p>
           </article>
 
           <article>
             <h2>Termination</h2>
             <p>
-              Either party may end the engagement with written notice. QllmSoft may immediately terminate services in case of misuse, breach of terms, or legal obligations. Outstanding work and payments will be handled fairly.
+              Either party may end the engagement with written notice. <Link to="/" style={{ fontWeight: "bold", textDecoration: "none" }}>QllmSoft</Link>{" "} may immediately terminate services in case of misuse, breach of terms, or legal obligations. Outstanding work and payments will be handled fairly.
             </p>
           </article>
 
           <article>
             <h2>Customer Support & Complaints</h2>
             <p>
-              Our support team is here to address your concerns. Contact us at support@qllmsoft.com, and we will respond promptly with:
+              Our support team is here to address your concerns. Contact us at <a href="mailto:info@qllmsoft.com">support@qllmsoft.com</a>, and we will respond promptly with:
             </p>
             <ul>
-              <li>Acknowledgment within 2 business days</li>
+              <li>Acknowledgment within <b>2 business days</b></li>
               <li>Investigation and resolution process</li>
-              <li>Clear updates or outcomes within 7 business days</li>
+              <li>Clear updates or outcomes within <b>7 business days</b></li>
             </ul>
           </article>
 
           <article>
             <h2>Refund Policy</h2>
             <p>
-              Refunds, when eligible, will be processed within 7-10 business days after approval. Policies may vary depending on the purchased service.
+              Refunds, when eligible, will be processed within <b>7-10 business days</b> after approval. Policies may vary depending on the purchased service.
             </p>
           </article>
 

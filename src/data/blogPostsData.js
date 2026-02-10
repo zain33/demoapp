@@ -516,23 +516,42 @@ export const blogPostsData = {
   category: 'Cloud Computing',
   date: 'February 5, 2026',
   image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
-  sections: [
+sections: [
     {
-      heading: 'Cloud Software Development Services',
-      paragraphs: [
-        'Cloud software development enables businesses to scale faster, reduce infrastructure costs, and improve system reliability.',
-        'Pakistani software companies are delivering enterprise-grade cloud solutions for global clients.'
-      ]
-    },
-    {
-      heading: 'Cloud Platforms We Use',
-      list: [
-        'Amazon Web Services (AWS)',
-        'Microsoft Azure',
-        'Google Cloud Platform (GCP)',
-        'Cloud-native microservices',
-        'Serverless architectures'
-      ]
+      html: `
+        <h2>Getting Started with Modern Web Development</h2>
+
+        <p>
+          Web development has evolved rapidly over the last decade. From simple static pages to highly
+          interactive applications, developers now have access to powerful tools and frameworks.
+        </p>
+
+        <h3>Why Learn Web Development?</h3>
+        <ul>
+          <li>Create interactive user experiences</li>
+          <li>Build real-world business solutions</li>
+          <li>Freelancing and career opportunities</li>
+          <li>Endless learning and innovation</li>
+        </ul>
+
+        <h3>Key Technologies</h3>
+        <p>Some essential technologies every beginner should explore:</p>
+
+        <ol>
+          <li><strong>HTML</strong> — Structure of web pages</li>
+          <li><strong>CSS</strong> — Styling and layout</li>
+          <li><strong>JavaScript</strong> — Interactivity</li>
+          <li><strong>React / Angular</strong> — Modern UI frameworks</li>
+        </ol>
+
+        <blockquote>
+          <p>"Consistency and practice are the keys to becoming a great developer."</p>
+        </blockquote>
+
+        <p>
+          Start small, build projects, and keep improving your skills.
+        </p>
+      `
     }
   ]
 }

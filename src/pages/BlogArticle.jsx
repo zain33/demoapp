@@ -7,30 +7,60 @@ import './BlogArticle.css';
 const SectionParagraph = ({ text }) => <p>{text}</p>;
 const SectionListItem = ({ text }) => <li>{text}</li>;
 
-const BlogSection = ({ heading, paragraphs, list }) => (
+// const BlogSection = ({ heading, paragraphs, list }) => (
+//   <div className="blog-article-section">
+//     {heading && <h2>{heading}</h2>}
+//     {paragraphs && paragraphs.length > 0 && <SectionParagraph text={paragraphs[0]} />}
+//     {paragraphs && paragraphs.length > 1 && <SectionParagraph text={paragraphs[1]} />}
+//     {paragraphs && paragraphs.length > 2 && <SectionParagraph text={paragraphs[2]} />}
+//     {paragraphs && paragraphs.length > 3 && <SectionParagraph text={paragraphs[3]} />}
+//     {list && (
+//       <ul className="blog-article-list">
+//         {list.length > 0 && <SectionListItem text={list[0]} />}
+//         {list.length > 1 && <SectionListItem text={list[1]} />}
+//         {list.length > 2 && <SectionListItem text={list[2]} />}
+//         {list.length > 3 && <SectionListItem text={list[3]} />}
+//         {list.length > 4 && <SectionListItem text={list[4]} />}
+//         {list.length > 5 && <SectionListItem text={list[5]} />}
+//         {list.length > 6 && <SectionListItem text={list[6]} />}
+//         {list.length > 7 && <SectionListItem text={list[7]} />}
+//         {list.length > 8 && <SectionListItem text={list[8]} />}
+//         {list.length > 9 && <SectionListItem text={list[9]} />}
+//       </ul>
+//     )}
+//   </div>
+// );
+const BlogSection = ({ heading, paragraphs, list, html }) => (
   <div className="blog-article-section">
-    {heading && <h2>{heading}</h2>}
-    {paragraphs && paragraphs.length > 0 && <SectionParagraph text={paragraphs[0]} />}
-    {paragraphs && paragraphs.length > 1 && <SectionParagraph text={paragraphs[1]} />}
-    {paragraphs && paragraphs.length > 2 && <SectionParagraph text={paragraphs[2]} />}
-    {paragraphs && paragraphs.length > 3 && <SectionParagraph text={paragraphs[3]} />}
-    {list && (
-      <ul className="blog-article-list">
-        {list.length > 0 && <SectionListItem text={list[0]} />}
-        {list.length > 1 && <SectionListItem text={list[1]} />}
-        {list.length > 2 && <SectionListItem text={list[2]} />}
-        {list.length > 3 && <SectionListItem text={list[3]} />}
-        {list.length > 4 && <SectionListItem text={list[4]} />}
-        {list.length > 5 && <SectionListItem text={list[5]} />}
-        {list.length > 6 && <SectionListItem text={list[6]} />}
-        {list.length > 7 && <SectionListItem text={list[7]} />}
-        {list.length > 8 && <SectionListItem text={list[8]} />}
-        {list.length > 9 && <SectionListItem text={list[9]} />}
-      </ul>
+
+    {/* Render RAW HTML if provided */}
+    {html && (
+      <div
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     )}
+
+    {/* Normal structured rendering */}
+    {!html && (
+      <>
+        {heading && <h2>{heading}</h2>}
+
+        {paragraphs && paragraphs.map((p, i) => (
+          <SectionParagraph key={i} text={p} />
+        ))}
+
+        {list && (
+          <ul className="blog-article-list">
+            {list.map((item, i) => (
+              <SectionListItem key={i} text={item} />
+            ))}
+          </ul>
+        )}
+      </>
+    )}
+
   </div>
 );
-
 const BlogArticle = () => {
   const { slug } = useParams();
   const post = blogPostsData[slug];

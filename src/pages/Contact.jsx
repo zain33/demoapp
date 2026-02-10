@@ -4,6 +4,8 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 import './Contact.css';
 
+emailjs.init('fFEjcHdxdndYaVwBf');
+
 const Contact = () => {
    useEffect(() => {
         const reveals = document.querySelectorAll('.reveal');
@@ -44,41 +46,42 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+ const handleSubmit = async (e) => {
+  debugger;
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    const response = await fetch('/.netlify/functions/sendEmail', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from_name: formData.name,
-        user_email: formData.email,
-        user_phone_no: formData.phone || 'N/A',
-        user_company: formData.company || 'N/A',
-        subject: formData.subject,
-        message: formData.message
-      })
-    });
+    try {
+      const result = await emailjs.send(
+        'service_jtdcbef',       // Your service ID
+        'template_k0moa34',      // Your template ID
+        {
+          from_name: formData.name,
+          user_email: formData.email,
+          user_phone_no: formData.phone || 'N/A',
+          user_company: formData.company || 'N/A',
+          subject: formData.subject,
+          message: formData.message
+        }
+      );
 
-    const result = await response.json();
+      console.log(result); // Should show { status: 200, text: 'OK' }
 
-    if (result.status === 'success') {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
-    } else {
+      if (result.status === 200) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+        console.error('EmailJS error', result.text);
+      }
+    } catch (err) {
+      console.error('EmailJS error', err);
       setSubmitStatus('error');
-      console.error(result.message);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
-  } catch (err) {
-    console.error(err);
-    setSubmitStatus('error');
-  } finally {
-    setIsSubmitting(false);
-    setTimeout(() => setSubmitStatus(null), 5000);
-  }
-};
+  };
 
   return (
     <main className="contact-page">
