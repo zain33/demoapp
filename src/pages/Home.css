@@ -229,3 +229,18 @@
     font-size: 1rem;
   }
 }
+.projects-section {
+  background: #ffffff !important;
+}
+
+.testimonial-section {
+  background: #f0f4ff !important;
+}
+
+.tech-section {
+  background: linear-gradient(180deg,#ffffff 0%,#eaf0ff 100%) !important;
+}
+
+.partners-section {
+  background: #eef2f7 !important;
+}

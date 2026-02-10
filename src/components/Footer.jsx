@@ -128,7 +128,7 @@ const Footer = () => {
           <p>&copy; {currentYear} QllmSoft. All Rights Reserved.</p>
           <div className="footer-bottom-links">
             <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/">Terms of Service</Link>
+            <Link to="/terms-of-services">Terms of Service</Link>
           </div>
         </div>
       </div>

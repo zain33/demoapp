@@ -27,17 +27,17 @@
     gap: 12px;
 }
 
-.privacy-hero {
+/* .privacy-hero {
     background:
-        linear-gradient(135deg, rgba(26, 54, 93, 0.85), rgba(43, 108, 176, 0.15));
-    /* Privacy/Security related image */
+        linear-gradient(135deg, rgba(26, 54, 93, 0.85), rgba(43, 108, 176, 0.15)),
+    url("assets/privacy-policy.jpg");
     background-size: cover;
     background-position: center;
     padding: 90px 0;
     text-align: center;
     color: #fff;
-    margin-top: -18px;
-}
+    margin-top: -30px;
+} */
 
 .privacy-hero h1 {
     font-size: 2.5rem;

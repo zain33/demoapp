@@ -2,6 +2,7 @@ import React ,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import './PrivacyPolicy.css';
+import privacyImage from "../assets/privacy-policy.jpg"; 
 
 const PrivacyPolicy = () => {
      useEffect(() => {
@@ -28,7 +29,17 @@ const PrivacyPolicy = () => {
     <main className="privacy-policy-page">
 
       {/* Hero Section */}
-      <section className="privacy-hero reveal">
+      <section className="privacy-hero reveal"
+      style={{
+                background: `linear-gradient(135deg, rgba(26,54,93,0.85), rgba(43,108,176,0.15)), url(${privacyImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                padding: "90px 0",
+                textAlign: "center",
+                color: "#fff",
+                marginTop: "-30px",
+            }}
+            > 
         <div className="container">
           <h1>Privacy Policy</h1>
           <p className="privacy-hero-description">

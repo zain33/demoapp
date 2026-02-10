@@ -7,6 +7,8 @@
 .footer-main {
   padding: 60px 0 40px;
   background-color: white;
+   border-top: 3px solid;
+    border-image: linear-gradient(90deg, #1E5AA8, #edb702) 1;
 }
 
 .footer-grid {
@@ -265,11 +267,6 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
-  }
-
-  .footer-main {
-    padding: 40px 0 30px;
-    background-color: white;
   }
 
   .footer-bottom .container {

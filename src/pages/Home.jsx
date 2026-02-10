@@ -101,7 +101,7 @@ const Home = () => {
                     servicesInView ? animationClass : ''
                   }`}
                   style={{
-                    animationDuration: '0.6s',
+                    animationDuration: '1.2s',
                     animationTimingFunction: 'ease-out'
                   }}
                 >
@@ -117,12 +117,15 @@ const Home = () => {
       <StatsSection />
      
      {/* Projects Section */}
+     <section className="section projects-section">
       <ProjectSections />
-     
+     </section>
+     <section className="section testimonial-section">
      <TestimonialSection />
-     
+     </section>
+     <section className="section tech-section">
      <TechnologiesSlider />
-
+     </section>
       
 
       
@@ -133,7 +136,7 @@ const Home = () => {
       
 
       {/* Trusted By Section */}
-      <section className="section partners-section bg-light">
+      <section className="section partners-section">
         <div className="container">
           <div className="section-title">
             <h2>Trusted By Our Clients</h2>

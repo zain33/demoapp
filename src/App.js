@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import BlogArticle from './pages/BlogArticle';
 import ProjectDetails from "./pages/ProjectDetails";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsofServices from './components/TermsofServices';
 import './styles/global.css';
 import './App.css';
 import 'animate.css';
@@ -28,7 +29,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetails />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-services" element={<TermsofServices />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           {/* Blog Article Routes */}
