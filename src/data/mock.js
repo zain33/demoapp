@@ -460,10 +460,12 @@ export const projects = [
 export const trustedPartners = [
   {
     name: "Freelancer",
-    logo: "https://cdn.worldvectorlogo.com/logos/freelancer-1.svg"
+    logo: "https://cdn.worldvectorlogo.com/logos/freelancer-1.svg",
+    url: "https://www.freelancer.com/u/mrprogrmmr"
   },
   {
     name: "Upwork",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Upwork-logo.svg"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Upwork-logo.svg",
+    url: "https://www.upwork.com/freelancers/~0170e20f8803389a86"
   }
 ];

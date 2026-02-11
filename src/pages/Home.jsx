@@ -155,7 +155,7 @@ const Home = () => {
         <TechnologiesSlider />
       </section>
 
-      {/* Trusted Partners */}
+     {/* Trusted Partners */}
       <section className="section partners-section">
         <div className="container">
 
@@ -166,7 +166,13 @@ const Home = () => {
           <div className="partners-grid">
             {trustedPartners.map((partner, index) => (
               <div key={index} className="partner-logo">
-                <img src={partner.logo} alt={partner.name} />
+                <a 
+                  href={partner.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <img src={partner.logo} alt={partner.name} />
+                </a>
               </div>
             ))}
           </div>
