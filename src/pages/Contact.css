@@ -27,7 +27,7 @@
 
 /* Contact Content */
 .contact-content {
-  background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+  /* background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%); */
   padding: 60px 0 80px;
 }
 
@@ -39,7 +39,7 @@
 
 /* Contact Info */
 .contact-info {
-  background-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 40px;

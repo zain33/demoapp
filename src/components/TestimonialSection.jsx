@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import "./TestimonialSection.css";
-
+import khalidImg from "../assets/khalid A.webp";
+import muhammadImg from "../assets/Muhammad I.webp";
+import fernandoImg from "../assets/fernandoM.webp";
+import neil from "../assets/NeilP.webp";
 /* =======================
    Marquee Component
 ======================= */
@@ -46,12 +49,20 @@ const Marquee = ({
 /* =======================
    Review Card
 ======================= */
-const ReviewCard = ({ avatar, name, rating, review }) => (
-  <div className="review-card">
+const ReviewCard = ({ avatar, name, location, rating, review, link }) => (
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="review-card clickable"
+  >
     <div className="review-header">
       <img src={avatar} alt={name} />
+
       <div>
         <h4>{name}</h4>
+        <span className="review-location">{location}</span>
+
         <div className="stars">
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
@@ -64,8 +75,8 @@ const ReviewCard = ({ avatar, name, rating, review }) => (
       </div>
     </div>
 
-    <p>{review}</p>
-  </div>
+    <p>"{review}"</p>
+  </a>
 );
 
 /* =======================
@@ -75,35 +86,44 @@ const TestimonialSection = () => {
   const reviews = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+      name: "Khalid A.",
+      location: "RIYADH, SA",
+      avatar:khalidImg,
       rating: 5,
       review:
-        "QllmSoft delivered outstanding quality and professionalism. Highly recommended!",
+        "Great work with a great programmer team.",
+      link: "https://www.freelancer.com/u/mrprogrmmr?review_context_id=30058830&review_type=project"
     },
     {
       id: 2,
-      name: "Michael Chen",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
+      name: "Mohammad I.",
+      location: "AMMAN, JORDAN",
+      avatar: muhammadImg,
       rating: 4,
       review:
-        "Great experience working with the team. Communication and results were excellent.",
+        "As always, great work. Qllmsoft is my reliable choice for store builds and web application logic.Highly recommended.",
+      link: "https://www.freelancer.com/u/mrprogrmmr?review_context_id=10439073&review_type=project"
     },
     {
       id: 3,
-      name: "Emma Davis",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=emma",
+      name: "Fernando M.",
+      location:"MIRAMAR ,USA",
+      avatar: fernandoImg,
       rating: 5,
       review:
-        "They built exactly what we needed. Clean UI and strong backend performance.",
-    },
+        "Very nice developer to work with Qllmsoft consistently delivers a high quality of code and professional results.",
+       link: "https://www.freelancer.com/u/mrprogrmmr?review_context_id=5228423&review_type=project"
+       
+      },
     {
       id: 4,
-      name: "James Wilson",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=james",
+      name: "Neil P.",
+      location: "CARDIFF, UK",
+      avatar: neil,
       rating: 4,
       review:
-        "Reliable and professional software development partner. Will work again.",
+        "Fantastic work. Excellent communication and the end result was perfect.I will continue to use Qllmsoft services.",
+      link: "https://www.freelancer.com/u/mrprogrmmr?review_context_id=6964328&review_type=project"
     },
   ];
 

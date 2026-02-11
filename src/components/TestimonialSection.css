@@ -54,6 +54,7 @@
 
 .star.filled {
   color: #ffc107;
+  fill: #ffc107;
 }
 
 /* Animation */
@@ -65,4 +66,11 @@
 @keyframes scroll-right {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
+}
+.review-location {
+  display: block;
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: -2px;
+  margin-bottom: 4px;
 }

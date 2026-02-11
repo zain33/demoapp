@@ -54,8 +54,10 @@ const BlogCardItem = ({ slug, post, index }) => {
 };
 
 const Blog = () => {
-  const blogPosts = Object.entries(blogPostsData);
-
+//  const blogPosts = Object.entries(blogPostsData);
+const blogPosts = Object.entries(blogPostsData).sort(
+  ([, a], [, b]) => new Date(b.date) - new Date(a.date)
+);
   /* Hero reveal animation */
   useEffect(() => {
     const reveals = document.querySelectorAll('.reveal');
