@@ -111,11 +111,11 @@ const HeroSlider = () => {
       {/* Content */}
       <div className="hero-content">
       <h1 className="hero-title">
-        We Build Custom Software That Actually Scales Your Business
+        Scalable Software Solutions Built to Accelerate Your Growth
       </h1>
 
       <p className="hero-subtitle">
-       Web, mobile, and enterprise solutions for startups and growing companies — built fast, secure, and future-ready.
+       From startups to enterprises, we design secure, high-performance systems that evolve with your business.
       </p>
         <Link to="/contact" className="hero-btn">
           Start Your Project

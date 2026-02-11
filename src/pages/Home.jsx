@@ -1,95 +1,88 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
+
 import HeroSlider from '../components/HeroSlider';
 import ServiceCard from '../components/ServiceCard';
-import { homeServices, aboutContent, trustedPartners } from '../data/mock';
+import { homeServices, trustedPartners } from '../data/mock';
+
 import ProjectSections from '../components/ProjectSections';
-import SkillsSection from '../components/SkillsSection';
-import StatsSection from '../components/StatsSection';
 import TechnologiesSlider from '../components/TechnologiesSlider';
 import TestimonialSection from '../components/TestimonialSection';
+import StatsSection from '../components/StatsSection';
+
+import {
+  ShieldCheck,
+  MessageCircle,
+  Rocket,
+  Layers
+} from 'lucide-react';
+
 import './Home.css';
 import 'animate.css';
 
 const Home = () => {
 
-  // Observer ONLY for Services section
   const { ref: servicesRef, inView: servicesInView } = useInView({
     triggerOnce: true,
     threshold: 0.2
   });
+
   const { ref: aboutRef, inView: aboutInView } = useInView({
-  triggerOnce: true,
-  threshold: 0.2,
-});
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   return (
     <main className="home-page">
-      {/* Hero Slider */}
-      <HeroSlider />
-     
-    {/* About Section */}
-     <section className="section about-section bg-light" ref={aboutRef}>
-    <div className="container">
-      <div className="about-content">
-        <div
-          className={`about-image animate__animated ${
-            aboutInView ? 'animate__fadeInLeft' : ''
-          }`}
-          style={{
-            animationDuration: '0.8s',
-            animationTimingFunction: 'ease-out',
-          }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-            alt="Team collaboration"
-            loading="lazy"
-          />
-        </div>
 
-        <div
-          className={`about-text animate__animated ${
-            aboutInView ? 'animate__fadeInRight' : ''
-          }`}
-          style={{
-            animationDuration: '0.8s',
-            animationTimingFunction: 'ease-out',
-          }}
-        >
-          <h2 className="about-title">About QllmSoft</h2>
-          <p className="about-description">
-            At QllmSoft, we build custom web, mobile (Android & iOS), and desktop applications 
-            that are designed around your unique business goals. Whether you're running a startup 
-            or managing a growing enterprise, our team combines creative design and advanced 
-            technology to develop secure, user-friendly, and high-performing software solutions 
-            that helps you grow faster and work smarter.
-          </p>
-          <Link to="/about" className="btn btn-primary">
-            Learn More About Us
-          </Link>
-        </div>
-      </div>
-    </div>
-  </section>
-     
-    
-      {/* Services Section */}
-      <section
-        className="section services-section"
-        ref={servicesRef}
-      >
+      {/* Hero */}
+      <HeroSlider />
+
+      {/* About */}
+      <section className="section about-section bg-light" ref={aboutRef}>
         <div className="container">
+          <div className="about-content">
+
+            <div className={`about-image animate__animated ${aboutInView ? 'animate__fadeInLeft' : ''}`}>
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+                alt="Team collaboration"
+                loading="lazy"
+              />
+            </div>
+
+            <div className={`about-text animate__animated ${aboutInView ? 'animate__fadeInRight' : ''}`}>
+              <h2 className="about-title">About QllmSoft</h2>
+
+              <p>
+                We design scalable web, mobile, and enterprise software that helps businesses grow faster.
+                Our solutions combine modern architecture, performance optimization,
+                and user-centric design.
+              </p>
+
+              <Link to="/about" className="btn btn-primary">
+                Learn More About Us
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="section services-section" ref={servicesRef}>
+        <div className="container">
+
           <div className="section-title">
             <h2>Software Development Services</h2>
-            <p>
-              We provide comprehensive software solutions tailored to your business needs
-            </p>
+            <p>Solutions tailored to your business needs</p>
           </div>
 
           <div className="services-grid">
             {homeServices.map((service, index) => {
-              const animationClass =
+
+              const animation =
                 index < 2
                   ? 'animate__fadeInLeft'
                   : 'animate__fadeInRight';
@@ -97,83 +90,115 @@ const Home = () => {
               return (
                 <div
                   key={service.id}
-                  className={`animate__animated ${
-                    servicesInView ? animationClass : ''
-                  }`}
-                  style={{
-                    animationDuration: '1.2s',
-                    animationTimingFunction: 'ease-out'
-                  }}
+                  className={`animate__animated ${servicesInView ? animation : ''}`}
                 >
                   <ServiceCard service={service} />
                 </div>
               );
             })}
           </div>
+
         </div>
       </section>
 
-      {/* Stats Section */}
+   
+      {/* Why Choose Us ⭐ NEW */}
+      <section className="section why-section">
+        <div className="container">
+
+          <div className="section-title">
+            <h2>Why Choose QllmSoft</h2>
+          </div>
+
+          <div className="why-grid">
+
+            <div className="why-card">
+              <h4>Business-Focused Solutions</h4>
+              <p>Technology aligned with measurable outcomes.</p>
+            </div>
+
+            <div className="why-card">
+              <h4>Scalable Architecture</h4>
+              <p>Systems designed to grow with your company.</p>
+            </div>
+
+            <div className="why-card">
+              <h4>Transparent Communication</h4>
+              <p>Direct collaboration and progress visibility.</p>
+            </div>
+
+            <div className="why-card">
+              <h4>Long-Term Partnership</h4>
+              <p>Support beyond deployment and launch.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Optional Stats — Enable if ready */}
       <StatsSection />
-     
-     {/* Projects Section */}
-     <section className="section projects-section">
-      <ProjectSections />
-     </section>
-     <section className="section testimonial-section">
-     <TestimonialSection />
-     </section>
-     <section className="section tech-section">
-     <TechnologiesSlider />
-     </section>
-      
 
-      
+      {/* Projects */}
+      <section className="section projects-section">
+        <ProjectSections />
+      </section>
 
-      {/* Skills Section */}
-      {/* <SkillsSection /> */}
-      
-      
+      {/* Testimonials */}
+      <section className="section testimonial-section">
+        <TestimonialSection />
+      </section>
 
-      {/* Trusted By Section */}
+      {/* Technologies */}
+      <section className="section tech-section">
+        <TechnologiesSlider />
+      </section>
+
+      {/* Trusted Partners */}
       <section className="section partners-section">
         <div className="container">
+
           <div className="section-title">
             <h2>Trusted By Our Clients</h2>
-            <p>We have successfully collaborated with leading platforms</p>
           </div>
 
           <div className="partners-grid">
             {trustedPartners.map((partner, index) => (
               <div key={index} className="partner-logo">
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  loading="lazy"
-                />
+                <img src={partner.logo} alt={partner.name} />
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      
-      
-
-      {/* CTA Section */}
+      {/* CTA ⭐ Improved */}
       <section className="section cta-section">
         <div className="container">
+
           <div className="cta-content">
+
             <h2>Ready to Start Your Project?</h2>
+
             <p>
-              Let's discuss how we can help transform your business with custom software solutions
+              Get expert consultation and project roadmap within 24 hours.
             </p>
-            <Link to="/contact" className="btn btn-primary">
-              Get Free Quote
-            </Link>
+
+            <div className="cta-buttons">
+
+              <Link to="/contact" className="btn btn-primary">
+                Get Free Quote
+              </Link>
+           
+            </div>
+
           </div>
+
         </div>
       </section>
+
     </main>
   );
 };

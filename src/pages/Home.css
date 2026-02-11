@@ -244,3 +244,43 @@
 .partners-section {
   background: #eef2f7 !important;
 }
+.process-grid,
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 24px;
+}
+
+.process-card,
+.why-card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transition: .3s ease;
+}
+
+.process-card:hover,
+.why-card:hover {
+  transform: translateY(-6px);
+}
+.process-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.process-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.process-card h3 {
+  margin-top: 12px;
+  font-weight: 600;
+}
+.process-card p {
+  margin-top: 6px;
+  color: #555;
+}
