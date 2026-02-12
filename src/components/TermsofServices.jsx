@@ -70,6 +70,7 @@ const TermsOfServices = () => {
                 <li>Enterprise & Custom Software Development</li>
                 <li>API Development & System Integration</li>
                 <li>Legacy Software Modernization</li>
+                <li>Digital Marketing & SEO</li>
             </ul>
             </article>
 

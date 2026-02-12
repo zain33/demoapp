@@ -186,3 +186,110 @@
     padding: 25px;
   }
 }
+.company-story {
+  background: #ffffff;
+}
+
+.story-card {
+  background: #f8fafc;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+  line-height: 1.8;
+}
+story-card p{
+  font-size:16px;
+  line-height:1.85;
+  color:#2d3748;
+}
+
+.story-card h4{
+  margin-top:25px;
+  font-size:20px;
+  font-weight:600;
+  color:#1a365d;
+}
+.story-list {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.story-list li {
+  margin-bottom: 10px;
+}
+
+
+/* CEO SECTION */
+.ceo-section {
+  background: linear-gradient(#f7fafc,#ffffff);
+}
+
+.ceo-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: center;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.07);
+}
+
+.ceo-image {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.ceo-image img{
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:50%;
+  border:6px solid #ffffff;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.ceo-content{
+  font-family: 'Georgia', serif;
+
+}
+
+.ceo-content h3{
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:.5px;
+  color:#1a365d;
+}
+
+.ceo-content p{
+  font-size:16px;
+  line-height:1.8;
+  color:#4a5568;
+  font-style: italic;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .ceo-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.ceo-identity{
+  margin-top:20px;
+  margin-bottom:15px;
+}
+
+.ceo-identity h4{
+  font-size:18px;
+  font-weight:600;
+  color:#1a365d;
+  margin:0;
+}
+
+.ceo-identity span{
+  font-size:14px;
+  color:#718096;
+  letter-spacing:.3px;
+}

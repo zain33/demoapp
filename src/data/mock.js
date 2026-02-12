@@ -4,6 +4,7 @@ import financeImg from '../assets/qllm-soft-finance-management-system-11.webp';
 import hrImg from '../assets/hr.webp';
 import portfolioImg from '../assets/portfolio-profile.webp';
 import inventory from '../assets/inventory-management .webp';
+import digitalmarketing from '../assets/digitalmarketing.png';
 export const companyInfo = {
   name: "QllmSoft",
   tagline: "Best for your business",
@@ -69,25 +70,25 @@ export const homeServices = [
   },
   {
     id: 2,
-    name: "Desktop Applications",
-    description: "Building dynamic desktop applications for you that optimize workflows and can elevate your business performance.",
-    image: "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=600&q=80",
-    link: "/services"
-  },
-  {
-    id: 3,
     name: "Mobile Applications",
     description: "Designing sleek and user-friendly mobile apps for you that captivate your audience and can elevate your brand.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
     link: "/services"
   },
   {
-    id: 4,
+    id: 3,
     name: "API Development Services",
     description: "At QllmSoft, we build powerful APIs that streamline your systems and enable seamless integrations.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
     link: "/services"
-  }
+  },
+  {
+  id: 4,
+  name: "Digital Marketing & SEO",
+  description: "Enhance your online presence with strategic SEO, targeted marketing campaigns, and creative design solutions that drive traffic, leads, and growth for your business.",
+  image: digitalmarketing,
+  link: "/services"
+}
 ];
 
 export const servicesData = [
@@ -148,7 +149,19 @@ export const servicesData = [
       "Cloud migration (AWS/Azure/GCP).",
       "Modern UI/UX skins for legacy logic."
     ]
-  }
+  },
+  {
+  id: 6,
+  name: "Digital Marketing & SEO",
+  slug: "digital-marketing-seo-strategy",
+  description: "Accelerate your business growth with data-driven digital marketing and advanced SEO strategies. We help brands increase visibility, generate qualified leads, and dominate search rankings through performance marketing, technical SEO, and conversion-focused campaigns.",
+  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+  features: [
+    "Advanced Technical SEO & on-page optimization.",
+    "Performance marketing (Google Ads & social campaigns).",
+    "Conversion rate optimization (CRO) & analytics tracking."
+  ]
+}
 ];
 
 export const projectsData = [
@@ -188,8 +201,8 @@ export const projectsData = [
 
   {
     id: 2,
-    slug: "document-controller",
-    title: "Document Controller (Secure DMS)",
+    slug: "qllmdocs",
+    title: "QllmDocs",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
 
     shortDescription:
@@ -422,7 +435,7 @@ By leveraging powerful development frameworks like ASP.NET and the latest in web
 export const projects = [
   {
     id: 1,
-    name: "Document Controller",
+    name: "QllmDocs",
     slug: "document-controller",
     description: "Save, Organize, Edit, Retrieve Documents",
     image: docControllerImg,
