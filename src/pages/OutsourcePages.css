@@ -1,0 +1,727 @@
+
+/* =========================================================
+   MODERN SHARED DESIGN
+   OutsourceMobileAppDevelopment
+   OutsourceWebDevelopment
+   MobileAppDevelopmentCost
+========================================================= */
+
+.outsource-page {
+  --primary: #5b3df5;
+  --primary-dark: #4127c9;
+  --secondary: #8b5cf6;
+  --accent: #00c2a8;
+  --dark: #111827;
+  --text: #4b5563;
+  --light-bg: #f7f8fc;
+  --border: #e7e9f2;
+
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  color: var(--text);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.outsource-page .breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 0.86rem;
+  color: #7c8494;
+  margin-bottom: 28px;
+}
+
+.outsource-page .breadcrumb a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.outsource-page .breadcrumb a:hover {
+  color: var(--primary-dark);
+}
+
+.outsource-page .breadcrumb span {
+  margin: 0 3px;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.outsource-page .hero {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 60px;
+  margin-bottom: 70px;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(139, 92, 246, 0.45),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(0, 194, 168, 0.2),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #16112f 0%, #30207a 50%, #5b3df5 100%);
+
+  box-shadow: 0 25px 70px rgba(67, 56, 202, 0.2);
+}
+
+.outsource-page .hero::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: -120px;
+  bottom: -180px;
+  border-radius: 50%;
+  border: 50px solid rgba(255, 255, 255, 0.05);
+}
+
+.outsource-page .hero::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -70px;
+  right: 10%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.outsource-page .hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 0 22px;
+
+  font-size: clamp(2.2rem, 5vw, 4.3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  color: #ffffff;
+}
+
+.outsource-page .hero-sub {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 0 32px;
+
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.outsource-page .cta-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.outsource-page .cta-row-center {
+  justify-content: center;
+}
+
+.outsource-page .btn-primary,
+.outsource-page .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+  padding: 14px 26px;
+
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.outsource-page .btn-primary {
+  background: #ffffff;
+  color: var(--primary-dark);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+}
+
+.outsource-page .btn-primary:hover {
+  transform: translateY(-3px);
+  background: #f8fafc;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+}
+
+.outsource-page .btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.outsource-page .btn-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* =========================================================
+   CONTENT SECTIONS
+========================================================= */
+
+.outsource-page .content-section {
+  margin-bottom: 72px;
+}
+
+.outsource-page .content-section h2 {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0;
+
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--dark);
+
+  border: none;
+}
+
+.outsource-page .content-section h2::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  margin-top: 14px;
+
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
+}
+
+.outsource-page .content-section h3 {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  font-weight: 750;
+  line-height: 1.4;
+  color: var(--dark);
+}
+
+.outsource-page .content-section p {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  color: #596273;
+}
+
+.outsource-page .content-section a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.outsource-page .content-section a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   3 COLUMN CARDS
+========================================================= */
+
+.outsource-page .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.outsource-page .grid-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100%;
+  padding: 30px 26px;
+
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  box-shadow: 0 8px 30px rgba(30, 41, 59, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.outsource-page .grid-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.outsource-page .grid-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(91, 61, 245, 0.25);
+  box-shadow: 0 22px 50px rgba(30, 41, 59, 0.12);
+}
+
+.outsource-page .grid-card:hover::before {
+  opacity: 1;
+}
+
+.outsource-page .grid-card h3 {
+  color: var(--dark);
+}
+
+.outsource-page .grid-card p {
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+/* =========================================================
+   COST FACTOR CARDS
+========================================================= */
+
+.outsource-page .factor-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.outsource-page .factor-item {
+  position: relative;
+
+  padding: 24px 24px 24px 28px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #fafaff
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(30, 41, 59, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.outsource-page .factor-item::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 0;
+
+  width: 4px;
+
+  border-radius: 0 10px 10px 0;
+
+  background: linear-gradient(
+    180deg,
+    var(--primary),
+    var(--secondary)
+  );
+}
+
+.outsource-page .factor-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(30, 41, 59, 0.1);
+}
+
+.outsource-page .factor-item h3 {
+  margin: 0 0 7px;
+  font-size: 1.05rem;
+}
+
+.outsource-page .factor-item p {
+  margin: 0;
+  font-size: 0.93rem;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.outsource-page .info-table {
+  width: 100%;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  margin: 20px 0 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  font-size: 0.94rem;
+
+  box-shadow: 0 10px 30px rgba(30, 41, 59, 0.05);
+}
+
+.outsource-page .info-table th {
+  padding: 16px 18px;
+
+  background: linear-gradient(
+    135deg,
+    #3520a7,
+    var(--primary)
+  );
+
+  color: #ffffff;
+  text-align: left;
+  font-weight: 700;
+}
+
+.outsource-page .info-table td {
+  padding: 16px 18px;
+  color: #4b5563;
+  border-bottom: 1px solid var(--border);
+}
+
+.outsource-page .info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.outsource-page .info-table tr:nth-child(even) td {
+  background: #fafbff;
+}
+
+.outsource-page .info-table tr:hover td {
+  background: #f3f1ff;
+}
+
+.outsource-page .table-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #8a92a3;
+}
+
+/* =========================================================
+   PROCESS LIST
+========================================================= */
+
+.outsource-page .process-list {
+  display: grid;
+  gap: 14px;
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.outsource-page .process-list li {
+  position: relative;
+
+  padding: 20px 22px 20px 58px;
+
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  color: #596273;
+
+  box-shadow: 0 5px 20px rgba(30, 41, 59, 0.04);
+}
+
+.outsource-page .process-list li::before {
+  content: "✓";
+
+  position: absolute;
+  top: 19px;
+  left: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #ede9fe;
+  color: var(--primary);
+
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.outsource-page .process-list strong {
+  color: var(--dark);
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.outsource-page .faq-section h2 {
+  margin-bottom: 28px;
+}
+
+.outsource-page .faq-item {
+  padding: 24px 26px;
+  margin-bottom: 14px;
+
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: 0 5px 20px rgba(30, 41, 59, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.outsource-page .faq-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 14px 35px rgba(30, 41, 59, 0.08);
+}
+
+.outsource-page .faq-item h3 {
+  margin: 0 0 9px;
+
+  font-size: 1.06rem;
+  font-weight: 750;
+  color: var(--dark);
+}
+
+.outsource-page .faq-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #647084;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.outsource-page .cta-box {
+  position: relative;
+  overflow: hidden;
+
+  padding: 65px 40px;
+  margin-top: 30px;
+
+  text-align: center;
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0, 194, 168, 0.3),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(139, 92, 246, 0.5),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #171036,
+      #38239a,
+      #5b3df5
+    );
+
+  box-shadow: 0 25px 60px rgba(67, 56, 202, 0.22);
+}
+
+.outsource-page .cta-box::before {
+  content: "";
+
+  position: absolute;
+  width: 250px;
+  height: 250px;
+
+  top: -130px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  border: 40px solid rgba(255, 255, 255, 0.05);
+}
+
+.outsource-page .cta-box h2 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 750px;
+  margin: 0 auto 15px;
+
+  padding: 0;
+  border: none;
+
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #ffffff;
+}
+
+.outsource-page .cta-box h2::after {
+  display: none;
+}
+
+.outsource-page .cta-box p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 650px;
+  margin: 0 auto 28px;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.outsource-page .cta-box .btn-primary {
+  background: #ffffff;
+  color: var(--primary-dark);
+}
+
+.outsource-page .cta-box .btn-primary:hover {
+  background: #f8fafc;
+}
+
+.outsource-page .cta-box .btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .outsource-page {
+    padding: 24px 20px 60px;
+  }
+
+  .outsource-page .hero {
+    padding: 55px 40px;
+  }
+
+  .outsource-page .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .outsource-page .hero {
+    padding: 45px 25px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+  }
+
+  .outsource-page .hero h1 {
+    font-size: 2.15rem;
+  }
+
+  .outsource-page .hero-sub {
+    font-size: 1rem;
+  }
+
+  .outsource-page .content-section {
+    margin-bottom: 55px;
+  }
+
+  .outsource-page .grid-3,
+  .outsource-page .factor-list {
+    grid-template-columns: 1fr;
+  }
+
+  .outsource-page .info-table {
+    font-size: 0.82rem;
+  }
+
+  .outsource-page .info-table th,
+  .outsource-page .info-table td {
+    padding: 12px 10px;
+  }
+
+  .outsource-page .cta-box {
+    padding: 50px 24px;
+    border-radius: 18px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .outsource-page {
+    padding: 20px 15px 50px;
+  }
+
+  .outsource-page .hero {
+    padding: 38px 22px;
+  }
+
+  .outsource-page .hero h1 {
+    font-size: 1.85rem;
+  }
+
+  .outsource-page .cta-row {
+    flex-direction: column;
+  }
+
+  .outsource-page .btn-primary,
+  .outsource-page .btn-secondary {
+    width: 100%;
+  }
+
+  .outsource-page .grid-card,
+  .outsource-page .factor-item,
+  .outsource-page .faq-item {
+    padding: 22px 20px;
+  }
+
+  .outsource-page .info-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+}
