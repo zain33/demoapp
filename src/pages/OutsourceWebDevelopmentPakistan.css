@@ -1,0 +1,624 @@
+/**
+ * OutsourceWebDevelopmentPakistan.css
+ * ─────────────────────────────────────────────────────────────
+ * Design tokens (kept in the file's own scope so it can't leak into or
+ * collide with sibling pages' CSS):
+ *   Navy   #0B1F3F   — primary text / dark sections
+ *   Blue   #12407A   — secondary brand blue (US bar, links)
+ *   Gold   #EDB702   — site accent, carried over from sibling pages (PK bar)
+ *   Teal   #1E7A6B   — UK bar, a cool counterpoint to gold
+ *   Coral  #D96C4C   — Gulf bar, warm counterpoint to teal
+ *   Paper  #F6F8FC   — tinted section background
+ *   Ink    #10203A   — body text
+ *
+ * Signature element: the time-zone overlap chart (.owp-tz) — a real,
+ * subject-specific visual (not a generic icon grid) answering the most
+ * common outsourcing objection: "will we ever actually talk to them."
+ *
+ * Type: system sans stack to match the rest of the site (no new font
+ * dependency introduced); personality comes from scale, weight and
+ * negative tracking on headings rather than a display typeface swap.
+ */
+
+.owp-page {
+  --owp-navy: #0b1f3f;
+  --owp-blue: #12407a;
+  --owp-gold: #edb702;
+  --owp-teal: #1e7a6b;
+  --owp-coral: #d96c4c;
+  --owp-paper: #f6f8fc;
+  --owp-ink: #10203a;
+  --owp-ink-soft: #4a5a75;
+  --owp-border: #e2e8f4;
+
+  color: var(--owp-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.owp-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section scaffolding ─────────────────────────────────── */
+.owp-section {
+  padding: 88px 0;
+}
+.owp-section--tint {
+  background: var(--owp-paper);
+}
+.owp-section--dark {
+  background: var(--owp-navy);
+  color: #eef2fb;
+}
+.owp-section-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--owp-gold);
+  margin: 0 0 12px;
+}
+.owp-section-label--light {
+  color: var(--owp-gold);
+}
+.owp-section-title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--owp-navy);
+  margin: 0 0 40px;
+  max-width: 640px;
+}
+.owp-section-title--light {
+  color: #fff;
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.owp-hero {
+  position: relative;
+  padding: 96px 0 72px;
+  background: linear-gradient(160deg, #0b1f3f 0%, #12407a 62%, #0e3563 100%);
+  color: #f2f5fb;
+  overflow: hidden;
+}
+.owp-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 85% 10%, rgba(237, 183, 2, 0.16), transparent 45%),
+    radial-gradient(circle at 8% 85%, rgba(30, 122, 107, 0.22), transparent 40%);
+  pointer-events: none;
+}
+.owp-hero__inner {
+  position: relative;
+  max-width: 760px;
+}
+.owp-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--owp-gold);
+  margin: 0 0 18px;
+}
+.owp-hero__title {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0 0 24px;
+  color: #ffffff;
+}
+.owp-hero__direct-answer {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: #d6e0f2;
+  max-width: 620px;
+  margin: 0 0 34px;
+}
+.owp-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+.owp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+.owp-btn--primary {
+  background: var(--owp-gold);
+  color: #17223a;
+  box-shadow: 0 6px 18px rgba(237, 183, 2, 0.28);
+}
+.owp-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(237, 183, 2, 0.36);
+}
+.owp-btn--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #f2f5fb;
+}
+.owp-btn--ghost:hover {
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.owp-btn--ghost-dark {
+  border-color: var(--owp-navy);
+  color: var(--owp-navy);
+}
+.owp-btn--ghost-dark:hover {
+  background: var(--owp-navy);
+  color: #fff;
+}
+
+.owp-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.owp-hero__stats div {
+  display: flex;
+  flex-direction: column;
+}
+.owp-hero__stats dt {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--owp-gold);
+  margin: 0;
+}
+.owp-hero__stats dd {
+  margin: 2px 0 0;
+  font-size: 0.82rem;
+  color: #b9c6e0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Animate-in utility ──────────────────────────────────── */
+.animate-owp {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.animate-owp.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-owp {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Why + timezone chart ────────────────────────────────── */
+.owp-why__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.owp-why__text p {
+  color: var(--owp-ink-soft);
+  font-size: 1.02rem;
+  margin: 0 0 18px;
+}
+.owp-why__text p:last-child {
+  margin-bottom: 0;
+}
+
+.owp-tz {
+  background: #ffffff;
+  border: 1px solid var(--owp-border);
+  border-radius: 14px;
+  padding: 28px 24px 22px;
+  box-shadow: 0 18px 40px -24px rgba(11, 31, 63, 0.35);
+}
+.owp-tz__axis {
+  position: relative;
+  height: 18px;
+  margin-bottom: 8px;
+}
+.owp-tz__axis-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.66rem;
+  color: #8b98b3;
+  font-variant-numeric: tabular-nums;
+}
+.owp-tz__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.owp-tz__row {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+.owp-tz__row-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--owp-navy);
+}
+.owp-tz__track {
+  position: relative;
+  height: 16px;
+  background: #eef1f8;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.owp-tz__bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 6px;
+  opacity: 0.92;
+}
+.owp-tz__note {
+  margin: 20px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--owp-ink-soft);
+  border-top: 1px dashed var(--owp-border);
+  padding-top: 16px;
+}
+
+/* ── Card grids ───────────────────────────────────────────── */
+.owp-grid {
+  display: grid;
+  gap: 22px;
+}
+.owp-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.owp-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.owp-card {
+  background: #fff;
+  border: 1px solid var(--owp-border);
+  border-radius: 12px;
+  padding: 26px 24px;
+  position: relative;
+}
+.owp-card--compact {
+  padding: 22px 20px;
+}
+.owp-card__index {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--owp-gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.owp-card__title {
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--owp-navy);
+  margin: 0 0 8px;
+}
+.owp-card__desc {
+  font-size: 0.92rem;
+  color: var(--owp-ink-soft);
+  margin: 0;
+}
+.owp-card__desc a {
+  color: var(--owp-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Engagement models ───────────────────────────────────── */
+.owp-models {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.owp-model {
+  position: relative;
+  background: #fff;
+  border: 1.5px solid var(--owp-border);
+  border-radius: 14px;
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.owp-model--featured {
+  border-color: var(--owp-gold);
+  box-shadow: 0 18px 36px -22px rgba(237, 183, 2, 0.45);
+}
+.owp-model__badge {
+  position: absolute;
+  top: -12px;
+  left: 26px;
+  background: var(--owp-gold);
+  color: #17223a;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.owp-model__name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--owp-navy);
+  margin: 6px 0 2px;
+}
+.owp-model__fit {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--owp-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 14px;
+}
+.owp-model__desc {
+  font-size: 0.92rem;
+  color: var(--owp-ink-soft);
+  margin: 0 0 20px;
+  flex: 1;
+}
+.owp-model__cta {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--owp-blue);
+  text-decoration: none;
+}
+.owp-model__cta:hover {
+  text-decoration: underline;
+}
+
+/* ── Process ──────────────────────────────────────────────── */
+.owp-process {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.owp-process__step {
+  border-top: 3px solid var(--owp-gold);
+  padding-top: 18px;
+}
+.owp-process__num {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--owp-gold);
+  margin-bottom: 10px;
+}
+.owp-process__step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+.owp-process__step p {
+  font-size: 0.86rem;
+  color: #b9c6e0;
+  margin: 0;
+}
+
+/* ── Comparison table ─────────────────────────────────────── */
+.owp-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--owp-border);
+  border-radius: 12px;
+}
+.owp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 720px;
+}
+.owp-table__caption {
+  caption-side: top;
+  text-align: left;
+  padding: 16px 18px 0;
+  font-size: 0.8rem;
+  color: var(--owp-ink-soft);
+}
+.owp-table th,
+.owp-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--owp-border);
+  text-align: left;
+  vertical-align: top;
+}
+.owp-table thead th {
+  color: var(--owp-navy);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.owp-table__factor {
+  font-weight: 700;
+  color: var(--owp-navy);
+  white-space: nowrap;
+}
+.owp-table__highlight {
+  background: rgba(237, 183, 2, 0.08);
+  font-weight: 600;
+  color: var(--owp-navy);
+}
+
+/* ── Tech stack ───────────────────────────────────────────── */
+.owp-stack__intro {
+  max-width: 620px;
+  color: var(--owp-ink-soft);
+  margin: -18px 0 28px;
+}
+.owp-stack__pills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.owp-stack__pills li {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--owp-border);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--owp-navy);
+  background: #fff;
+}
+
+/* ── FAQ ──────────────────────────────────────────────────── */
+.owp-faq__list {
+  max-width: 820px;
+}
+.owp-faq-item {
+  border-bottom: 1px solid var(--owp-border);
+}
+.owp-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--owp-navy);
+  cursor: pointer;
+}
+.owp-faq-icon {
+  font-size: 1.3rem;
+  color: var(--owp-gold);
+  flex-shrink: 0;
+}
+.owp-faq-answer {
+  padding: 0 4px 22px;
+}
+.owp-faq-answer p {
+  margin: 0;
+  color: var(--owp-ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+/* ── Final CTA ────────────────────────────────────────────── */
+.owp-cta {
+  background: var(--owp-paper);
+  padding: 88px 0 100px;
+  border-top: 1px solid var(--owp-border);
+}
+.owp-cta__inner {
+  max-width: 680px;
+}
+.owp-cta__inner h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  color: var(--owp-navy);
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+.owp-cta__inner > p {
+  color: var(--owp-ink-soft);
+  font-size: 1.02rem;
+  margin: 0 0 30px;
+}
+.owp-cta__related {
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--owp-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 0.86rem;
+}
+.owp-cta__related span:first-child {
+  color: var(--owp-ink-soft);
+  font-weight: 600;
+}
+.owp-cta__related a {
+  color: var(--owp-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.owp-cta__related a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 980px) {
+  .owp-why__layout {
+    grid-template-columns: 1fr;
+  }
+  .owp-grid--3,
+  .owp-grid--4,
+  .owp-models {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .owp-process {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .owp-tz__row {
+    grid-template-columns: 118px 1fr;
+  }
+  .owp-tz__row-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .owp-section {
+    padding: 64px 0;
+  }
+  .owp-hero {
+    padding: 72px 0 56px;
+  }
+  .owp-grid--3,
+  .owp-grid--4,
+  .owp-models,
+  .owp-process {
+    grid-template-columns: 1fr;
+  }
+  .owp-hero__stats {
+    gap: 26px;
+  }
+  .owp-tz__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* ── Accessibility: visible keyboard focus ───────────────── */
+.owp-page a:focus-visible,
+.owp-page button:focus-visible {
+  outline: 3px solid var(--owp-gold);
+  outline-offset: 2px;
+}

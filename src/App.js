@@ -9,8 +9,9 @@ import CostCalculator from "./pages/CostCalculator";
 import RequirementsChecklist from "./pages/RequirementsChecklist";
 import EcommerceDevelopmentServices from './pages/EcommerceDevelopmentServices';
 import AspnetCoreDevelopmentServices from './pages/asp-net-core-development-services';
-
-
+import OutsourceWebDevelopmentPakistan from "./pages/OutsourceWebDevelopmentPakistan";
+import OutsourceMobileAppDevelopment from "./pages/OutsourceMobileAppDevelopment";
+import MobileAppDevelopmentCost from "./pages/MobileAppDevelopmentCost";
 // Lazy loaded pages - each page loads only when visited
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -170,11 +171,27 @@ function App() {
 								path="/write-for-us"
 								element={<GuestPostPage />}
 							/>
+							<Route
+  path="/outsource-web-development-to-pakistan"
+  element={<OutsourceWebDevelopmentPakistan />}
+/>
 <Route path="/software-development-cost-calculator" element={<CostCalculator />} />
 <Route path="/software-project-requirements-checklist" element={<RequirementsChecklist />} />
 <Route path="/ecommerce-development-services" element={<EcommerceDevelopmentServices />} />
-<Route path="/asp-net-core-development-services" element={<AspnetCoreDevelopmentServices />} 
+<Route path="/asp-net-core-development-services" element={<AspnetCoreDevelopmentServices />}
+
+ 
       />
+	  <Route
+  path="/outsource-mobile-app-development-to-pakistan"
+  element={<OutsourceMobileAppDevelopment />}
+/>
+
+<Route
+  path="/mobile-app-development-cost-in-pakistan"
+  element={<MobileAppDevelopmentCost />}
+/>
+	  
 
 						</Routes>
 					</Suspense>
