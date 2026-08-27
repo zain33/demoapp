@@ -358,12 +358,12 @@ verified project outcomes, architecture approaches, and technology stacks used a
 maintained since 2015.
               </p>
               <a
-                href="/pdfs/QllmSoft-Company-Portfolio.pdf"
+                href="/pdfs/QllmSoft-Company-Profile.pdf"
                 className="btn btn-primary portfolio-download-btn"
                 download
                 aria-label="Download QllmSoft software development portfolio PDF"
               >
-                Download Software Portfolio (PDF) ↓
+                Download Software Portfolio (PDF)
               </a>
             </div>
           </div>
