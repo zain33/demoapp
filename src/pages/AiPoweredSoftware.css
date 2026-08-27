@@ -367,6 +367,21 @@
   border-color: #edb702;
 }
 
+/* Add to AiPoweredSoftware.css — the only new rule this section needs,
+   everything else (.ai-compare, .ai-compare__wrap, .ai-compare-table,
+   .ai-col--factor, .ai-col--highlight) already exists in your stylesheet
+   and is now correctly wired up to the JSX. */
+   .ai-compare__note {
+    max-width: 780px;
+    margin: 32px auto 0;
+    text-align: center;
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+    position: relative;
+    z-index: 2;
+  }
+
 .ai-hero__card:hover .ai-hero__card-icon::after {
   background: #edb702;
   box-shadow: 0 0 6px #edb702;

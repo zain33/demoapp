@@ -1,10 +1,29 @@
 /**
  * AiPoweredSoftware.jsx
  * ─────────────────────────────────────────────────────────────────
- * CORE SECTION PILLAR (reclassified per the Semantic SEO audit — this
+ * CORE SECTION PILLAR (reclassified per the Semantic SEO audit, this
  * was previously duplicated between /ai-powered-software-solutions and
  * /blog/ai-powered-software-solutions; the blog URL is now 301-redirected
  * here, and this is the single surviving URL for the topic).
+ *
+ * REV 2, entity-disambiguation + content-depth pass.
+ * Two problems were diagnosed on this page:
+ *   1) "qllmsoft" was not co-occurring with the topic phrase anywhere in
+ *      crawlable body copy, only in the URL slug, schema, and nav,
+ *      which left Google's query understanding unsure whether "qllmsoft"
+ *      was a real entity (hence the "did you mean: all soft" correction)
+ *      and left the snippet generator with nothing to quote when the
+ *      brand term was added to the query.
+ *   2) Likely secondary/compounding cause: the app is CSR-only, so
+ *      react-helmet-async's tag injection depends on hydration completing
+ *      before Googlebot's rendering pass reads the DOM. This rewrite does
+ *      not fix that, SSR/prerendering (react-snap, a Next.js migration,
+ *      or a prerender.io-style middleware) is still the required parallel
+ *      fix and is out of scope for a content-only file.
+ * This revision fixes (1): the brand name now appears multiple times in
+ * the first 150 words and throughout body copy, directly adjacent to the
+ * topic phrase and to QllmSoft's core service categories, so both users
+ * and Google have unambiguous text to match the query against.
  *
  * Central Search Intent: "Hire a company to add AI features to existing
  *                          software, or build AI-powered software from scratch."
@@ -87,6 +106,11 @@ const IconCheckCircle = ({ size = 20 }) => (
     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
   </svg>
 );
+const IconMapPin = ({ size = 22 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/>
+  </svg>
+);
 
 /* ─── JSON-LD: Organization ───────────────────────────────── */
 const schemaOrg = {
@@ -96,6 +120,7 @@ const schemaOrg = {
   url: 'https://qllmsoft.com',
   logo: 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
   foundingDate: '2015',
+  description: 'QllmSoft is a custom software development and AI integration company headquartered in Lalamusa, Punjab, Pakistan, serving clients across the US, UK, UAE, and Saudi Arabia.',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+92-334-8229288',
@@ -122,9 +147,9 @@ const schemaService = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'AI Software Development',
-  name: 'AI-Powered Software Solutions | QllmSoft',
+  name: 'AI-Powered Software Solutions by QllmSoft',
   description:
-    'QllmSoft builds AI-powered software and adds AI features to existing systems — machine learning, NLP, computer vision, and OpenAI/LLM integrations — for businesses that want AI to actually change how their software works, not just check a box.',
+    'QllmSoft designs and builds AI-powered software solutions, machine learning models, NLP tools, computer vision systems, and OpenAI/LLM integrations, either as new applications or as AI features added into software businesses already run.',
   provider: { '@type': 'Organization', name: 'QllmSoft', url: 'https://qllmsoft.com' },
   areaServed: ['Pakistan','United States','United Kingdom','UAE','Saudi Arabia'],
   url: PAGE_URL,
@@ -137,6 +162,7 @@ const schemaService = {
       { '@type':'Offer', itemOffered:{ '@type':'Service', name:'NLP & Conversational AI' } },
       { '@type':'Offer', itemOffered:{ '@type':'Service', name:'Computer Vision Solutions' } },
       { '@type':'Offer', itemOffered:{ '@type':'Service', name:'OpenAI & LLM Integration' } },
+      { '@type':'Offer', itemOffered:{ '@type':'Service', name:'AI Retrofits for Existing Software' } },
     ],
   },
 };
@@ -153,37 +179,45 @@ const schemaBreadcrumb = {
 };
 
 const integrationItems = [
-  { Icon: IconZap, title: 'Staged, Low-Risk Rollout', desc: 'We stage and monitor before anything touches production — AI features go live in phases, not as a single risky cutover.' },
-  { Icon: IconCode, title: 'Custom APIs & Middleware', desc: 'Connector layers built for your actual stack, not a generic plugin that half-fits.' },
-  { Icon: IconDatabase, title: 'Works With What You Have', desc: 'CRMs, ERPs, CMSs, mobile and web apps — the AI layer sits on top of your existing systems instead of replacing them.' },
+  { Icon: IconZap, title: 'Staged, Low-Risk Rollout', desc: 'QllmSoft stages and monitors every AI feature before it touches production, a phased rollout, never a single risky cutover.' },
+  { Icon: IconCode, title: 'Custom APIs & Middleware', desc: 'Connector layers built for your actual stack, not a generic plugin that half-fits. See our broader approach on the API development page.' },
+  { Icon: IconDatabase, title: 'Works With What You Have', desc: 'CRMs, ERPs, CMSs, mobile and web apps, the AI layer sits on top of your existing systems instead of replacing them. If the underlying system itself is the bottleneck, our legacy modernization team handles that separately.' },
   { Icon: IconSettings, title: 'Real-Time Data Sync', desc: 'Event-driven pipelines and webhooks so the AI is working from current data, not a nightly batch export.' },
 ];
 
 /* ─── FAQ data ────────────────────────────────────────────── */
 const FAQ_DATA = [
   {
+    q: 'Is QllmSoft an AI-only shop, or a software house that also does AI?',
+    a: 'QllmSoft is a custom software development company first, we\'ve been building web, mobile, and enterprise applications since 2015, and AI-powered software solutions are one of our core service lines, not a rebrand. That matters practically: when we add a model to your product, the same team also owns the surrounding application, the API layer, and the database it runs against, instead of handing you an isolated AI script that someone else has to wire in.',
+  },
+  {
     q: 'How do I know if my business actually needs AI, or if it\'s just a trend I should skip?',
-    a: 'The honest test: can you point to a specific, repeated task that\'s expensive because a human has to make a judgment call on it — sorting support tickets, flagging suspicious transactions, predicting which customers will churn? If yes, AI is probably worth exploring. If you\'re asking "should we have AI" without a specific problem attached, you\'re not ready yet, and we\'ll tell you that directly in a discovery call rather than sell you a project you don\'t need.',
+    a: 'The honest test: can you point to a specific, repeated task that\'s expensive because a human has to make a judgment call on it, sorting support tickets, flagging suspicious transactions, predicting which customers will churn? If yes, AI is probably worth exploring. If you\'re asking "should we have AI" without a specific problem attached, you\'re not ready yet, and QllmSoft will tell you that directly in a discovery call rather than sell you a project you don\'t need.',
   },
   {
     q: 'What data do you need from us before starting an AI project?',
-    a: 'It depends on the project, but generally: whatever historical data reflects the decision you want the model to make. For a churn predictor, that\'s past customer behavior and outcomes. For a document classifier, that\'s a set of labeled examples. We run a short data readiness check at the start of every engagement — sometimes the data\'s in good shape, sometimes it needs cleanup work before modeling can even begin, and we\'ll tell you which situation you\'re in before quoting a timeline.',
+    a: 'It depends on the project, but generally: whatever historical data reflects the decision you want the model to make. For a churn predictor, that\'s past customer behavior and outcomes. For a document classifier, that\'s a set of labeled examples. We run a short data readiness check at the start of every engagement, sometimes the data\'s in good shape, sometimes it needs cleanup work before modeling can even begin, and we\'ll tell you which situation you\'re in before quoting a timeline.',
   },
   {
     q: 'Will AI replace jobs on my team?',
-    a: 'In our experience, no — not the way people worry it will. AI is genuinely good at high-volume repetitive judgment calls: sorting, flagging, drafting a first pass. It\'s not good at the parts of a job that involve context, relationships, or unusual situations. Most of our clients end up reallocating time toward that harder work rather than cutting headcount, but we won\'t pretend that\'s a universal outcome — it depends on what the AI is actually automating.',
+    a: 'In our experience, no, not the way people worry it will. AI is genuinely good at high-volume repetitive judgment calls: sorting, flagging, drafting a first pass. It\'s not good at the parts of a job that involve context, relationships, or unusual situations. Most QllmSoft clients end up reallocating time toward that harder work rather than cutting headcount, but we won\'t pretend that\'s a universal outcome, it depends on what the AI is actually automating.',
   },
   {
     q: 'How do you handle data privacy and security in AI projects?',
-    a: 'Every engagement starts with an NDA, and sensitive data is encrypted at rest and in transit. For projects touching regulated data, we follow GDPR- and HIPAA-aligned handling practices — access control, anonymization where appropriate, and audit logging on the repositories involved. If your industry has specific compliance requirements, tell us upfront and we\'ll build around them rather than retrofit them later.',
+    a: 'Every engagement starts with an NDA, and sensitive data is encrypted at rest and in transit. For projects touching regulated data, we follow GDPR- and HIPAA-aligned handling practices, access control, anonymization where appropriate, and audit logging on the repositories involved. We also structure risk decisions loosely around the NIST AI Risk Management Framework rather than inventing our own checklist. If your industry has specific compliance requirements, tell us upfront and we\'ll build around them rather than retrofit them later.',
   },
   {
     q: 'Can you integrate AI into software you didn\'t originally build?',
-    a: 'Yes, this is a large share of our AI work. We connect through REST APIs, GraphQL endpoints, or custom middleware into whatever CRM, ERP, or platform you\'re already running. The first step is always a short technical review of your existing system so we know what we\'re integrating with before proposing an approach.',
+    a: 'Yes, this is a large share of QllmSoft\'s AI work. We connect through REST APIs, GraphQL endpoints, or custom middleware into whatever CRM, ERP, or platform you\'re already running. The first step is always a short technical review of your existing system so we know what we\'re integrating with before proposing an approach. If the existing system predates modern APIs entirely, that usually starts as a legacy system modernization project instead.',
   },
   {
-    q: 'What happens after the AI model is deployed — does it just keep working forever?',
-    a: 'No, and any vendor who tells you it does is being optimistic. Models drift as real-world data shifts away from what they were trained on. We include a monitoring dashboard and set performance thresholds with you upfront, and most clients move into a retraining schedule — monthly or quarterly, depending on how fast the underlying data changes.',
+    q: 'What happens after the AI model is deployed, does it just keep working forever?',
+    a: 'No, and any vendor who tells you it does is being optimistic. Models drift as real-world data shifts away from what they were trained on. We include a monitoring dashboard and set performance thresholds with you upfront, and most clients move into a retraining schedule, monthly or quarterly, depending on how fast the underlying data changes.',
+  },
+  {
+    q: 'Does QllmSoft only build AI software, or can you also build the rest of the product around it?',
+    a: 'Both, and usually it\'s both in the same engagement. An AI model on its own isn\'t a product, it needs a front end, an API, user accounts, and somewhere for the output to actually land. QllmSoft\'s AI work sits alongside our custom software development, web application development, and mobile app development teams, so the model and the product it lives in are built by people who talk to each other daily, not handed off between vendors.',
   },
 ];
 
@@ -224,6 +258,7 @@ const AiPoweredSoftware = () => {
   const { ref: mlRef,       inView: mlInView       } = useInView({ triggerOnce: true, threshold: 0.08 });
   const { ref: casesRef,    inView: casesInView    } = useInView({ triggerOnce: true, threshold: 0.08 });
   const { ref: industryRef, inView: industryInView } = useInView({ triggerOnce: true, threshold: 0.08 });
+  const { ref: aboutRef,    inView: aboutInView    } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <>
@@ -231,7 +266,7 @@ const AiPoweredSoftware = () => {
         <title>AI-Powered Software Solutions | QllmSoft</title>
         <meta
           name="description"
-          content="QllmSoft builds AI-powered software and adds AI features to existing systems — machine learning, NLP, computer vision, and OpenAI/LLM integrations for real business use cases."
+          content="QllmSoft builds AI-powered software solutions, machine learning, NLP, computer vision, and OpenAI/LLM integration, added to your existing systems or built from scratch."
         />
         <meta name="author"  content="QllmSoft" />
         <meta name="robots"  content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -241,7 +276,7 @@ const AiPoweredSoftware = () => {
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:site_name" content="QllmSoft" />
         <meta property="og:title" content="AI-Powered Software Solutions | QllmSoft" />
-        <meta property="og:description" content="Machine learning, NLP, computer vision, and LLM integration — built into your existing software, not bolted on." />
+        <meta property="og:description" content="QllmSoft builds AI-powered software solutions: machine learning, NLP, computer vision, and LLM integration, built into your existing software, not bolted on." />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -250,7 +285,7 @@ const AiPoweredSoftware = () => {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI-Powered Software Solutions | QllmSoft" />
-        <meta name="twitter:description" content="Machine learning, NLP, computer vision, and LLM integration for real business use cases." />
+        <meta name="twitter:description" content="QllmSoft builds AI-powered software solutions for real business use cases, machine learning, NLP, computer vision, and LLM integration." />
         <meta name="twitter:image" content={OG_IMAGE} />
 
         <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
@@ -261,7 +296,7 @@ const AiPoweredSoftware = () => {
 
       <main id="main-content" className="ai-page" role="main">
 
-        {/* ══════════════ HERO — single H1 + direct answer ══════════════ */}
+        {/* ══════════════ HERO, single H1 + direct answer, brand + topic co-occurring ══════════════ */}
         <header className="ai-hero" role="banner">
           <div className="container ai-hero__inner">
             <div className="ai-hero__content">
@@ -270,14 +305,17 @@ const AiPoweredSoftware = () => {
                 AI Development
               </div>
 
-              <h1 className="ai-hero__title">AI-Powered Software Solutions</h1>
+              <h1 className="ai-hero__title">AI-Powered Software Solutions by QllmSoft</h1>
 
               <p className="ai-hero__sub">
+                <strong>AI-powered software solutions are applications that use machine
+                learning, natural language processing, or computer vision to make judgment
+                calls a human used to make by hand, and QllmSoft builds them,</strong> either
+                as new applications or as AI features added into software you already run.
                 We build machine learning models, NLP tools, computer vision systems, and LLM
-                integrations that plug into the software you already run, or into something
-                new, if you are starting from scratch. The goal isn't "add AI" as a headline
-                feature; it's removing a specific cost or bottleneck that a human is currently
-                handling manually.
+                integrations for that purpose. Our AI-powered software solutions aren't sold as
+                a headline feature, the goal in every QllmSoft AI engagement is removing a
+                specific cost or bottleneck that a human is currently handling manually.
               </p>
 
               <div className="ai-hero__buttons">
@@ -326,7 +364,7 @@ const AiPoweredSoftware = () => {
           </div>
         </header>
 
-        {/* ══════════════ INTRO — H2 ══════════════ */}
+        {/* ══════════════ INTRO, H2 ══════════════ */}
         <section className="section ai-intro" ref={introRef} aria-labelledby="intro-heading">
           <div className="container">
             <div className="ai-intro__layout">
@@ -335,28 +373,34 @@ const AiPoweredSoftware = () => {
                 <p>
                   A lot of AI marketing skips past the honest answer, which is that most
                   business problems don't need a model, they need better software, full
-                  stop. AI earns its cost specifically where a human is currently making a
-                  high-volume judgment call: is this transaction fraudulent, is this support
-                  ticket urgent, will this customer churn, what's in this scanned document.
-                  Those are pattern-recognition problems, and that's exactly what machine
-                  learning is built for.
+                  stop. That's the filter QllmSoft applies before proposing any AI-powered
+                  software solution: AI earns its cost specifically where a human is currently
+                  making a high-volume judgment call, is this transaction fraudulent, is this
+                  support ticket urgent, will this customer churn, what's in this scanned
+                  document. Those are pattern-recognition problems, and that's exactly what
+                  machine learning is built for.
                 </p>
                 <p>
-                  What we build tends to fall into a few buckets: predictive models trained on
-                  your historical data, natural language tools that read and route text at a
-                  volume no team could keep up with manually, computer vision for anything
-                  involving images or video, and, increasingly, LLM integrations that add a
-                  genuinely useful assistant or search layer on top of your existing product.
+                  What QllmSoft builds tends to fall into a few buckets: predictive models
+                  trained on your historical data, natural language tools that read and route
+                  text at a volume no team could keep up with manually, computer vision for
+                  anything involving images or video, and, increasingly, LLM integrations that
+                  add a genuinely useful assistant or search layer on top of your existing
+                  product. If what you actually need is a new product around that AI layer
+                  rather than a bolt-on, that work runs through our{' '}
+                  <Link to="/custom-software-development-services">custom software development</Link>{' '}
+                  team, and if it needs to talk to other systems, through{' '}
+                  <Link to="/api-development-services">API development</Link>.
                 </p>
                 <p>
-                  We build to a set of practices that line up with{' '}
+                  QllmSoft builds to a set of practices that line up with{' '}
                   <a href="https://ai.google/principles/" target="_blank" rel="noopener noreferrer nofollow" aria-label="Google AI Principles, external reference">
                     Google's published AI principles
                   </a>{' '}
-                  and{' '}
-                  <a href="https://www.ibm.com/artificial-intelligence" target="_blank" rel="noopener noreferrer nofollow" aria-label="IBM AI best practices, external reference">
-                    IBM's enterprise AI guidance
-                  </a>{' '}
+                  and the{' '}
+                  <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer nofollow" aria-label="NIST AI Risk Management Framework, external reference">
+                    NIST AI Risk Management Framework
+                  </a>
                   , not because a badge looks good on this page, but because those principles
                   (explainability, data minimization, human oversight on high-stakes decisions)
                   are genuinely the right defaults for production systems.
@@ -384,20 +428,67 @@ const AiPoweredSoftware = () => {
           </div>
         </section>
 
-        {/* ══════════════ SERVICES — H2 + H3s ══════════════ */}
+        <section className="section ai-cases" ref={casesRef} aria-labelledby="cases-heading">
+          <div className="container">
+            <div className="section-title">
+              <h2 id="cases-heading">A few recent QllmSoft AI projects</h2>
+              <p>Specific outcomes, not vague success language.</p>
+            </div>
+            <div className="ai-cases__grid">
+              {[
+                {
+                  Icon: IconCode, sector: 'Internal Product', title: 'QllmDocs, QllmSoft\'s Own AI-Powered Document Platform',
+                  problem: 'Teams managing a growing volume of business documents were stuck with folder structures and filename-based search, finding a specific document meant remembering where it was filed, not what was in it.',
+                  solution: 'QllmSoft built QllmDocs in-house as an AI-powered cloud document management platform, with AI-assisted search and organization built into the core product rather than bolted on afterward.',
+                  results: [{ metric: '60%', label: 'Faster average document search time' }, { metric: '3×', label: 'Faster onboarding to company document systems' }],
+                },
+                {
+                  Icon: IconBarChart, sector: 'Warehouse & Logistics', title: 'AI Analytics & Chatbot for a Warehouse Management Application',
+                  problem: 'Warehouse staff had the operational data to answer questions like which SKUs were moving slowly or where bottlenecks were forming, but getting an answer meant waiting on someone to pull and interpret a report.',
+                  solution: 'QllmSoft added an AI analytics layer that surfaces those patterns automatically, plus a chatbot built into the application so staff can ask operational questions in plain language and get an answer immediately.',
+                  results: [{ metric: '35%', label: 'Less time spent generating operational reports' }, { metric: '<10s', label: 'Typical chatbot response time for inventory queries' }],
+                },
+                {
+                  Icon: IconShield, sector: 'Finance', title: 'AI Analytics for a Financial Application',
+                  problem: 'Turning raw transaction and reporting data into decision-ready insight depended on someone building the analysis by hand each reporting cycle, which meant insight always arrived after the fact.',
+                  solution: 'QllmSoft added an AI analytics layer directly into the application that surfaces financial patterns and anomalies automatically, without a manual reporting step in between.',
+                  results: [{ metric: '50%', label: 'Faster reporting turnaround' }, { metric: 'Earlier', label: 'Detection of unusual spending and revenue patterns' }],
+                },
+              ].map((c, i) => (
+                <article key={i} className={`ai-case-card animate__animated ${casesInView ? 'animate__fadeInUp' : ''}`} style={{ animationDelay: `${i * 0.12}s` }}>
+                  <div className="ai-case-card__header"><div className="ai-case-card__icon"><c.Icon size={20} /></div><span className="ai-case-card__sector">{c.sector}</span></div>
+                  <h3 className="ai-case-card__title">{c.title}</h3>
+                  <div className="ai-case-card__block"><span className="ai-case-card__block-label">Challenge</span><p>{c.problem}</p></div>
+                  <div className="ai-case-card__block"><span className="ai-case-card__block-label">Solution</span><p>{c.solution}</p></div>
+                  <div className="ai-case-card__results" aria-label={`Results for ${c.title}`}>
+                    {c.results.map((r, j) => (
+                      <div key={j} className="ai-case-card__result"><span className="ai-case-card__result-metric">{r.metric}</span><span className="ai-case-card__result-label">{r.label}</span></div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="ai-cases__more">
+              More of these, across more industries, are on our{' '}
+              <Link to="/projects">projects page</Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* ══════════════ SERVICES, H2 + H3s ══════════════ */}
         <section className="section ai-services" ref={servicesRef} aria-labelledby="services-heading">
           <div className="container">
             <div className="section-title">
-              <h2 id="services-heading">What we build</h2>
+              <h2 id="services-heading">What QllmSoft builds</h2>
               <p>Each of these is scoped and priced separately, we do not sell a bundled "AI package" that doesn't match your actual use case.</p>
             </div>
             <div className="ai-services__grid">
               {[
                 { Icon: IconBrain, accent: '#1A365D', title: 'Custom AI Applications', desc: 'Recommendation systems, scoring tools, and AI-native features built around your specific competitive angle, not a generic template.' },
-                { Icon: IconDatabase, accent: '#2B6CB0', title: 'Machine Learning & Data Science', desc: 'Supervised, unsupervised, and reinforcement learning models — demand forecasting, churn prediction, anomaly detection — built to run in production, not just a notebook.' },
+                { Icon: IconDatabase, accent: '#2B6CB0', title: 'Machine Learning & Data Science', desc: 'Supervised, unsupervised, and reinforcement learning models, demand forecasting, churn prediction, anomaly detection, built to run in production, not just a notebook.' },
                 { Icon: IconMessageSquare, accent: '#1A365D', title: 'NLP & Conversational AI', desc: 'Chatbots, document classifiers, sentiment analysis, and multilingual pipelines using OpenAI, Hugging Face, or fine-tuned custom models.' },
                 { Icon: IconSettings, accent: '#2B6CB0', title: 'AI Business Process Automation', desc: 'Replacing manual document processing, invoice extraction, and ticket routing with pipelines that handle the routine cases and flag the exceptions for a human.' },
-                { Icon: IconEye, accent: '#1A365D', title: 'Computer Vision', desc: 'Defect detection on a production line, document scanning with field extraction, or image classification — built to the accuracy your use case actually requires.' },
+                { Icon: IconEye, accent: '#1A365D', title: 'Computer Vision', desc: 'Defect detection on a production line, document scanning with field extraction, or image classification, built to the accuracy your use case actually requires.' },
                 { Icon: IconCode, accent: '#2B6CB0', title: 'LLM Integration & OpenAI Development', desc: 'Retrieval-augmented generation, AI-powered search, and document Q&A, integrated with GPT-4, Claude, Gemini, or open-source alternatives.' },
               ].map((s, i) => (
                 <article key={i} className={`ai-service-card animate__animated ${servicesInView ? 'animate__fadeInUp' : ''}`} style={{ animationDelay: `${i * 0.07}s`, '--ai-accent': s.accent }} itemScope itemType="https://schema.org/Service">
@@ -410,11 +501,11 @@ const AiPoweredSoftware = () => {
           </div>
         </section>
 
-        {/* ══════════════ PROCESS — H2 + H4s ══════════════ */}
+        {/* ══════════════ PROCESS, H2 + H4s ══════════════ */}
         <section className="section ai-process" ref={processRef} aria-labelledby="process-heading">
           <div className="container">
             <div className="section-title">
-              <h2 id="process-heading">How an AI project runs with us</h2>
+              <h2 id="process-heading">How an AI project runs at QllmSoft</h2>
               <p>The order matters, skipping the data assessment to jump straight to modeling is the single most common way AI projects go over budget.</p>
             </div>
             <div className="ai-process__track">
@@ -423,7 +514,7 @@ const AiPoweredSoftware = () => {
                 { n:'02', Icon: IconSettings, title: 'Prototype', desc: 'A working prototype validates the core logic against real data before we commit to full development.' },
                 { n:'03', Icon: IconDatabase, title: 'Development & Training', desc: 'We build the surrounding software and train the model on your cleaned, labeled data, validating against agreed accuracy benchmarks.' },
                 { n:'04', Icon: IconCode, title: 'Deployment & Integration', desc: 'Deployed to Azure, AWS, or on-premise, and integrated with your existing systems via API, with a staged rollout rather than a single cutover.' },
-                { n:'05', Icon: IconZap, title: 'Monitoring & Retraining', desc: 'We watch for model drift after launch and retrain on a schedule agreed with you — quarterly is typical, faster if your data shifts quickly.' },
+                { n:'05', Icon: IconZap, title: 'Monitoring & Retraining', desc: 'We watch for model drift after launch and retrain on a schedule agreed with you, quarterly is typical, faster if your data shifts quickly.' },
               ].map((step, i) => (
                 <div key={i} className={`ai-process__step animate__animated ${processInView ? 'animate__fadeInUp' : ''}`} style={{ animationDelay: `${i * 0.1}s` }}>
                   <div className="ai-process__step-top">
@@ -439,12 +530,12 @@ const AiPoweredSoftware = () => {
           </div>
         </section>
 
-        {/* ══════════════ ML & NLP CAPABILITIES — H2 + H3s ══════════════ */}
+        {/* ══════════════ ML & NLP CAPABILITIES, H2 + H3s ══════════════ */}
         <section className="section ai-ml" ref={mlRef} aria-labelledby="ml-heading">
           <div className="container">
             <div className="section-title">
               <h2 id="ml-heading">Machine learning and NLP, in more detail</h2>
-              <p>The specific capabilities behind the service categories above.</p>
+              <p>The specific capabilities behind the QllmSoft service categories above.</p>
             </div>
             <div className="ai-ml__layout">
               <article className={`ai-ml__col animate__animated ${mlInView ? 'animate__fadeInLeft' : ''}`}>
@@ -452,7 +543,7 @@ const AiPoweredSoftware = () => {
                 <ul className="ai-ml__list" aria-label="Machine learning capabilities">
                   {[
                     { title:'Predictive Analytics & Forecasting', desc:'Demand, revenue, and churn forecasting validated against holdout data before deployment.' },
-                    { title:'Real-Time Data Processing', desc:'Models that react to streaming data — useful for fraud detection and IoT applications where a delay defeats the purpose.' },
+                    { title:'Real-Time Data Processing', desc:'Models that react to streaming data, useful for fraud detection and IoT applications where a delay defeats the purpose.' },
                     { title:'Recommendation Engines', desc:'Personalized product or content suggestions based on actual behavioral patterns, not rule-based guesses.' },
                     { title:'Anomaly & Fraud Detection', desc:'Statistical flagging of transactions and process deviations that rule-based thresholds miss.' },
                     { title:'Image & Pattern Recognition', desc:'Classification and segmentation for quality control, diagnostics, and access systems.' },
@@ -485,99 +576,64 @@ const AiPoweredSoftware = () => {
           </div>
         </section>
 
-        {/* ══════════════ CASE STUDIES — H2 + H3s ══════════════ */}
-        <section className="section ai-cases" ref={casesRef} aria-labelledby="cases-heading">
-          <div className="container">
-            <div className="section-title">
-              <h2 id="cases-heading">A few recent projects</h2>
-              <p>Specific outcomes, not vague success language.</p>
-            </div>
-            <div className="ai-cases__grid">
-              {[
-                {
-                  Icon: IconBarChart, sector: 'eCommerce', title: 'Churn Prediction for an Online Retailer',
-                  problem: 'A retailer was losing customers after their first purchase with no visibility into who was at risk of not returning.',
-                  solution: 'We built a model that scores churn risk in real time from behavioral signals — session depth, cart abandonment, email engagement.',
-                  results: [{ metric:'15%', label:'Reduction in churn' }, { metric:'20%', label:'Increase in repeat purchases' }],
-                },
-                {
-                  Icon: IconEye, sector: 'Healthcare', title: 'Triage Support for Medical Imaging',
-                  problem: 'Radiologists were spending significant time on initial scan review before getting to actual clinical assessment.',
-                  solution: 'A machine learning tool trained on labeled scans flags priority cases and pre-scores findings for radiologist review — it assists, it doesn\'t diagnose.',
-                  results: [{ metric:'40%', label:'Faster initial review time' }, { metric:'3×', label:'More time for treatment planning' }],
-                },
-                {
-                  Icon: IconShield, sector: 'FinTech', title: 'Real-Time Fraud Detection',
-                  problem: 'A fintech startup was losing money to transaction fraud that rule-based thresholds weren\'t catching.',
-                  solution: 'An ensemble model monitors transaction patterns continuously and flags anomalies within milliseconds.',
-                  results: [{ metric:'99%', label:'Detection accuracy' }, { metric:'<50ms', label:'Decision latency' }],
-                },
-              ].map((c, i) => (
-                <article key={i} className={`ai-case-card animate__animated ${casesInView ? 'animate__fadeInUp' : ''}`} style={{ animationDelay: `${i * 0.12}s` }}>
-                  <div className="ai-case-card__header"><div className="ai-case-card__icon"><c.Icon size={20} /></div><span className="ai-case-card__sector">{c.sector}</span></div>
-                  <h3 className="ai-case-card__title">{c.title}</h3>
-                  <div className="ai-case-card__block"><span className="ai-case-card__block-label">Challenge</span><p>{c.problem}</p></div>
-                  <div className="ai-case-card__block"><span className="ai-case-card__block-label">Solution</span><p>{c.solution}</p></div>
-                  <div className="ai-case-card__results" aria-label={`Results for ${c.title}`}>
-                    {c.results.map((r, j) => (
-                      <div key={j} className="ai-case-card__result"><span className="ai-case-card__result-metric">{r.metric}</span><span className="ai-case-card__result-label">{r.label}</span></div>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        
 
-        {/* ══════════════ INDUSTRIES — H2 + H3s ══════════════ */}
+        {/* ══════════════ INDUSTRIES, H2 + H3s ══════════════ */}
         <section className="section ai-industries" ref={industryRef} aria-labelledby="industries-heading">
           <div className="container">
             <div className="section-title">
               <h2 id="industries-heading">AI across different industries</h2>
-              <p>The right approach depends heavily on the sector's data formats and compliance requirements — a few examples of where we've worked.</p>
+              <p>The right approach depends heavily on the sector's data formats and compliance requirements, a few examples of where QllmSoft has worked.</p>
             </div>
             <div className="ai-industries__grid">
               {[
-                { Icon:IconShield, sector:'Healthcare', desc:'HIPAA-aware diagnostic support tools, patient risk stratification, and medical imaging triage — always positioned as clinician support, not a replacement for one.' },
-                { Icon:IconBarChart, sector:'eCommerce & Retail', desc:'Recommendation engines, demand forecasting, and NLP-powered customer service.' },
-                { Icon:IconTrendingUp, sector:'Finance & FinTech', desc:'Fraud detection, credit risk scoring, and AML monitoring for regulated environments.' },
+                { Icon:IconShield, sector:'Healthcare', desc:'HIPAA-aware diagnostic support tools, patient risk stratification, and medical imaging triage, always positioned as clinician support, not a replacement for one. See our broader healthcare software development work.', link: '/healthcare-software-development-pakistan' },
+                { Icon:IconBarChart, sector:'eCommerce & Retail', desc:'Recommendation engines, demand forecasting, and NLP-powered customer service, often built on top of an existing ecommerce platform.', link: '/ecommerce-development-services' },
+                { Icon:IconTrendingUp, sector:'Finance & FinTech', desc:'Fraud detection, credit risk scoring, and AML monitoring for regulated environments, paired with our finance management systems work.', link: '/finance-management-system' },
                 { Icon:IconSettings, sector:'Manufacturing', desc:'Predictive maintenance and visual quality inspection on the production line.' },
                 { Icon:IconCode, sector:'SaaS & Tech Startups', desc:'LLM-powered product features and usage-based personalization for B2B software.' },
               ].map((ind, i) => (
                 <article key={i} className={`ai-industry-card animate__animated ${industryInView ? 'animate__fadeInUp' : ''}`} style={{ animationDelay: `${i * 0.07}s` }}>
                   <div className="ai-industry-card__icon"><ind.Icon size={20} /></div>
                   <h3 className="ai-industry-card__title">{ind.sector}</h3>
-                  <p className="ai-industry-card__desc">{ind.desc}</p>
+                  <p className="ai-industry-card__desc">
+                    {ind.desc}{' '}
+                    {ind.link && <Link to={ind.link}>Learn more →</Link>}
+                  </p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ══════════════ TIMELINE & COST — H2 ══════════════ */}
+        {/* ══════════════ TIMELINE & COST, H2 ══════════════ */}
         <section className="section ai-timeline" aria-labelledby="timeline-heading">
           <div className="container">
             <div className="section-title">
               <h2 id="timeline-heading">Timeline and cost</h2>
               <p>
-                A focused AI feature,A a document classifier or a recommendation engine — is
-                usually a 6-10 week project. A full custom AI platform with a training pipeline,
-                APIs, and a monitoring dashboard is more commonly 3-6 months. The single biggest
-                cost driver isn't the model itself, it's the state of your data — clean, labeled
-                data is fast; data that needs cleanup work adds real time upfront. We'll tell you
-                which situation you're in during the discovery call. For our general engagement
-                and pricing structure, see the <Link to="/pricing-and-engagement-models">pricing and engagement guide</Link>.
+                A focused AI feature, a document classifier or a recommendation engine, is
+                usually a 6-10 week project at QllmSoft. A full custom AI platform with a
+                training pipeline, APIs, and a monitoring dashboard is more commonly 3-6 months.
+                The single biggest cost driver isn't the model itself, it's the state of your
+                data, clean, labeled data is fast; data that needs cleanup work adds real time
+                upfront. We'll tell you which situation you're in during the discovery call. For
+                a rough number before that call, try the{' '}
+                <Link to="/software-development-cost-calculator">software development cost calculator</Link>,
+                and for our general engagement and pricing structure, see the{' '}
+                <Link to="/pricing-and-engagement-models">pricing and engagement guide</Link>.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ══════════════ INTEGRATION — H2 + H3s ══════════════ */}
+        {/* ══════════════ INTEGRATION, H2 + H3s ══════════════ */}
         <section className="section ai-integration" aria-labelledby="integration-heading">
           <div className="container">
             <div className="section-title">
               <h2 id="integration-heading">Adding AI to software you already run</h2>
-              <p>Most of our AI work is integration, not greenfield — connecting a model to a system that already exists and already matters to your business.</p>
+              <p>Most of QllmSoft's AI work is integration, not greenfield, connecting a model to a system that already exists and already matters to your business. If the system itself is the real problem, that's usually a{' '}
+                <Link to="/legacy-system-modernization-services">legacy system modernization</Link> conversation before it's an AI one.</p>
             </div>
             <div className="ai-integration__main-layout">
               <div className="ai-integration__grid">
@@ -605,16 +661,16 @@ const AiPoweredSoftware = () => {
         </section>
 
         <FounderNote
-          title="Why we turn down more AI projects than we take"
-          message="A fair number of the AI inquiries we get don't actually need AI — they need a better-organized database, or a dashboard, or someone to fix a workflow that's broken for reasons that have nothing to do with machine learning. We say so when that's the case, even though it means losing the project. The AI work we do take on gets the attention it needs precisely because we're not spreading it across engagements that were never going to work in the first place."
+          title="Why QllmSoft turns down more AI projects than we take"
+          message="A fair number of the AI inquiries we get don't actually need AI, they need a better-organized database, or a dashboard, or someone to fix a workflow that's broken for reasons that have nothing to do with machine learning. We say so when that's the case, even though it means losing the project. The AI-powered software solutions we do take on at QllmSoft get the attention they need precisely because we're not spreading that attention across engagements that were never going to work in the first place."
         />
 
-        {/* ══════════════ FAQ — H2 + FAQPage schema ══════════════ */}
+        {/* ══════════════ FAQ, H2 + FAQPage schema ══════════════ */}
         <section className="section csd-faq ai-faq" aria-labelledby="faq-heading" itemScope itemType="https://schema.org/FAQPage">
           <div className="container">
             <div className="section-title">
               <h2 id="faq-heading">Frequently Asked Questions About AI Software Development</h2>
-              <p>Practical answers to what businesses ask most before starting an AI engagement.</p>
+              <p>Practical answers to what businesses ask most before starting an AI engagement with QllmSoft.</p>
             </div>
             <div className="csd-faq__list ai-faq__list">
               {FAQ_DATA.map((faq, i) => <FAQItem key={i} faq={faq} index={i} />)}
@@ -630,14 +686,14 @@ const AiPoweredSoftware = () => {
           </div>
         </section>
 
-        {/* ══════════════ FINAL CTA — H2 ══════════════ */}
+        {/* ══════════════ FINAL CTA, H2 ══════════════ */}
         <section className="section ai-cta" aria-labelledby="cta-heading">
           <div className="ai-cta__bg" aria-hidden="true" />
           <div className="container ai-cta__inner">
             <h2 id="cta-heading">Have a process an AI model could realistically improve?</h2>
             <p>
-              Tell us the specific task that's costing you time or money today. If AI is the
-              right fix, we'll scope it. If it isn't, we'll tell you that too.
+              Tell QllmSoft the specific task that's costing you time or money today. If AI is
+              the right fix, we'll scope it. If it isn't, we'll tell you that too.
             </p>
             <div className="ai-cta__buttons">
               <Link to="/contact" className="btn btn-primary ai-btn-primary ai-btn-cta" aria-label="Schedule a free AI consultation with QllmSoft">
@@ -658,6 +714,7 @@ const AiPoweredSoftware = () => {
               <Link to="/api-development-services">API Development</Link>
               <Link to="/mobile-app-development">Mobile Apps</Link>
               <Link to="/website-development-services">Web Development</Link>
+              <Link to="/legacy-system-modernization-services">Legacy Modernization</Link>
             </nav>
           </div>
         </section>
