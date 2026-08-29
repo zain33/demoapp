@@ -32,6 +32,7 @@ import "animate.css";
 import financeImg from "../assets/qllm-soft-finance-management-system-11.webp";
 import TestimonialSection from "../components/TestimonialSection";
 import FounderNote from "../components/FounderNote";
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = "https://qllmsoft.com/finance-management-system";
 const OG_IMAGE =
@@ -105,33 +106,7 @@ const IconCheck = ({ s = 16 }) => (
 );
 
 /* ── JSON-LD ───────────────────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://qllmsoft.com/#organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  foundingDate: "2015",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["PK", "US", "GB", "AE", "SA"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+const orgSchema = schemaOrganization;
 
 const schemaService = {
   "@context": "https://schema.org",
@@ -266,7 +241,7 @@ const FinanceManagementSystem = () => {
         <meta name="twitter:description" content="Cloud-based finance system with automated reporting, approvals, and dashboards built by QllmSoft." />
         <meta name="twitter:image" content={OG_IMAGE} />
 
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

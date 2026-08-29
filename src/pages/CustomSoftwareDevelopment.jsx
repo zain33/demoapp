@@ -27,6 +27,7 @@ import FounderNote from "../components/FounderNote";
 import TestimonialSection from "../components/TestimonialSection";
 import RelatedSolutions from "../components/RelatedSolutions";
 import QllmDocs from "../assets/QllmDocs.webp";
+import { schemaOrganization } from "../data/schema";
 
 /* ─── Page constants ──────────────────────────────────────── */
 const PAGE_URL = "https://qllmsoft.com/custom-software-development-services";
@@ -35,34 +36,7 @@ const OG_IMAGE =
 const DATE_MODIFIED = "2026-08-13";
 
 /* ─── JSON-LD: Organization ───────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://qllmsoft.com/#organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  foundingDate: "2015",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["PK", "US", "GB", "AE", "SA"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://qllmdocs.com",
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+const orgSchema = schemaOrganization;
 
 /* ─── JSON-LD: Service ────────────────────────────────────── */
 const schemaService = {
@@ -230,7 +204,7 @@ const CustomSoftwareDevelopment = () => {
         <meta name="twitter:description" content="Bespoke software for the workflows off-the-shelf tools can't handle." />
         <meta name="twitter:image" content={OG_IMAGE} />
 
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
@@ -513,7 +487,7 @@ const CustomSoftwareDevelopment = () => {
                 fully-featured one. A single internal tool can be a matter of weeks; a
                 multi-module operations platform is a matter of months. For a breakdown of how we
                 structure pricing and engagement models, see our{" "}
-                <Link to="/pricing-and-engagement-models">pricing and engagement guide</Link>, or
+                <Link to="/software-development-cost-calculator">pricing and engagement guide</Link>, or
                 just tell us your project and we'll give you a real number.
               </p>
             </div>

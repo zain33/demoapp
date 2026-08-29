@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import "./OutsourcePages.css";
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = "https://qllmsoft.com/mobile-app-development-cost-in-pakistan";
 

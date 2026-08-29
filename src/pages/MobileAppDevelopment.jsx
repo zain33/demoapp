@@ -40,38 +40,15 @@ import TestimonialSection from "../components/TestimonialSection";
 import FounderNote from "../components/FounderNote";
 import RelatedSolutions from "../components/RelatedSolutions";
 import MOBILEappPdf from "../assets/QllmSoftMobileAppDevelopmentServices.pdf";
+import { schemaOrganization } from "../data/schema";
+
 /* ─── Constants ───────────────────────────────────────────── */
 const PAGE_URL = "https://qllmsoft.com/mobile-app-development";
 const OG_IMAGE =
   "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg";
 
 /* ─── JSON-LD: Organization ───────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  foundingDate: "2015",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["PK", "US", "GB", "AE", "SA"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+const orgSchema = schemaOrganization;
 
 /* ─── JSON-LD: Service ────────────────────────────────────── */
 const schemaService = {
@@ -372,7 +349,7 @@ const MobileAppDevelopment = () => {
         />
 
         {/* JSON-LD × 5 */}
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">
           {JSON.stringify(schemaService)}
         </script>

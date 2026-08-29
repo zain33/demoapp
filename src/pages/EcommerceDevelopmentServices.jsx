@@ -33,6 +33,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './EcommerceDevelopmentServices.css';
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = 'https://qllmsoft.com/ecommerce-development-services';
 const OG_IMAGE = 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg';
@@ -42,22 +43,8 @@ const PAGE_DESCRIPTION =
 
 const DATE_PUBLISHED = '2026-07-19';
 const DATE_MODIFIED  = '2026-08-15';
+const orgSchema = schemaOrganization;
 
-const schemaOrg = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://qllmsoft.com/#organization',
-  name: 'QllmSoft',
-  url: 'https://qllmsoft.com',
-  logo: 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+92-334-8229288',
-    contactType: 'customer service',
-    areaServed: ['PK', 'US', 'GB', 'AE', 'SA'],
-    availableLanguage: 'English',
-  },
-};
 
 const schemaService = {
   '@context': 'https://schema.org',
@@ -188,7 +175,7 @@ const EcommerceDevelopmentServices = () => {
         <meta name="twitter:image" content={OG_IMAGE} />
 
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaFAQ)}</script>

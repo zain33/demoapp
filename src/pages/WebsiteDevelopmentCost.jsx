@@ -21,6 +21,7 @@ import { useInView } from 'react-intersection-observer';
 import './IndustryPage.css';
 import './WebPages.css';
 import 'animate.css';
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = 'https://qllmsoft.com/website-development-cost-in-pakistan';
 const OG_IMAGE  = 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg';
@@ -41,14 +42,7 @@ const IconCheck     = ({s=16}) => <svg width={s} height={s} viewBox="0 0 24 24" 
 const IconUsers     = ({s=24}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
 
 /* ── JSON-LD ─────────────────────────────────────────── */
-const schemaOrg = {
-  '@context':'https://schema.org','@type':'Organization',
-  name:'QllmSoft',url:'https://qllmsoft.com',foundingDate:'2015',
-  logo:'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
-  contactPoint:{'@type':'ContactPoint',telephone:'+92-334-8229288',contactType:'customer service',areaServed:['PK','US','GB','AE','SA'],availableLanguage:'English'},
-  address:{'@type':'PostalAddress',streetAddress:'H # 181, Camping Ground',addressLocality:'Lalamusa',addressRegion:'Punjab',addressCountry:'PK'},
-  sameAs:['https://www.freelancer.com/u/mrprogrmmr','https://www.upwork.com/freelancers/~0170e20f8803389a86'],
-};
+
 const schemaWebPage = {
   '@context':'https://schema.org','@type':'WebPage',
   name:'Website Development Cost in Pakistan 2026 | Transparent Pricing Guide | QllmSoft',
@@ -197,7 +191,7 @@ const WebsiteDevelopmentCost = () => {
         <meta name="twitter:description" content="Transparent website development pricing in Pakistan 2026 — from small business sites to enterprise platforms. No hidden fees." />
         <meta name="twitter:image" content={OG_IMAGE} />
         <meta name="twitter:image:alt" content="Website Development Cost Pakistan 2026" />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

@@ -15,6 +15,7 @@ import { Helmet } from 'react-helmet-async';
 import { useInView } from 'react-intersection-observer';
 import './IndustryPage.css';
 import 'animate.css';
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = 'https://qllmsoft.com/outsource-api-development-to-pakistan';
 const OG_IMAGE  = 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg';
@@ -77,7 +78,7 @@ const OutsourceApiDevelopment = () => {
         <meta property="og:description" content="Expert REST, GraphQL, gRPC, and third-party integration API development outsourced from Pakistan. 50–65% lower cost, senior developers, full documentation, free consultation." />
         <meta property="og:image" content={OG_IMAGE} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="Outsource API Development to Pakistan — QllmSoft" /><meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Outsource API Development to Pakistan | QllmSoft" /><meta name="twitter:description" content="REST, GraphQL, gRPC & integration API development outsourced from Pakistan. 50–65% lower cost than US/UK." /><meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

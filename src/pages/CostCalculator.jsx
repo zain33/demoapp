@@ -23,6 +23,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LeadCaptureForm from "../components/LeadCaptureForm";
 import "./CostCalculator.css";
+import { schemaOrganization } from "../data/schema";
+
 
 /* ─── Estimation model ──────────────────────────────────────────
    These ranges are deliberately rough, the point of the tool is to
@@ -141,6 +143,8 @@ const CostCalculator = () => {
       },
     ],
   };
+
+  const orgSchema = schemaOrganization;
 
   return (
     <>

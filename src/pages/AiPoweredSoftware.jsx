@@ -37,6 +37,7 @@ import { useInView } from 'react-intersection-observer';
 import './AiPoweredSoftware.css';
 import TestimonialSection from "../components/TestimonialSection";
 import FounderNote from "../components/FounderNote";
+import { schemaOrganization } from "../data/schema";
 
 /* ─── Constants ───────────────────────────────────────────── */
 const PAGE_URL = 'https://qllmsoft.com/ai-powered-software-solutions';
@@ -113,34 +114,7 @@ const IconMapPin = ({ size = 22 }) => (
 );
 
 /* ─── JSON-LD: Organization ───────────────────────────────── */
-const schemaOrg = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'QllmSoft',
-  url: 'https://qllmsoft.com',
-  logo: 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
-  foundingDate: '2015',
-  description: 'QllmSoft is a custom software development and AI integration company headquartered in Lalamusa, Punjab, Pakistan, serving clients across the US, UK, UAE, and Saudi Arabia.',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+92-334-8229288',
-    contactType: 'customer service',
-    areaServed: ['PK','US','GB','AE','SA'],
-    availableLanguage: 'English',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'H # 181, Camping Ground',
-    addressLocality: 'Lalamusa',
-    addressRegion: 'Punjab',
-    addressCountry: 'PK',
-  },
-  sameAs: [
-    'https://qllmdocs.com',
-    'https://www.freelancer.com/u/mrprogrmmr',
-    'https://www.upwork.com/freelancers/~0170e20f8803389a86',
-  ],
-};
+const orgSchema = schemaOrganization;
 
 /* ─── JSON-LD: Service ────────────────────────────────────── */
 const schemaService = {
@@ -288,7 +262,7 @@ const AiPoweredSoftware = () => {
         <meta name="twitter:description" content="QllmSoft builds AI-powered software solutions for real business use cases, machine learning, NLP, computer vision, and LLM integration." />
         <meta name="twitter:image" content={OG_IMAGE} />
 
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaFAQ)}</script>

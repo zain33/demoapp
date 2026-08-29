@@ -32,6 +32,7 @@ import HealthCare from "../assets/daycare.webp";
 import HealthCare2 from "../assets/daycare2.webp";
 import HealthCare3 from "../assets/daycare3.webp";
 import TestimonialSection from "../components/TestimonialSection";
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL =
   "https://qllmsoft.com/healthcare-software-development-pakistan";
@@ -103,33 +104,7 @@ const IconCheck = ({ s = 16 }) => (
 );
 
 /* ── JSON-LD ───────────────────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://qllmsoft.com/#organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  foundingDate: "2015",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["PK", "US", "GB", "AE", "SA"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+
 const schemaService = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -263,7 +238,7 @@ const HealthcareSoftware = () => {
         <meta name="twitter:title" content="Healthcare Software Development in Pakistan | QllmSoft" />
         <meta name="twitter:description" content="Custom HIPAA-aligned healthcare software — HMS, EMR/EHR, telemedicine, clinic management from Pakistan." />
         <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

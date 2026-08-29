@@ -19,6 +19,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import "./asp-net-core-development-services.css";
+import { schemaOrganization } from "../data/schema";
+
+const orgSchema = schemaOrganization;
 
 export default function AspnetCoreDevelopmentServices() {
   const structuredData = {

@@ -25,6 +25,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LeadCaptureForm from "../components/LeadCaptureForm";
 import "./RequirementsChecklist.css";
+import { schemaOrganization } from "../data/schema";
 
 // Append ?url to force Vite to output a clean string path
 import checklistPdf from "../assets/qllmsoft-requirements-checklist.pdf?url"; 

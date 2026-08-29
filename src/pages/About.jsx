@@ -58,67 +58,10 @@ import {
 
 import { aboutContent } from "../data/mock";
 import "./About.css";
+import { schemaOrganization } from "../data/schema";
 
 /* ─── JSON-LD: Organization ────────────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://qllmsoft.com/#organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  logo: {
-    "@type": "ImageObject",
-    url: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-    width: 200,
-    height: 60,
-  },
-  description:
-    "QllmSoft is a software development company that has been designing and building digital products for businesses worldwide since 2015. Our team works with startups and enterprises across North America, Europe, and the Middle East on web applications, mobile apps, business automation, and AI-powered software.",
-  foundingDate: "2015",
-  telephone: "+92-334-8229288",
-  email: "qllmsoft@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-    postalCode: "50350",
-  },
-  areaServed: [
-    { "@type": "Place", name: "Worldwide" },
-    { "@type": "Country", name: "United States" },
-    { "@type": "Country", name: "United Kingdom" },
-    { "@type": "Country", name: "Canada" },
-    { "@type": "Country", name: "Australia" },
-    { "@type": "Country", name: "United Arab Emirates" },
-    { "@type": "Country", name: "Saudi Arabia" },
-    { "@type": "Country", name: "Pakistan" },
-  ],
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-    "https://www.linkedin.com/company/qllmsoft",
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "47",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  founder: {
-    "@type": "Person",
-    name: "Zain Ul Abedin",
-    jobTitle: "Founder & CEO",
-    url: "https://www.linkedin.com/in/zain-ul-abedin-b09a613b/",
-  },
-  numberOfEmployees: {
-    "@type": "QuantitativeValue",
-    minValue: 10,
-    maxValue: 50,
-  },
-};
+const orgSchema = schemaOrganization;
 
 /* ─── JSON-LD: AboutPage ────────────────────────────────────────── */
 const schemaAboutPage = {
@@ -257,7 +200,7 @@ const About = () => {
         <meta name="ICBM" content="32.7003, 73.9451" />
 
         {/* JSON-LD */}
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">
           {JSON.stringify(schemaAboutPage)}
         </script>

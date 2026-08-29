@@ -49,6 +49,7 @@ import { Helmet } from 'react-helmet-async';
 import { useInView } from 'react-intersection-observer';
 import './BestSoftwareHouse.css';
 import TestimonialSection from '../components/TestimonialSection';
+import { schemaOrganization } from "../data/schema";
 
 /* ─── Constants ─────────────────────────────────────────────── */
 const PAGE_URL  = 'https://qllmsoft.com/best-software-house-in-pakistan';
@@ -62,6 +63,8 @@ const Ico = ({ d, size = 24 }) => (
     {d}
   </svg>
 );
+
+const orgSchema = schemaOrganization;
 
 const IconBuildingOffice  = ({ size = 24 }) => <Ico size={size} d={<><path d="M3 21V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v15"/><path d="M3 21h18M9 21V9m6 12V9M9 9h6M9 5V3m6 2V3"/></>} />;
 const IconGlobe           = ({ size = 24 }) => <Ico size={size} d={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />;

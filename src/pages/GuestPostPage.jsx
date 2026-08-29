@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async"; 
 import "./GuestPostPage.css";
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = "https://qllmsoft.com/write-for-us";
 const OG_IMAGE = "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg";
 
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  logo: OG_IMAGE,
-  sameAs: [
-    "https://www.linkedin.com/company/qllmsoft",
-    "https://twitter.com/qllmsoft",
-    "https://www.facebook.com/qllmsoft",
-  ],
-};
+
 
 const schemaWebPage = {
   "@context": "https://schema.org",
@@ -32,6 +22,8 @@ const schemaWebPage = {
   primaryImageOfPage: OG_IMAGE,
   inLanguage: "en-US",
 };
+
+const orgSchema = schemaOrganization;
 
 const CONTENT_TYPES = [
   { 
@@ -195,7 +187,7 @@ export default function GuestPostPage() {
         <title>Write for Us | Join Our Expert Contributor Network | QllmSoft</title>
         <meta name="description" content="Join QllmSoft as an Expert Contributor. Submit a guest post on LLMs, AI infrastructure, prompt engineering, MLOps, or developer tools." />
         <link rel="canonical" href={PAGE_URL} />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
       </Helmet>
 

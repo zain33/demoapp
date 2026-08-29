@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useInView } from "react-intersection-observer";
 import "./OutsourceWebDevelopmentPakistan.css";
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = "https://qllmsoft.com/outsource-web-development-to-pakistan";
 const OG_IMAGE =
@@ -28,33 +29,7 @@ const DATE_PUBLISHED = "2026-08-16";
 const DATE_MODIFIED = "2026-08-16";
 
 /* ─── JSON-LD ─────────────────────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://qllmsoft.com/#organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  foundingDate: "2015",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["PK", "US", "GB", "AE", "SA"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+const orgSchema = schemaOrganization;
 
 const schemaService = {
   "@context": "https://schema.org",
@@ -269,7 +244,7 @@ const OutsourceWebDevelopmentPakistan = () => {
         <meta name="twitter:description" content="Project-based builds, a dedicated developer, or a full outsourced web development team, based in Pakistan." />
         <meta name="twitter:image" content={OG_IMAGE} />
 
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

@@ -38,6 +38,7 @@ import customvssaas2 from '../assets/Blog_Imgs/customvssaas.webp';
 import guide2 from '../assets/Blog_Imgs/operationalefficiencyguide.webp';
 import legacymodernization from '../assets/Blog_Imgs/legacymodernization2.webp';
 import softwareforfinancial from '../assets/Blog_Imgs/softwareforfinancial.webp';
+import { schemaOrganization } from "../data/schema";
 
 
 // ─── Shared Site Constants ───────────────────────────────────
@@ -46,29 +47,7 @@ const SITE_NAME  = "QllmSoft";
 const BLOG_BASE  = `${SITE_URL}/blog`;
 
 // ─── Shared Organization Schema ──────────────────────────────
-const orgSchema = {
-  "@type": "Organization",
-  "@id": `${SITE_URL}/#organization`,
-  "name": SITE_NAME,
-  "url": SITE_URL,
-  "logo": {
-    "@type": "ImageObject",
-    "url": `${SITE_URL}/logo.png`,
-    "width": 200,
-    "height": 60
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/qllmsoft",
-    "https://twitter.com/qllmsoft"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+92-334-8229288",
-    "contactType": "customer service",
-    "email": "qllmsoft@gmail.com",
-    "availableLanguage": ["English", "Urdu"]
-  }
-};
+const orgSchema = schemaOrganization;
 
 // ─── Helper: build BreadcrumbList schema ─────────────────────
 const breadcrumb = (slug, label) => ({
@@ -205,7 +184,7 @@ export const blogPostsData = {
       int("/web-application-development-services", "Web Application Development Services"),
       int("/api-development-services", "API Development Services"),
       int("/blog/outsource-software-development-to-pakistan", "Outsource Software Development to Pakistan — Full Guide"),
-      int("/blog/hire-dotnet-developers-pakistan", "Hire .NET Developers in Pakistan"),
+      int("/blog/hiring-dotnet-developers-guide", "Hire .NET Developers in Pakistan"),
       int("/blog/csharp-desktop-application-development", "C# Desktop Application Development Services")
     ],
     externalLinks: [
@@ -428,7 +407,7 @@ export const blogPostsData = {
     ],
     internalLinks: [
       int("/asp-net-core-development", "ASP.NET Core Web Development Services"),
-      int("/blog/hire-dotnet-developers-pakistan", "Hire .NET Developers in Pakistan"),
+      int("/blog/hiring-dotnet-developers-guide", "Hire .NET Developers in Pakistan"),
       int("/blog/outsource-software-development-to-pakistan", "Outsource Software Development to Pakistan"),
       int("/blog/legacy-system-modernization-without-downtime-or-data-loss", "Legacy System Modernization Without Downtime"),
       int("/services", "All QllmSoft Services")
@@ -736,7 +715,7 @@ export const blogPostsData = {
     ],
     internalLinks: [
       int("/blog/best-software-house-in-pakistan", "Best Software Houses in Pakistan 2026"),
-      int("/blog/hire-dotnet-developers-pakistan", "Hire .NET Developers in Pakistan"),
+      int("/blog/hiring-dotnet-developers-guide", "Hire .NET Developers in Pakistan"),
       int("/blog/outsource-mobile-app-development-to-pakistan", "Outsource Mobile App Development to Pakistan"),
       int("/asp-net-core-development", "ASP.NET Core Development Services"),
       int("/services", "All QllmSoft Services")
@@ -1568,7 +1547,7 @@ export const blogPostsData = {
     ],
     internalLinks: [
       int("/blog/csharp-desktop-application-development", "C# Desktop Application Development"),
-      int("/blog/hire-dotnet-developers-pakistan", "Hire .NET Developers in Pakistan"),
+      int("/blog/hiring-dotnet-developers-guide", "Hire .NET Developers in Pakistan"),
       int("/blog/legacy-system-modernization-without-downtime-or-data-loss", "Legacy System Modernization"),
       int("/api-development-services", "API Development Services"),
       int("/services", "All QllmSoft Services")
@@ -1676,7 +1655,7 @@ export const blogPostsData = {
       }
     ],
     internalLinks: [
-      int("/blog/hire-dotnet-developers-pakistan", "Hire .NET Developers in Pakistan"),
+      int("/blog/hiring-dotnet-developers-guide", "Hire .NET Developers in Pakistan"),
       int("/blog/outsource-software-development-to-pakistan", "Outsource Software Development to Pakistan"),
       int("/asp-net-core-development", "ASP.NET Core Development Services"),
       int("/blog/best-software-house-in-pakistan", "Best Software Houses in Pakistan"),
@@ -2239,11 +2218,11 @@ export const blogPostsData = {
   // ══════════════════════════════════════════════════════════
   // 15. HIRE .NET DEVELOPERS PAKISTAN
   // ══════════════════════════════════════════════════════════
-  "hire-dotnet-developers-pakistan": {
+  "hiring-dotnet-developers-guide": {
     title: "Hire .NET Developers in Pakistan 2026 | Complete Hiring Guide",
     seoTitle: "Hire .NET Developers in Pakistan 2026 | Rates, Skills & Hiring Models",
     description: "Everything you need to hire dedicated .NET developers in Pakistan for 2026 real hourly rates ($10–$60/hr), core skill requirements, engagement models, and how QllmSoft delivers enterprise grade C#/.NET development.",
-    canonicalUrl: `${BLOG_BASE}/hire-dotnet-developers-pakistan`,
+    canonicalUrl: `${BLOG_BASE}/hiring-dotnet-developers-guide`,
     category: "Hiring Guide",
     date: "April 23, 2026",
     dateModified: "May 18, 2026",
@@ -2270,7 +2249,7 @@ export const blogPostsData = {
       keywords: "hire dotnet developers pakistan, hire c# developers pakistan, .net developers pakistan rates, asp.net core developers pakistan, hire dedicated .net developer, .net development outsourcing pakistan"
     },
     schemas: [
-      breadcrumb("hire-dotnet-developers-pakistan", "Hire .NET Developers in Pakistan 2026"),
+      breadcrumb("hiring-dotnet-developers-guide", "Hire .NET Developers in Pakistan 2026"),
       {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -2280,7 +2259,7 @@ export const blogPostsData = {
         "dateModified": "2026-05-18T23:45:00+05:00",
         "author": orgSchema,
         "publisher": orgSchema,
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BLOG_BASE}/hire-dotnet-developers-pakistan` }
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `${BLOG_BASE}/hiring-dotnet-developers-guide` }
       },
       {
         "@context": "https://schema.org",

@@ -14,18 +14,12 @@ import { Helmet } from 'react-helmet-async';
 import { useInView } from 'react-intersection-observer';
 import './HireDeveloper.css';
 import 'animate.css';
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = 'https://qllmsoft.com/hire-dotnet-developers-pakistan';
 const OG_IMAGE  = 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg';
 
-const schemaOrg = {
-  '@context':'https://schema.org','@type':'Organization',
-  name:'QllmSoft',url:'https://qllmsoft.com',foundingDate:'2015',
-  logo:'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
-  contactPoint:{'@type':'ContactPoint',telephone:'+92-334-8229288',contactType:'customer service',areaServed:['PK','US','GB','AE','SA'],availableLanguage:'English'},
-  address:{'@type':'PostalAddress',streetAddress:'H # 181, Camping Ground',addressLocality:'Lalamusa',addressRegion:'Punjab',addressCountry:'PK'},
-  sameAs:['https://www.freelancer.com/u/mrprogrmmr','https://www.upwork.com/freelancers/~0170e20f8803389a86'],
-};
+const orgSchema = schemaOrganization;
 
 const schemaService = {
   '@context':'https://schema.org','@type':'Service',
@@ -126,7 +120,7 @@ const HireDotnetDevelopersPak = () => {
         <meta name="twitter:description" content="Senior ASP.NET Core & .NET 8 engineers in Pakistan — dedicated, remote, offshore. 60% lower cost than US/UK agencies." />
         <meta name="twitter:image" content={OG_IMAGE} />
         <meta name="twitter:image:alt" content="Hire .NET Developers Pakistan" />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

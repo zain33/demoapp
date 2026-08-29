@@ -17,6 +17,7 @@ import "./IndustryPage.css";
 import "animate.css";
 import TestimonialSection from "../components/TestimonialSection";
 import FounderNote from "../components/FounderNote";
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = "https://qllmsoft.com/legacy-system-modernization-services";
 const OG_IMAGE =
@@ -200,32 +201,7 @@ const IconCheck = ({ s = 16 }) => (
   </svg>
 );
 
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  foundingDate: "2015",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["PK", "US", "GB", "AE", "SA"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+
 const schemaService = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -297,6 +273,8 @@ const FAQ_DATA = [
     a: "Businesses typically see 30–60% reductions in annual maintenance costs within 12 months of modernization, alongside significant improvements in development velocity (new features shipped faster), system performance (faster response times and higher availability), and security posture (elimination of unpatched vulnerability exposure). The exact ROI depends on the current maintenance burden and the modernization scope  which we calculate during discovery.",
   },
 ];
+
+const orgSchema = schemaOrganization;
 const schemaFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -436,7 +414,7 @@ const LegacyModernization = () => {
           content="Application re-architecture, cloud migration, .NET upgrade, and database modernization, zero disruption, phased delivery."
         />
         <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">
           {JSON.stringify(schemaWebPage)}
         </script>

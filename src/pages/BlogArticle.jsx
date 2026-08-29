@@ -4,6 +4,7 @@ import { Calendar, ArrowLeft, User, Tag } from "lucide-react";
 import blogPostsData from "../data/blogPostsData";
 import "./BlogArticle.css";
 import SEO from '../components/SEO';
+import { schemaOrganization } from "../data/schema";
 
 // const BlogSection = ({ heading, paragraphs, list }) => (
 //   <div className="blog-article-section">
@@ -28,6 +29,8 @@ import SEO from '../components/SEO';
 //     )}
 //   </div>
 // );
+
+const orgSchema = schemaOrganization;
 const SectionListItem = ({ text }) => <li>{text}</li>;
 
 const SectionParagraph = ({ text }) => {

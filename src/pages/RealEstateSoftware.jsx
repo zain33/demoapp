@@ -47,6 +47,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useInView } from 'react-intersection-observer';
 import './RealEstateSoftware.css';
+import { schemaOrganization } from "../data/schema";
 
 /* ─── Constants ───────────────────────────────────────────────── */
 const PAGE_URL = 'https://qllmsoft.com/real-estate-software-development';
@@ -92,36 +93,7 @@ const IconRefresh      = ({ size=24 }) => <svg width={size} height={size} viewBo
 /* ══════════════════════════════════════════════════════════════
    JSON-LD SCHEMAS
 ══════════════════════════════════════════════════════════════ */
-const schemaOrganization = {
-  '@context': 'https://schema.org',
-  '@type': ['Organization', 'LocalBusiness'],
-  '@id': 'https://qllmsoft.com/#organization',
-  name: 'QllmSoft',
-  url: 'https://qllmsoft.com',
-  logo: ORG_LOGO,
-  foundingDate: '2015',
-  description: 'Custom real estate software development company in Pakistan. We build property management systems, real estate CRM, MLS portals, and PropTech solutions for agencies and developers worldwide.',
-  telephone: '+92-334-8229288',
-  email: 'qllmsoft@gmail.com',
-  priceRange: '$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'H # 181, Camping Ground',
-    addressLocality: 'Lalamusa',
-    addressRegion: 'Punjab',
-    postalCode: '50700',
-    addressCountry: 'PK',
-  },
-  geo: { '@type': 'GeoCoordinates', latitude: 32.7011, longitude: 73.9575 },
-  areaServed: ['PK', 'US', 'GB', 'AE', 'SA', 'CA', 'AU'],
-  sameAs: [
-    'https://www.linkedin.com/company/qllmsoft',
-    'https://www.facebook.com/qllmsoft',
-    'https://www.upwork.com/freelancers/~0170e20f8803389a86',
-    'https://www.freelancer.com/u/mrprogrmmr',
-  ],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', bestRating: '5', reviewCount: '24' },
-};
+const orgSchema = schemaOrganization;
 
 const schemaService = {
   '@context': 'https://schema.org',

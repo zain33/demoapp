@@ -23,6 +23,7 @@ import { useInView } from 'react-intersection-observer';
 import './IndustryPage.css';
 import './WebPages.css';
 import 'animate.css';
+import { schemaOrganization } from "../data/schema";
 
 const PAGE_URL = 'https://qllmsoft.com/web-application-development-services';
 const OG_IMAGE  = 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg';
@@ -44,14 +45,7 @@ const IconCheck      = ({s=16}) => <svg width={s} height={s} viewBox="0 0 24 24"
 const IconBox        = ({s=24}) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
 
 /* ── JSON-LD ─────────────────────────────────────────── */
-const schemaOrg = {
-  '@context':'https://schema.org','@type':'Organization',
-  name:'QllmSoft',url:'https://qllmsoft.com',foundingDate:'2015',
-  logo:'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
-  contactPoint:{'@type':'ContactPoint',telephone:'+92-334-8229288',contactType:'customer service',areaServed:['PK','US','GB','AE','SA'],availableLanguage:'English'},
-  address:{'@type':'PostalAddress',streetAddress:'H # 181, Camping Ground',addressLocality:'Lalamusa',addressRegion:'Punjab',addressCountry:'PK'},
-  sameAs:['https://www.freelancer.com/u/mrprogrmmr','https://www.upwork.com/freelancers/~0170e20f8803389a86'],
-};
+
 const schemaWebPage = {
   '@context':'https://schema.org','@type':'WebPage',
   name:'Web Application Development Services | ASP.NET Core | QllmSoft',
@@ -86,16 +80,7 @@ const schemaService = {
   // (missing itemReviewed / missing author). Update ratingValue /
   // reviewCount / reviewBody with real figures before shipping,
   // do not leave placeholder numbers live in production schema.
-  review:[
-    {
-      '@type':'Review',
-      itemReviewed:{'@type':'Service',name:'Web Application Development Services'},
-      author:{'@type':'Person',name:'Verified Client'},
-      reviewRating:{'@type':'Rating',ratingValue:'5',bestRating:'5'},
-      reviewBody:'QllmSoft built our ASP.NET Core platform on schedule with clear, structured communication throughout.',
-    },
-  ],
-  aggregateRating:{'@type':'AggregateRating',ratingValue:'5',reviewCount:'47',bestRating:'5',worstRating:'1'},
+  
 };
 const schemaBreadcrumb = {
   '@context':'https://schema.org','@type':'BreadcrumbList',
@@ -164,7 +149,7 @@ const WebAppDevelopment = () => {
         <meta name="twitter:description" content="Enterprise ASP.NET Core .NET 9/10 web applications, APIs, and SaaS platforms for businesses worldwide." />
         <meta name="twitter:image" content={OG_IMAGE} />
         <meta name="twitter:image:alt" content="Web Application Development, QllmSoft" />
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>

@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import blogPostsData from '../data/blogPostsData';
 import './Blog.css';
 import 'animate.css';
+import { schemaOrganization } from "../data/schema";
 
 /* Blog Card */
 const BlogCardItem = ({ slug, post, index }) => {
@@ -53,7 +54,7 @@ const BlogCardItem = ({ slug, post, index }) => {
     </article>
   );
 };
-
+const orgSchema = schemaOrganization;
 const Blog = () => {
 //  const blogPosts = Object.entries(blogPostsData);
 const blogPosts = Object.entries(blogPostsData).sort(

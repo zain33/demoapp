@@ -34,6 +34,9 @@ import RelatedSolutions from "../components/RelatedSolutions";
 import processsectionimg from "../assets/website-services.webp";
 import fintech from "../assets/qllm-soft-finance-management-system-11.webp";
 import qllmdocs from "../assets/QllmDocs.webp";
+import { schemaOrganization } from "../data/schema";
+
+
 const PortfolioPdf = "/pdfs/QllmSoft - Website Development Portfolio.pdf";
 /* ─── Page constants ──────────────────────────────────────── */
 const PAGE_URL = "https://qllmsoft.com/website-development-services";
@@ -42,33 +45,7 @@ const OG_IMAGE =
 const DATE_MODIFIED = "2026-08-13";
 
 /* ─── JSON-LD: Organization ───────────────────────────────── */
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://qllmsoft.com/#organization",
-  name: "QllmSoft",
-  url: "https://qllmsoft.com",
-  logo: "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp",
-  foundingDate: "2015",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+92-334-8229288",
-    contactType: "customer service",
-    areaServed: ["US", "GB", "AE", "SA", "PK"],
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "H # 181, Camping Ground",
-    addressLocality: "Lalamusa",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  sameAs: [
-    "https://www.freelancer.com/u/mrprogrmmr",
-    "https://www.upwork.com/freelancers/~0170e20f8803389a86",
-  ],
-};
+
 
 /* ─── JSON-LD: Service ────────────────────────────────────── */
 const schemaService = {
@@ -565,7 +542,7 @@ const WebsiteDevelopmentServices = () => {
         />
 
         {/* JSON-LD */}
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">
           {JSON.stringify(schemaService)}
         </script>

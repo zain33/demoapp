@@ -20,6 +20,7 @@ import { Helmet } from 'react-helmet-async';
 import { useInView } from 'react-intersection-observer';
 import './DedicatedTeamsPage.css';
 import 'animate.css';
+import { schemaOrganization } from "../data/schema";
 
 /* ─── Local, self-hosted images (replaces hotlinked trio.dev /
    hyscaler.com / intellipaat.com URLs — protects Core Web Vitals,
@@ -35,28 +36,7 @@ const PAGE_URL = 'https://qllmsoft.com/remote-dedicated-development-teams';
 const OG_IMAGE = 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg';
  
 /* ─── JSON-LD: Organization ───────────────────────────────── */
-const schemaOrg = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'QllmSoft',
-  url: 'https://qllmsoft.com',
-  logo: 'https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo.webp',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+92-334-8229288',
-    contactType: 'customer service',
-    areaServed: ['PK', 'US', 'GB', 'AE', 'SA'],
-    availableLanguage: 'English',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'H # 181, Camping Ground',
-    addressLocality: 'Lalamusa',
-    addressRegion: 'Punjab',
-    addressCountry: 'PK',
-  },
-  sameAs: ['https://www.freelancer.com/u/mrprogrmmr'],
-};
+const orgSchema = schemaOrganization;
  
 /* ─── JSON-LD: Service ────────────────────────────────────── */
 const schemaService = {
@@ -209,7 +189,7 @@ const DedicatedTeamsPage = () => {
         <meta name="twitter:image:alt"   content="QllmSoft — Software Development Services with Dedicated Remote Teams" />
  
         {/* ── JSON-LD Structured Data ────────────────── */}
-        <script type="application/ld+json">{JSON.stringify(schemaOrg)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaService)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
         <script type="application/ld+json">{JSON.stringify(schemaFAQ)}</script>

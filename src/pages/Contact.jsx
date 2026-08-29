@@ -4,6 +4,7 @@ import SEO from "../components/SEO";
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 import './Contact.css';
+import { schemaOrganization } from "../data/schema";
 
 emailjs.init('fFEjcHdxdndYaVwBf');
 
@@ -28,6 +29,8 @@ const Contact = () => {
           reveals.forEach((el) => observer.unobserve(el));
         };
       }, []);
+
+      
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,7 +49,7 @@ const Contact = () => {
       [name]: value
     }));
   };
-
+  const orgSchema = schemaOrganization;
  const handleSubmit = async (e) => {
   debugger;
     e.preventDefault();
