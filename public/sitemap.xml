@@ -78,14 +78,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://qllmsoft.com/outsource-mobile-app-development-to-pakistan</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Industry-Specific Software Solutions -->
+  
+<!-- Industry-Specific Software Solutions -->
   <url>
     <loc>https://qllmsoft.com/healthcare-software-development-pakistan</loc>
     <lastmod>2026-06-01</lastmod>
@@ -130,57 +124,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://qllmsoft.com/outsource-software-development-to-pakistan</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://qllmsoft.com/best-software-house-in-pakistan</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
+  
+
+<url>
     <loc>https://qllmsoft.com/outsource-web-development-to-pakistan</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://qllmsoft.com/outsource-mobile-app-development-to-pakistan</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://qllmsoft.com/mobile-app-development-cost-in-pakistan</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
   
-  <url>
+
+<url>
     <loc>https://qllmsoft.com/software-development-cost-calculator</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://qllmsoft.com/website-development-cost-in-pakistan</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://qllmsoft.com/mobile-app-development-cost-in-pakistan</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
+  
+
+<url>
     <loc>https://qllmsoft.com/software-project-requirements-checklist</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -293,7 +256,41 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Individual /blog/* posts beyond those listed above should only be
+  <!-- Cannibalization fix: canonical winners added 2026-09-13 -->
+  <url>
+    <loc>https://qllmsoft.com/blog/best-software-house-in-pakistan</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qllmsoft.com/blog/website-development-cost-in-pakistan</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qllmsoft.com/blog/outsource-software-development-to-pakistan</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+
+<url>
+    <loc>https://qllmsoft.com/blog/mobile-app-development-cost-in-pakistan</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qllmsoft.com/blog/outsource-mobile-app-development-to-pakistan</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+<!-- Individual /blog/* posts beyond those listed above should only be
        added once real content is confirmed in view-source for each
        (i.e. after the CSR/prerendering fix is live). Submitting a blank
        JS shell just feeds Google more of the exact problem being fixed. -->
