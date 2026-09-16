@@ -2,6 +2,9 @@
 # QllmSoft — Apache/Hostinger equivalent of the IIS web.config
 # ============================================================
 
+RewriteEngine On
+RewriteRule ^canary-test-123/?$ https://qllmsoft.com/blog [R=301,L]
+
 # ---- 1. Force HTTPS ----
 RewriteEngine On
 RewriteCond %{HTTPS} off
