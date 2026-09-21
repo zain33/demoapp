@@ -1,0 +1,161 @@
+/* Shared styles for WordPress, School Management, and Business Automation
+   service pages. Uses QllmSoft's existing brand tokens. Scoped under
+   .svc-page so it can be dropped into the site without clobbering globals. */
+
+.svc-page {
+  --navy: #064082;
+  --navy-deep: #04305f;
+  --gold: #e7b712;
+  --gray: #656260;
+  --ink: #1b2430;
+  --paper: #ffffff;
+  --mist: #f4f6f9;
+  --line: #e1e6ec;
+
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+  line-height: 1.55;
+}
+
+.svc-page a { color: var(--navy); }
+.svc-page a:focus-visible,
+.svc-page button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Hero */
+.svc-hero {
+  padding: 5.5rem 6vw 4rem;
+  background: linear-gradient(155deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--paper);
+}
+.svc-hero__kicker {
+  font-size: 0.95rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+}
+.svc-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  max-width: 18ch;
+  margin: 0 0 1.1rem;
+  font-weight: 700;
+}
+.svc-hero__lede {
+  font-size: 1.1rem;
+  max-width: 58ch;
+  color: #dbe6f5;
+  margin: 0 0 2rem;
+}
+.svc-hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.svc-btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.svc-btn--primary { background: var(--gold); color: var(--navy-deep); }
+.svc-btn--primary:hover { background: #f4c62d; }
+.svc-btn--ghost {
+  background: transparent;
+  color: var(--paper);
+  border-color: rgba(255,255,255,0.45);
+}
+.svc-btn--ghost:hover { border-color: var(--paper); }
+
+/* Section shell */
+.svc-section {
+  padding: 4.5rem 6vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.svc-section--mist { background: var(--mist); max-width: none; }
+.svc-section__inner { max-width: 1100px; margin: 0 auto; }
+.svc-section h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  max-width: 30ch;
+  margin: 0 0 1rem;
+}
+.svc-section__intro {
+  color: var(--gray);
+  max-width: 62ch;
+  margin: 0 0 2.5rem;
+}
+
+/* Two-column offering list (not a uniform card grid) */
+.svc-offerings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 3rem;
+}
+.svc-offerings dt {
+  font-weight: 700;
+  color: var(--navy-deep);
+  border-left: 3px solid var(--gold);
+  padding-left: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+.svc-offerings dd {
+  margin: 0;
+  padding-left: 0.9rem;
+  color: var(--ink);
+}
+
+/* Process: a genuine sequence, so numbering is warranted */
+.svc-process { counter-reset: step; }
+.svc-step {
+  counter-increment: step;
+  display: flex;
+  gap: 1.4rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--line);
+}
+.svc-step:last-child { border-bottom: 1px solid var(--line); }
+.svc-step::before {
+  content: counter(step);
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.svc-step h3 { margin: 0.1rem 0 0.3rem; font-size: 1.05rem; }
+.svc-step p { margin: 0; color: var(--gray); }
+
+/* Closing CTA band */
+.svc-cta {
+  background: var(--navy-deep);
+  color: var(--paper);
+  padding: 3.5rem 6vw;
+  text-align: left;
+}
+.svc-cta__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.svc-cta h2 { margin: 0 0 0.3rem; font-size: 1.5rem; }
+.svc-cta p { margin: 0; color: #cfdcf0; }
+
+@media (max-width: 760px) {
+  .svc-offerings { grid-template-columns: 1fr; }
+  .svc-cta__inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-page * { transition: none !important; animation: none !important; }
+}

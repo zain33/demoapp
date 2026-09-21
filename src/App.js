@@ -12,6 +12,9 @@ import AspnetCoreDevelopmentServices from './pages/asp-net-core-development-serv
 import OutsourceWebDevelopmentPakistan from "./pages/OutsourceWebDevelopmentPakistan";
 import OutsourceMobileAppDevelopment from "./pages/OutsourceMobileAppDevelopment";
 import MobileAppDevelopmentCost from "./pages/MobileAppDevelopmentCost";
+import WordPressDevelopmentServices from "./pages/WordPressDevelopmentServices";
+import CustomSchoolManagementSoftwareDevelopment from "./pages/CustomSchoolManagementSoftwareDevelopment";
+import CustomBusinessAutomationSolutions from "./pages/CustomBusinessAutomationSolutions";
 // Lazy loaded pages - each page loads only when visited
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -95,18 +98,6 @@ function App() {
 								path="/api-development-services"
 								element={<ApiDevelopmentServices />}
 							/>
-							{/* FIXED 2026-08-11: this path was registered TWICE in the
-							    original file — once here (HireDotnetDevelopers) and again
-							    further down (HireDotnetDevelopersPak). Two <Route> elements
-							    with the identical path is invalid/ambiguous in React Router
-							    and was likely contributing to inconsistent rendering on
-							    this URL. Kept THIS component since it's the one referenced
-							    by the architecture plan's Hire-a-Developer cluster naming.
-							    If HireDotnetDevelopersPak was actually the newer/intended
-							    version, tell me and I'll swap which one stays. The
-							    HireDotnetDevelopersPak import and its duplicate route have
-							    been removed below — confirm that component/file can be
-							    safely deleted from /pages too, or if it's used elsewhere. */}
 							<Route
 								path="/hire-dotnet-developers-pakistan"
 								element={<HireDotnetDevelopers />}
@@ -167,32 +158,47 @@ function App() {
 								path="/finance-management-system"
 								element={<FinanceManagementSystem />}
 							/>
+							<Route path="/write-for-us" element={<GuestPostPage />} />
 							<Route
-								path="/write-for-us"
-								element={<GuestPostPage />}
+								path="/outsource-web-development-to-pakistan"
+								element={<OutsourceWebDevelopmentPakistan />}
 							/>
 							<Route
-  path="/outsource-web-development-to-pakistan"
-  element={<OutsourceWebDevelopmentPakistan />}
-/>
-<Route path="/software-development-cost-calculator" element={<CostCalculator />} />
-<Route path="/software-project-requirements-checklist" element={<RequirementsChecklist />} />
-<Route path="/ecommerce-development-services" element={<EcommerceDevelopmentServices />} />
-<Route path="/asp-net-core-development-services" element={<AspnetCoreDevelopmentServices />}
-
- 
-      />
-	  <Route
-  path="/outsource-mobile-app-development-to-pakistan"
-  element={<OutsourceMobileAppDevelopment />}
-/>
-
-<Route
-  path="/mobile-app-development-cost-in-pakistan"
-  element={<MobileAppDevelopmentCost />}
-/>
-	  
-
+								path="/software-development-cost-calculator"
+								element={<CostCalculator />}
+							/>
+							<Route
+								path="/software-project-requirements-checklist"
+								element={<RequirementsChecklist />}
+							/>
+							<Route
+								path="/ecommerce-development-services"
+								element={<EcommerceDevelopmentServices />}
+							/>
+							<Route
+								path="/asp-net-core-development-services"
+								element={<AspnetCoreDevelopmentServices />}
+							/>
+							<Route
+								path="/wordpress-development-services"
+								element={<WordPressDevelopmentServices />}
+							/>
+							<Route
+								path="/custom-school-management-software-development"
+								element={<CustomSchoolManagementSoftwareDevelopment />}
+							/>
+							<Route
+								path="/custom-business-automation-solutions"
+								element={<CustomBusinessAutomationSolutions />}
+							/>
+							<Route
+								path="/outsource-mobile-app-development-to-pakistan"
+								element={<OutsourceMobileAppDevelopment />}
+							/>
+							<Route
+								path="/mobile-app-development-cost-in-pakistan"
+								element={<MobileAppDevelopmentCost />}
+							/>
 						</Routes>
 					</Suspense>
 					<Footer />

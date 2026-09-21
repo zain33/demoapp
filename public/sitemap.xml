@@ -78,8 +78,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-<!-- Industry-Specific Software Solutions -->
+
+  <!-- ADDED 2026-09-21: recreated service pages, newly live in App.js -->
+  <url>
+    <loc>https://qllmsoft.com/wordpress-development-services</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qllmsoft.com/custom-school-management-software-development</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qllmsoft.com/custom-business-automation-solutions</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Industry-Specific Software Solutions -->
   <url>
     <loc>https://qllmsoft.com/healthcare-software-development-pakistan</loc>
     <lastmod>2026-06-01</lastmod>
@@ -124,26 +144,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
 
-<url>
+  <url>
     <loc>https://qllmsoft.com/outsource-web-development-to-pakistan</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  
-
-<url>
+  <url>
     <loc>https://qllmsoft.com/software-development-cost-calculator</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
 
-<url>
+  <url>
     <loc>https://qllmsoft.com/software-project-requirements-checklist</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -275,9 +291,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
 
-<url>
+  <url>
     <loc>https://qllmsoft.com/blog/mobile-app-development-cost-in-pakistan</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -289,7 +304,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
 <!-- Individual /blog/* posts beyond those listed above should only be
        added once real content is confirmed in view-source for each
        (i.e. after the CSR/prerendering fix is live). Submitting a blank
