@@ -36,6 +36,7 @@ import blogPostsData from "../data/blogPostsData";
 import financialsystemImg from "../assets/qllm-soft-finance-management-system-11.webp";
 import AboutImg from "../assets/HeroQllmsoftimg.webp";
 import GlobalTeamImg from "../assets/pakistanimg.webp";
+import QLLMDOCSImg from "../assets/QllmDocs Smart Document Management.png";
 import {
   schemaOrganization,
   schemaFounder,
@@ -118,9 +119,9 @@ const featuredCaseStudies = [
       "The team built a document management platform with granular role based permissions, a complete audit trail on every file action, and AI assisted search that locates documents by content instead of filename, deployed on Azure with encrypted storage.",
     result:
       "Manual document handling overhead dropped by more than 70 percent, and the client passed its next compliance review without a single flagged document access issue.",
-    image: financialsystemImg,
+    image: QLLMDOCSImg,
     alt: "QllmDocs secure document management dashboard built by QllmSoft",
-    link: "/projects/alfa-financial-solution",
+    link: "/projects/qllmdocs-document-management-system",
   },
 ];
 

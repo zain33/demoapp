@@ -58,6 +58,8 @@ const schemaItemList = {
 // The three lead projects .
 const caseStudies = projectsData.slice(0, 3);
 
+const PortfolioPdf = "/pdfs/QllmSoft - Website Development Portfolio.pdf";
+
 const faqItems = [
   {
     q: "How is each project on this page verified as real work QllmSoft actually completed?",
@@ -76,6 +78,33 @@ const faqItems = [
     a: "Yes, on the first substantive call before any technical discussion takes place.",
   },
 ];
+
+
+const techStack = [
+  { group: "Frontend development", items: ["React", "Next.js", "TypeScript", "HTML5 and CSS3", "Tailwind CSS"] },
+  { group: "Backend development", items: ["ASP.NET Core", "C#", "Node.js", "REST APIs", "SignalR"] },
+  { group: "Databases", items: ["SQL Server", "PostgreSQL", "MongoDB", "Redis"] },
+  { group: "AI and automation", items: ["RAG chatbots", "OpenAI and Anthropic APIs", "AI document management", "Python"] },
+  { group: "Mobile and biometric", items: ["React Native", "Flutter", "Biometric attendance SDKs"] },
+  { group: "Cloud and DevOps", items: ["Azure", "AWS", "Docker", "CI/CD", "Nginx"] },
+];
+
+const introPoints = [
+  "Enterprise web applications, mobile apps and custom platforms",
+  "AI document management, HRMS, payroll, finance, logistics and inventory systems",
+  "Production-grade architecture from the first version",
+];
+
+
+const schemaTech = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://qllmsoft.com/#organization",
+  knowsAbout: techStack.flatMap((g) => g.items),
+};
+
+
+
 const schemaFAQ = buildFAQSchema(faqItems);
 
 const Projects = () => {
@@ -101,7 +130,7 @@ const Projects = () => {
         <meta property="og:url" content="https://qllmsoft.com/projects" />
         <meta property="og:title" content="Software Development Portfolio | QllmSoft" />
         <meta property="og:description" content="Case studies in AI document management, workforce, finance, logistics, and inventory software." />
-        {[schemaOrganization, schemaFounder, schemaWebsite, schemaBreadcrumb, schemaCollectionPage, schemaItemList, schemaFAQ].map((s, i) => (
+        {[schemaOrganization, schemaFounder, schemaWebsite, schemaBreadcrumb, schemaCollectionPage, schemaItemList, schemaTech, schemaFAQ].map((s, i) => (
           <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>
         ))}
       </Helmet>
@@ -117,6 +146,29 @@ const Projects = () => {
             </p>
           </div>
         </section>
+
+
+<section className="section projects-intro" aria-labelledby="intro-heading">
+  <div className="container">
+    <div className="intro-card reveal">
+      <div className="intro-copy">
+        <h2 id="intro-heading">Custom software development case studies</h2>
+        <p>
+          QllmSoft  a custom software development company. Below you will find the
+          platforms we have designed, built and delivered, each with the problem, our approach
+          and the result. If you need something similar, see our{" "}
+          <Link to="/services">software development services</Link> or{" "}
+          <Link to="/contact">talk to our team</Link>.
+        </p>
+      </div>
+      <ul className="intro-points">
+        {introPoints.map((t) => <li key={t}>{t}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+
 
         {/* CASE STUDIES */}
         <section className="section" aria-labelledby="case-studies-heading">
@@ -176,6 +228,51 @@ const Projects = () => {
           </div>
         </section>
 
+<section className="section tech-section" aria-labelledby="tech-heading">
+  <div className="container">
+    <div className="section-title reveal">
+      <h2 id="tech-heading">Technologies we use to build enterprise software</h2>
+      <p>The languages, frameworks and platforms behind the projects above.</p>
+    </div>
+    <div className="tech-grid">
+      {techStack.map((g, i) => (
+        <div key={g.group} className="tech-card glass-card reveal" style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
+          <h3>{g.group}</h3>
+          <ul className="chip-row">
+            {g.items.map((t) => <li key={t}>{t}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+        {/* Portfolio Download */}
+        <section className="section portfolio-download-section" aria-labelledby="portfolio-download-heading">
+          <div className="container">
+            <div className="portfolio-download-card reveal">
+              <div className="portfolio-download-copy">
+                <span className="portfolio-download-kicker">Download portfolio</span>
+                <h2 id="portfolio-download-heading">Download the full QllmSoft portfolio</h2>
+                <p>
+                  10+ technical capabilities, delivery methodologies, and measurable client outcomes across six industries,
+                  including architecture approach, technology stack, and engagement models used for each engagement listed above.
+                </p>
+              </div>
+              <a
+                className="portfolio-download-btn"
+                href={PortfolioPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                Download full portfolio
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="section faq-section" aria-labelledby="faq-heading" itemScope itemType="https://schema.org/FAQPage">
           <div className="container">
@@ -190,6 +287,24 @@ const Projects = () => {
             </div>
           </div>
         </section>
+
+        <section className="section projects-cta" aria-labelledby="cta-heading">
+  <div className="container">
+    <div className="cta-card reveal">
+      <h2 id="cta-heading">Build your custom software with QllmSoft</h2>
+      <p>
+        Share your idea and get a clear plan and estimate. We sign an NDA before any technical
+        discussion, so your project stays confidential.
+      </p>
+      <div className="cta-actions">
+        <Link to="/contact" className="cta-btn cta-primary">Request a free consultation</Link>
+        <Link to="/software-development-cost-calculator" className="cta-btn cta-secondary">
+          Use the software cost calculator
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
       </main>
     </>
   );

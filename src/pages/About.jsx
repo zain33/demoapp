@@ -104,6 +104,45 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
   </div>
 );
 
+
+
+const industries = [
+  {
+    icon: "bi-heart-pulse",
+    title: "Healthcare",
+    to: "/healthcare-software-development-pakistan",
+    desc: "Hospital management systems, telemedicine platforms, clinic software, EMR/EHR tools, and patient portals.",
+  },
+  {
+    icon: "bi-bank",
+    title: "Finance & FinTech",
+    desc: "Financial management platforms, accounting automation, real-time reporting dashboards, and secure payment integrations.",
+  },
+  {
+    icon: "bi-mortarboard",
+    title: "Education",
+    to: "/education-software-development-pakistan",
+    desc: "School management systems, LMS platforms, eLearning apps, and student information systems.",
+  },
+  {
+    icon: "bi-truck",
+    title: "Logistics & Warehouse",
+    desc: "Inventory management systems, warehouse automation, delivery tracking, and supply chain visibility tools.",
+  },
+  {
+    icon: "bi-cart-check",
+    title: "eCommerce & Retail",
+    desc: "Custom eCommerce platforms, inventory control, order management, and multi-vendor marketplace builds.",
+  },
+  {
+    icon: "bi-people",
+    title: "HR & Enterprise Operations",
+    desc: "Payroll systems, employee portals, attendance tracking, leave management, and performance review tools.",
+  },
+];
+
+
+
 /* ═══════════════════════════════════════════════════════════
    ABOUT PAGE
 ═══════════════════════════════════════════════════════════ */
@@ -421,109 +460,46 @@ const About = () => {
             </div>
           </div>
         </section>
-{/* Industries Section */}
 
-<section class="industries-section" aria-labelledby="industries-heading">
-  <div class="industries-container">
-    <div class="industries-header">
-      <span class="industries-eyebrow"style={{ fontSize: "1.1rem" }}>What We Cover</span>
+{/* Industries Section */}
+<section className="ind-section" aria-labelledby="industries-heading">
+  <div className="ind-container">
+    <div className="ind-header">
+      <span className="ind-eyebrow">What We Cover</span>
       <h2 id="industries-heading">Industries We Serve</h2>
-      <p class="industries-subtext">
+      <p className="ind-subtext">
         A decade of project work across these sectors means we bring some
-        domain context to a project, not just engineers who can write code against a spec.
+        domain context to a project, not just engineers who can write code
+        against a spec.
       </p>
     </div>
-    <nav aria-label="Industries served by QllmSoft">
-      <div class="industries-grid">
 
-        <article class="industry-card">
-          <div class="card-inner">
-            <div class="card-top">
-              <span class="card-number" style={{ fontSize: "2.2rem" }}>01</span>
-              <span class="card-icon">🏥</span>
-            </div>
-            <div class="card-accent-line"></div>
-            <h3 class="card-title">
-              <a href="/healthcare-software-development-pakistan">Healthcare</a>
-            </h3>
-            <p class="card-desc">Hospital management systems, telemedicine platforms, clinic software, EMR/EHR tools, and patient portals.</p>
-            <div class="card-arrow"><span>→</span></div>
+    <ul className="ind-grid">
+      {industries.map((item, i) => (
+        <li key={item.title} className="ind-card">
+          <span className="ind-number" aria-hidden="true">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <div className="ind-icon" aria-hidden="true">
+            <i className={`bi ${item.icon}`}></i>
           </div>
-        </article>
-
-        <article class="industry-card">
-          <div class="card-inner">
-            <div class="card-top">
-              <span class="card-number" style={{ fontSize: "2.2rem" }}>02</span>
-              <span class="card-icon">💳</span>
-            </div>
-            <div class="card-accent-line"></div>
-            <h3 class="card-title">Finance & FinTech</h3>
-            <p class="card-desc">Financial management platforms, accounting automation, real-time reporting dashboards, and secure payment integrations.</p>
-            <div class="card-arrow"><span>→</span></div>
-          </div>
-        </article>
-
-        <article class="industry-card">
-          <div class="card-inner">
-            <div class="card-top">
-              <span class="card-number" style={{ fontSize: "2.2rem" }}>03</span>
-              <span class="card-icon">🎓</span>
-            </div>
-            <div class="card-accent-line"></div>
-            <h3 class="card-title">
-              <a href="/education-software-development-pakistan">Education</a>
-            </h3>
-            <p class="card-desc">School management systems, LMS platforms, eLearning apps, and student information systems.</p>
-            <div class="card-arrow"><span>→</span></div>
-          </div>
-        </article>
-
-        <article class="industry-card">
-          <div class="card-inner">
-            <div class="card-top">
-              <span class="card-number" style={{ fontSize: "2.2rem" }}>04</span>
-              <span class="card-icon">🚚</span>
-            </div>
-            <div class="card-accent-line"></div>
-            <h3 class="card-title">Logistics & Warehouse</h3>
-            <p class="card-desc">Inventory management systems, warehouse automation, delivery tracking, and supply chain visibility tools.</p>
-            <div class="card-arrow"><span>→</span></div>
-          </div>
-        </article>
-
-        <article class="industry-card">
-          <div class="card-inner">
-            <div class="card-top">
-              <span class="card-number" style={{ fontSize: "2.2rem" }}>05</span>
-              <span class="card-icon">🛒</span>
-            </div>
-            <div class="card-accent-line"></div>
-            <h3 class="card-title">eCommerce & Retail</h3>
-            <p class="card-desc">Custom eCommerce platforms, inventory control, order management, and multi-vendor marketplace builds.</p>
-            <div class="card-arrow"><span>→</span></div>
-          </div>
-        </article>
-
-        <article class="industry-card">
-          <div class="card-inner">
-            <div class="card-top">
-              <span class="card-number" style={{ fontSize: "2.2rem" }}>06</span>
-              <span class="card-icon">🏢</span>
-            </div>
-            <div class="card-accent-line"></div>
-            <h3 class="card-title">HR & Enterprise Operations</h3>
-            <p class="card-desc">Payroll systems, employee portals, attendance tracking, leave management, and performance review tools.</p>
-            <div class="card-arrow"><span>→</span></div>
-          </div>
-        </article>
-
-      </div>
-    </nav>
+          <h3 className="ind-title">
+            {item.to ? <Link to={item.to}>{item.title}</Link> : item.title}
+          </h3>
+          <p className="ind-desc">{item.desc}</p>
+          {item.to && (
+            <span className="ind-arrow" aria-hidden="true">
+              <i className="bi bi-arrow-right"></i>
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
-
 {/* End of Industries Section */}
+
+
 
         {/* ── VISION / MISSION ── */}
         <section

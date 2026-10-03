@@ -18,7 +18,7 @@
  * Home, Services, About, and Contact using <LeadMagnetBanner variant="calculator" />.
  */
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LeadCaptureForm from "../components/LeadCaptureForm";
@@ -52,6 +52,35 @@ function formatUSD(n) {
 }
 
 const CostCalculator = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    const reveals = document.querySelectorAll(
+      ".cc-hero, .cc-tool, .cc-result, .cc-faq-item, .cta-section, .reveal",
+    );
+
+    if (!("IntersectionObserver" in window)) {
+      reveals.forEach((el) => el.classList.add("active"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   const [projectType, setProjectType] = useState("web");
   const [features, setFeatures] = useState([]);
   const [expedited, setExpedited] = useState(false);

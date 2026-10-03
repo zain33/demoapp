@@ -377,7 +377,31 @@ button:focus-visible {
 /*global issue*/
 html, body, #root, .App, main {
   pointer-events: auto !important;
-  overflow-x: clip !important; 
+  overflow-x: hidden !important;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section {
+    padding: 28px 0;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  [class*="__grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [class*="__layout"],
+  [class*="__inner"],
+  [class*="__row"] {
+    flex-direction: column !important;
+  }
 }
 
 

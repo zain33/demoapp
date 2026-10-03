@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import SEO from "../components/SEO";
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
@@ -9,8 +9,12 @@ import { schemaOrganization } from "../data/schema";
 emailjs.init('fFEjcHdxdndYaVwBf');
 
 const Contact = () => {
-   useEffect(() => {
-        const reveals = document.querySelectorAll('.reveal');
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const reveals = document.querySelectorAll('.reveal');
     
         const observer = new IntersectionObserver(
           (entries) => {
@@ -86,6 +90,31 @@ const Contact = () => {
       setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
+
+
+  useEffect(() => {
+  const els = document.querySelectorAll(".cost-calculator-page .reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("active"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+
+  els.forEach((el) => observer.observe(el));
+  return () => observer.disconnect();
+}, []);
 
   return (
     <>

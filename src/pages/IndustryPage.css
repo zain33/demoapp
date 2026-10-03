@@ -185,7 +185,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  margin-right:79px;
 }
+
 .ip-hero__feature {
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.13);
@@ -195,6 +197,7 @@
   flex-direction: column;
   gap: 8px;
   transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  align-items: center;
 }
 .ip-hero__feature:hover {
   background: rgba(255,255,255,0.14);
