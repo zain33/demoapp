@@ -314,20 +314,12 @@ const schemaFAQ = {
   })),
 };
 const schemaWebPage = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Custom Education Software Development Services",
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Custom Education Software Development Services',
   url: PAGE_URL,
-  description:
-    "QllmSoft engineers custom education software solutions and cloud native EdTech platforms. We build multi tenant school management hubs, custom LMS platforms, offline first eLearning mobile apps, and secure student analytics engines for global academic institutions and scaling startups.",
-  provider: { "@type": "Organization", name: "QllmSoft" },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "47",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  description: 'QllmSoft engineers custom education software solutions and cloud native EdTech platforms. We build multi tenant school management hubs, custom LMS platforms, offline first eLearning mobile apps, and secure student analytics engines for global academic institutions and scaling startups.',
+  publisher: { '@type': 'Organization', name: 'QllmSoft' },
 };
 
 const FAQItem = ({ faq, index }) => {

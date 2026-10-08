@@ -42,12 +42,12 @@ const schemaService = {
 };
 
 const schemaWebPage = {
-  '@context':'https://schema.org','@type':'WebPage',
-  name:'Hire .NET Developers in Pakistan | QllmSoft',
-  url:PAGE_URL,
-  description:'Hire expert .NET developers in Pakistan from QllmSoft. Dedicated ASP.NET Core, .NET 8, and C# engineers for enterprise web apps, REST APIs, and microservices at 60% lower cost than US/UK agencies.',
-  publisher:{'@type':'Organization',name:'QllmSoft'},
-  aggregateRating:{'@type':'AggregateRating',ratingValue:'5',reviewCount:'47',bestRating:'5',worstRating:'1'},
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Hire .NET Developers in Pakistan | QllmSoft',
+  url: PAGE_URL,
+  description: 'Hire expert .NET developers in Pakistan from QllmSoft. Dedicated ASP.NET Core, .NET 8, and C# engineers for enterprise web apps, REST APIs, and microservices at 60% lower cost than US/UK agencies.',
+  publisher: { '@type': 'Organization', name: 'QllmSoft' },
 };
 
 const schemaBreadcrumb = {

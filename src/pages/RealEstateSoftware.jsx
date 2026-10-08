@@ -129,7 +129,6 @@ const schemaWebPage = {
   inLanguage: 'en',
   publisher: { '@id': 'https://qllmsoft.com/#organization' },
   breadcrumb: { '@id': `${PAGE_URL}/#breadcrumb` },
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', bestRating: '5', reviewCount: '24' },
   datePublished: '2025-01-10',
   dateModified: '2026-04-20',
 };

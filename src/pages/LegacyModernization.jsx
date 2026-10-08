@@ -285,20 +285,12 @@ const schemaFAQ = {
   })),
 };
 const schemaWebPage = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Legacy System Modernization Services | Secure & Scalable Software Upgrades | QllmSoft",
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Legacy System Modernization Services | Secure & Scalable Software Upgrades | QllmSoft',
   url: PAGE_URL,
-  description:
-    "QllmSoft provides legacy system modernization services ,application re-architecture, cloud migration, .NET migration, database modernization, and UI/UX upgrades for enterprises and SMBs worldwide.",
-  publisher: { "@type": "Organization", name: "QllmSoft" },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "47",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  description: 'QllmSoft provides legacy system modernization services, application re-architecture, cloud migration, .NET migration, database modernization, and UI/UX upgrades for enterprises and SMBs worldwide.',
+  publisher: { '@type': 'Organization', name: 'QllmSoft' },
 };
 
 const FAQItem = ({ faq, index }) => {

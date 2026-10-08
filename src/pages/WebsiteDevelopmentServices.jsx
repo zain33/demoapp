@@ -900,11 +900,9 @@ const WebsiteDevelopmentServices = () => {
 
                 <a
                   href={PortfolioPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="btn btn-warning fw-bold px-4 py-2 d-inline-flex align-items-center gap-2"
                   aria-label="Download QllmSoft web development portfolio PDF"
-                  download
+                  download="QllmSoft-Website-Development-Portfolio.pdf"
                 >
                   <i className="bi bi-download"></i> Download the Portfolio
                 </a>

@@ -49,15 +49,7 @@ const schemaWebPage = {
   url: PAGE_URL,
   description: 'Outsource software development to Pakistan with QllmSoft. Save 60-70% on development costs, access elite .NET, React, Flutter, and AI developers, and accelerate delivery without compromising quality.',
   publisher: { '@type': 'Organization', name: 'QllmSoft' },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '47',
-    bestRating: '5',
-    worstRating: '1',
-  },
 };
-
 /* ─── JSON-LD: Service ────────────────────────────────────── */
 const schemaService = {
   '@context': 'https://schema.org',

@@ -263,9 +263,7 @@ const Projects = () => {
               <a
                 className="portfolio-download-btn"
                 href={PortfolioPdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                download
+                download="QllmSoft-Website-Development-Portfolio.pdf"
               >
                 Download full portfolio
               </a>

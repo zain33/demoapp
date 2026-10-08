@@ -44,18 +44,14 @@ const FAQ_DATA = [
   {q:'What is the difference between outsourcing API development and hiring a dedicated API developer?',a:'Outsourcing API development typically means engaging QllmSoft to deliver a defined API project or service — with us managing the team, quality, and timeline. Hiring a dedicated API developer means a specific QllmSoft engineer is embedded full-time in your team, using your tools, attending your standups, and working exclusively on your project. Both models are available — we recommend the right fit after understanding your project scope and long-term requirements.'},
 ];
 const schemaFAQ = { '@context':'https://schema.org','@type':'FAQPage',mainEntity:FAQ_DATA.map(({q,a})=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}})) };
-const schemaWebPage = { '@context':'https://schema.org','@type':'WebPage',name:'Outsource API Development to Pakistan | REST, GraphQL & Integration | QllmSoft',url:PAGE_URL,description:'Outsource API development to Pakistan with QllmSoft. Expert REST, GraphQL, gRPC, and integration API development at 50–65% lower cost than US/UK. Free consultation.',publisher:{'@type':'Organization',name:'QllmSoft'},aggregateRating:{'@type':'AggregateRating',ratingValue:'5',reviewCount:'47',bestRating:'5',worstRating:'1'} };
-
-const FAQItem = ({faq,index}) => {
-  const [open,setOpen]=useState(false); const id=`api-out-faq-${index}`;
-  return (
-    <div className={`faq-item ${open?'faq-item--open':''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-      <button className="faq-question" onClick={()=>setOpen(o=>!o)} aria-expanded={open} aria-controls={id} itemProp="name"><span>{faq.q}</span><span className="faq-icon" aria-hidden="true">{open?'−':'+'}</span></button>
-      {open&&<div id={id} className="faq-answer" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer"><p itemProp="text">{faq.a}</p></div>}
-    </div>
-  );
+const schemaWebPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Outsource API Development to Pakistan | REST, GraphQL & Integration | QllmSoft',
+  url: PAGE_URL,
+  description: 'Outsource API development to Pakistan with QllmSoft. Expert REST, GraphQL, gRPC, and integration API development at 50–65% lower cost than US/UK. Free consultation.',
+  publisher: { '@type': 'Organization', name: 'QllmSoft' },
 };
-
 const OutsourceApiDevelopment = () => {
   const {ref:svRef,inView:svInView}=useInView({triggerOnce:true,threshold:0.08});
   const {ref:whyRef,inView:whyInView}=useInView({triggerOnce:true,threshold:0.08});
