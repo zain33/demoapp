@@ -6,6 +6,7 @@ import "./DigitalMarketingServices.css";
 import TestimonialSection from "../components/TestimonialSection";
 import FounderNote from "../components/FounderNote";
 import { schemaOrganization } from "../data/schema";
+import digitalMarketingInfo from "../assets/qllmsoft_digital_marketing_info.png";
 
 const PAGE_URL = "https://qllmsoft.com/digital-marketing-services";
 const LOGO = "https://qllmsoft.com/images/qllmsoft-web-desktop-mobile-app-logo-hd.jpg";
@@ -248,6 +249,13 @@ const DigitalMarketingServices = () => {
               ))}
             </aside>
           </div>
+          <figure className="dm-container dm-intro__visual">
+            <img
+              src={digitalMarketingInfo}
+              alt="QllmSoft digital marketing services: SEO, social media marketing, and PPC advertising"
+              loading="lazy"
+            />
+          </figure>
         </section>
 
         {/* CHANNEL EXPLORER */}

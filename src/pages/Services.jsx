@@ -48,6 +48,7 @@ const serviceCatalog = [
   { name: "Legacy System Modernization", url: "https://qllmsoft.com/legacy-system-modernization-services" },
   { name: "Software Outsourcing", url: "https://qllmsoft.com/outsource-software-development-to-pakistan" },
   { name: "Hire Dedicated Developers", url: "https://qllmsoft.com/hire-dotnet-developers-pakistan" },
+  { name: "Digital Marketing Services", url: "https://qllmsoft.com/digital-marketing-services" },
 ];
 
 const schemaService = buildServiceSchema({
@@ -216,8 +217,8 @@ const Services = () => {
               A software development service, in the way QllmSoft scopes and prices these projects, is any
               engagement that ends in a working piece of software the client owns outright. That includes a
               public website, a login protected web application, a mobile app, a backend API that connects two
-              other systems, or an internal tool that never faces a customer at all. It does not include ongoing
-              retainer style marketing work or content writing, which QllmSoft does not offer.
+              other systems, or an internal tool that never faces a customer at all. Ongoing retainer style
+              marketing work is offered separately through our digital marketing services.
             </p>
             <p>
               The five sections below cover the categories that make up nearly every project QllmSoft has run

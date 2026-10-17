@@ -145,7 +145,7 @@ export const homeServices = [
       "SEO, social media marketing, and performance-driven digital campaigns designed to increase visibility and generate leads.",
     image:
       "https://images.pexels.com/photos/905163/pexels-photo-905163.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "/digital-marketing-agency-pakistan"
+    link: "/digital-marketing-services"
   }
 ];
 
@@ -251,7 +251,7 @@ export const servicesData = [
       "Social media marketing",
       "Performance tracking & analytics"
     ],
-    link: "/digital-marketing-seo-services"
+    link: "/digital-marketing-services"
 
   }
 ];
@@ -263,18 +263,19 @@ export const projectsData = [
     id: 1,
     slug: "ai-document-management-system",
     image: qllmDocs,
-    title: "AI-powered Document Management System",
+    title: "QllmDocs: AI-Powered Document Management System",
     shape: "orb",
     accent: "#edb702",
-    shortDescription: "Encrypted document storage with semantic search and an embedded RAG chatbot.",
+    shortDescription: "QllmDocs is QllmSoft's own cloud document management product, bringing secure storage, metadata organization, and AI-powered document search into one workspace.",
+    productUrl: "https://qllmdocs.com",
     stack: ["C#", "ASP.NET Core", ".NET 10", "MVC", "EF Core", "SQL Server", "Azure", "AI Chatbot", "RAG"],
-    category: "AI & Knowledge Management",
+    category: "QllmSoft Product | AI & Document Management",
     problem: "Organizations needed a centralized way to securely store, search, and retrieve large volumes of business documents. Traditional document search made it difficult to find relevant information across unstructured files.",
-    approach: "QllmSoft developed a cloud-based document management platform with encrypted document storage, role-based access control, semantic vector search, and an embedded RAG chatbot. Users could query their documents using natural language while access permissions remained enforced.",
-    result: "The platform combined secure document management with AI-powered information retrieval, allowing users to search and interact with organizational documents through a single application.",
+    approach: "QllmSoft created QllmDocs as its own cloud document management product. It combines a centralized repository with structured metadata, category and attribute filters, role-based access, encryption, two-factor authentication, and ASKAI for natural-language and voice search across documents.",
+    result: "QllmDocs gives teams one workspace to organize, protect, find, and retrieve business documents. Users can search with metadata filters or ask ASKAI in plain language, then export document metadata to Excel or CSV when needed.",
     listTitle: "Key capabilities:",
-    list: ["Encrypted document storage", "Role-based access control", "Semantic vector search", "Embedded RAG chatbot"],
-    impact: ["Natural-language document queries", "Permissions enforced on every answer", "Storage and retrieval in one application"],
+    list: ["Centralized cloud document repository", "Structured metadata, categories, and custom tags", "ASKAI natural-language and voice search", "Advanced filtering by document attributes", "Role-based access controls", "Encryption and two-factor authentication", "Excel and CSV metadata export"],
+    impact: ["QllmSoft-owned product available at QllmDocs.com", "Documents organized and searchable in one workspace", "AI-assisted retrieval with access controls"],
   },
   {
     id: 2,

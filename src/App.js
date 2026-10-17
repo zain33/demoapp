@@ -38,6 +38,7 @@ const WebsiteDevelopmentServices = lazy(
 const DigitalMarketingServices = lazy(
 	() => import("./pages/Digitalmarketingservices"),
 );
+const QllmDocsPage = lazy(() => import("./pages/QllmDocsPage"));
 const ApiDevelopmentServices = lazy(
 	() => import("./pages/ApiDevelopmentServices"),
 );
@@ -102,6 +103,7 @@ function App() {
 								path="/digital-marketing-services"
 								element={<DigitalMarketingServices />}
 							/>
+							<Route path="/qllmdocs" element={<QllmDocsPage />} />
 							<Route
 								path="/api-development-services"
 								element={<ApiDevelopmentServices />}

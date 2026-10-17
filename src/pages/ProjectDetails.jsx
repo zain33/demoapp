@@ -79,6 +79,19 @@ const ProjectDetails = () => {
                 <p className="paragraph">{project.approach}</p>
                 <h3>The result</h3>
                 <p className="paragraph">{project.result}</p>
+                {project.productUrl && (
+                  <>
+                    <h3>Our product: QllmDocs</h3>
+                    <p className="paragraph">
+                      QllmDocs is a product developed and owned by QllmSoft.{" "}
+                      <Link to="/qllmdocs">View the QllmDocs product overview</Link>
+                      {" or "}
+                      <a href={project.productUrl} target="_blank" rel="noopener noreferrer">
+                        visit qllmdocs.com
+                      </a>
+                    </p>
+                  </>
+                )}
               </article>
 
               <div className="details-list glass-card">
@@ -117,6 +130,16 @@ const ProjectDetails = () => {
                       </div>
                     </li>
                   </ul>
+                  {project.productUrl && (
+                    <a
+                      href={project.productUrl}
+                      className="btn btn-primary cta-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Explore QllmDocs
+                    </a>
+                  )}
                   <Link to="/contact" className="btn btn-primary cta-btn">Request a similar build</Link>
                 </div>
               </div>

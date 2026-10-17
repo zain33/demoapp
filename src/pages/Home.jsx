@@ -245,7 +245,7 @@ const Home = () => {
             </div>
 
             <div className="services-grid">
-              {homeServices.slice(0, 4).map((service, index) => {
+              {homeServices.filter((service) => service.id <= 4 || service.id === 8).map((service, index) => {
                 const animation = index < 2 ? "animate__fadeInLeft" : "animate__fadeInRight";
                 return (
                   <div key={service.id} className={`animate__animated ${servicesInView ? animation : ""}`}>

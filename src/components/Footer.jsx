@@ -94,6 +94,18 @@ const Footer = () => {
                     Custom Software
                   </Link>
                 </li>
+                <li>
+                  <Link to="/digital-marketing-services">
+                    <ArrowRight size={14} />
+                    Digital Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/qllmdocs">
+                    <ArrowRight size={14} />
+                    QllmDocs Product
+                  </Link>
+                </li>
               </ul>
             </div>
 

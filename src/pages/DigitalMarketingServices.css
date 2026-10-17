@@ -97,6 +97,8 @@
 .dm-stat { display: flex; gap: 18px; align-items: center; padding: 22px; border-radius: var(--r); background: var(--base); box-shadow: var(--raised); }
 .dm-stat strong { display: block; color: var(--navy-900); font-size: 1.05rem; }
 .dm-stat span:not(.dm-icon-well) { color: var(--muted); font-size: .92rem; }
+.dm-intro__visual { max-width: 960px; margin: 52px auto 0; overflow: hidden; border-radius: 24px; box-shadow: var(--raised); }
+.dm-intro__visual img { display: block; width: 100%; height: auto; }
 
 /* SERVICE EXPLORER */
 .dm-explorer { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; }
@@ -172,6 +174,7 @@
 }
 @media (max-width: 720px) {
   .dm-section { padding: 64px 0; }
+  .dm-intro__visual { margin-top: 36px; border-radius: 16px; }
   .dm-grid--3, .dm-grid--4 { grid-template-columns: 1fr; }
   .dm-tabs { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .dm-tab { padding: 14px; flex-direction: column; text-align: center; gap: 6px; font-size: .9rem; }
