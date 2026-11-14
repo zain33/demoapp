@@ -5,6 +5,8 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 import './Contact.css';
 import { schemaOrganization } from "../data/schema";
+import heroVideo from "../assets/herovdTrim .mp4";
+import ParticleField from "../components/ParticleField";
 
 emailjs.init('fFEjcHdxdndYaVwBf');
 
@@ -139,7 +141,25 @@ const Contact = () => {
     <main className="contact-page">
       {/* Hero Section */}
       <section className="contact-hero reveal">
+        <video
+          className="contact-hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="contact-hero-grid" aria-hidden="true" />
+        <ParticleField
+          palette="dark"
+          density={8000}
+          className="contact-hero-particles"
+        />
         <div className="container">
+          <span className="contact-hero-eyebrow">Let’s talk about your project</span>
           <h1>Contact Us</h1>
           <p>
             Have a project in mind? Let's discuss how we can help transform 
